@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java Modbus Library (RXTX)
+Bundle-SymbolicName: net.solarnetwork.net.wimpi.modbus
+Bundle-Version: 1.2.0.rc1
+Bundle-ClassPath: RXTXjamod.jar
+Bundle-Vendor: Dieter Wimberger/SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: gnu.io;version="[2.1.7,3.0.0)"
+Export-Package: net.wimpi.modbus;version="1.2.0.rc1",
+ net.wimpi.modbus.cmd;version="1.2.0.rc1",
+ net.wimpi.modbus.facade;version="1.2.0.rc1",
+ net.wimpi.modbus.io;version="1.2.0.rc1",
+ net.wimpi.modbus.msg;version="1.2.0.rc1",
+ net.wimpi.modbus.net;version="1.2.0.rc1",
+ net.wimpi.modbus.procimg;version="1.2.0.rc1",
+ net.wimpi.modbus.util;version="1.2.0.rc1"
