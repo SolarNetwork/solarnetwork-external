@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SolarNetwork Tomcat Additions
+Bundle-SymbolicName: net.solarnetwork.com.springsource.org.apache.catalina
+Bundle-Version: 1.0.0
+Fragment-Host: com.springsource.org.apache.catalina.springsource;bundle-version="6.0.32.S2-r1673"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.solarnetwork.common.web.catalina;version="1.0.0"
+Import-Package: 
+ javax.sql,
+ net.solarnetwork.common.web.catalina;version="1.0.0",
+ org.osgi.framework
