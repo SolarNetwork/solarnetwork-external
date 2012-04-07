@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tomcat JDBC Config
+Bundle-SymbolicName: net.solarnetwork.org.apache.tomcat.jdbc.pool.config
+Bundle-Version: 1.0.0
+Bundle-Vendor: SolarNetwork
+Fragment-Host: com.springsource.org.apache.tomcat.jdbc;bundle-version="1.0.9"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.postgresql
