@@ -198,7 +198,7 @@ public class Zystem
 		mode = SILENT_MODE;
 		target = null;
 	}
-
+	/*
 	public void filewrite( String s )
 	{
 		try {
@@ -246,7 +246,7 @@ public class Zystem
 		}
 		return( false );
 	}
-
+	
 	public boolean reportln( )
 	{
 		boolean b;
@@ -279,7 +279,7 @@ public class Zystem
 		}
 		return( false );
 	}
-
+	
 	public boolean reportln( String s)
 	{
 		boolean b;
@@ -316,6 +316,7 @@ public class Zystem
 		}
 		return( false );
 	}
+	*/
 
 /*
 	private native boolean nativeInit( );

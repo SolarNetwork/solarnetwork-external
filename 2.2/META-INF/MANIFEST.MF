@@ -15,3 +15,5 @@ Bundle-NativeCode:
  osname=Mac OS X; processor=x86; processor=PowerPC; processor=x86-64,
  lib/FreeBSD/x86_64/librxtxSerial.so;
  osname=FreeBSD; processor=x86-64
+Import-Package: 
+ org.slf4j;version="[1.6.1,2.0.0)"
