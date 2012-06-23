@@ -90,7 +90,7 @@ public class Zystem
 	public Zystem( int m ) throws UnSupportedLoggerException
 	{
 		mode = m;
-		startLogger( "/tmp/rxtx-debug.log" );
+		startLogger( "rxtx-debug.log" );
 	}
     /**
      * Constructor.
@@ -153,7 +153,7 @@ public class Zystem
       {
 	mode = SILENT_MODE;
       }
-    startLogger ("asdf");
+    startLogger ("rxtx-debug.log");
   }
 
 
