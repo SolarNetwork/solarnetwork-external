@@ -74,13 +74,14 @@ final public class RXTXPort extends SerialPort
 {
 	private static final Logger LOG = LoggerFactory.getLogger(RXTXPort.class.getName());
 	private static final Logger LOG_EVENTS = LoggerFactory.getLogger(RXTXPort.class.getName()+".EVENTS");
+	private static final Logger LOG_READ = LoggerFactory.getLogger(RXTXPort.class.getName()+".READ");
 	private static final Logger LOG_WRITE = LoggerFactory.getLogger(RXTXPort.class.getName()+".WRITE");
 	/* I had a report that some JRE's complain when MonitorThread
 	   tries to access private variables
 	*/
 
 	//protected final static boolean debug = false;
-	protected final static boolean debug_read = false;
+	//protected final static boolean debug_read = false;
 	protected final static boolean debug_read_results = false;
 	//protected final static boolean debug_write = false;
 	//protected final static boolean debug_events = false;
@@ -1249,8 +1250,7 @@ final public class RXTXPort extends SerialPort
 	*/
 		public synchronized int read() throws IOException
 		{
-			if (debug_read)
-				LOG.debug( "RXTXPort:SerialInputStream:read() called");
+			LOG_READ.debug( "RXTXPort:SerialInputStream:read() called");
 			if ( fd == 0 ) throw new IOException();
 			if ( monThreadisInterrupted )
 			{
@@ -1294,8 +1294,8 @@ final public class RXTXPort extends SerialPort
 		public synchronized int read( byte b[] ) throws IOException
 		{
 			int result;
-			if (debug_read)
-				LOG.debug( "RXTXPort:SerialInputStream:read(" + b.length + ") called");
+			if (LOG_READ.isDebugEnabled())
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read(" + b.length + ") called");
 			if ( monThreadisInterrupted == true )
 			{
 				return(0);
@@ -1341,16 +1341,15 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 		public synchronized int read( byte b[], int off, int len )
 			throws IOException
 		{
-			if (debug_read)
-				LOG.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") called" /*+ new String(b) */ );
+			if (LOG_READ.isDebugEnabled())
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") called" /*+ new String(b) */ );
 			int result;
 			/*
 			 * Some sanity checks
 			 */
 			if ( fd == 0 )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() fd == 0");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() fd == 0");
 				LOG.debug("+++++++ IOException()\n");
 				throw new IOException();
 			}
@@ -1358,16 +1357,14 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			if( b==null )
 			{
 				LOG.debug("+++++++ NullPointerException()\n");
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() b == 0");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() b == 0");
 				throw new NullPointerException();
 			}
 
 			if( (off < 0) || (len < 0) || (off+len > b.length))
 			{
 				LOG.debug("+++++++ IndexOutOfBoundsException()\n");
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
 				throw new IndexOutOfBoundsException();
 			}
 
@@ -1376,8 +1373,7 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			 */
 			if( len==0 )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
 				return 0;
 			}
 			/*
@@ -1411,8 +1407,7 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			}
 			if ( monThreadisInterrupted == true )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() Interrupted");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() Interrupted");
 				return(0);
 			}
 			synchronized (IOLockedMutex) {
@@ -1454,16 +1449,15 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 		public synchronized int read( byte b[], int off, int len, byte t[] )
 			throws IOException
 		{
-			if (debug_read)
-				LOG.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") called" /*+ new String(b) */ );
+			if (LOG_READ.isDebugEnabled())
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") called" /*+ new String(b) */ );
 			int result;
 			/*
 			 * Some sanity checks
 			 */
 			if ( fd == 0 )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() fd == 0");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() fd == 0");
 				LOG.debug("+++++++ IOException()\n");
 				throw new IOException();
 			}
@@ -1471,16 +1465,14 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			if( b==null )
 			{
 				LOG.debug("+++++++ NullPointerException()\n");
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() b == 0");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() b == 0");
 				throw new NullPointerException();
 			}
 
 			if( (off < 0) || (len < 0) || (off+len > b.length))
 			{
 				LOG.debug("+++++++ IndexOutOfBoundsException()\n");
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
 				throw new IndexOutOfBoundsException();
 			}
 
@@ -1489,8 +1481,7 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			 */
 			if( len==0 )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() off < 0 ..");
 				return 0;
 			}
 			/*
@@ -1524,8 +1515,7 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			}
 			if ( monThreadisInterrupted == true )
 			{
-				if (debug_read)
-					LOG.debug( "RXTXPort:SerialInputStream:read() Interrupted");
+				LOG_READ.debug( "RXTXPort:SerialInputStream:read() Interrupted");
 				return(0);
 			}
 			synchronized (IOLockedMutex) {
