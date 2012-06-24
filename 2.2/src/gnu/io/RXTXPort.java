@@ -74,6 +74,7 @@ final public class RXTXPort extends SerialPort
 {
 	private static final Logger LOG = LoggerFactory.getLogger(RXTXPort.class.getName());
 	private static final Logger LOG_EVENTS = LoggerFactory.getLogger(RXTXPort.class.getName()+".EVENTS");
+	private static final Logger LOG_WRITE = LoggerFactory.getLogger(RXTXPort.class.getName()+".WRITE");
 	/* I had a report that some JRE's complain when MonitorThread
 	   tries to access private variables
 	*/
@@ -81,7 +82,7 @@ final public class RXTXPort extends SerialPort
 	//protected final static boolean debug = false;
 	protected final static boolean debug_read = false;
 	protected final static boolean debug_read_results = false;
-	protected final static boolean debug_write = false;
+	//protected final static boolean debug_write = false;
 	//protected final static boolean debug_events = false;
 	//protected final static boolean debug_verbose = false;
 
@@ -1093,8 +1094,7 @@ final public class RXTXPort extends SerialPort
 	*/
 		public void write( int b ) throws IOException
 		{
-			if (debug_write)
-				LOG.debug( "RXTXPort:SerialOutputStream:write(int)");
+			LOG_WRITE.debug( "RXTXPort:SerialOutputStream:write(int)");
 			if( speed == 0 ) return;
 			if ( monThreadisInterrupted == true )
 			{
@@ -1110,8 +1110,7 @@ final public class RXTXPort extends SerialPort
 					throw new IOException();
 				}
 				writeByte( b, monThreadisInterrupted );
-				if (debug_write)
-					LOG.debug( "Leaving RXTXPort:SerialOutputStream:write( int )");
+				LOG_WRITE.debug( "Leaving RXTXPort:SerialOutputStream:write( int )");
 			} finally {
 				synchronized (IOLockedMutex) {
 					IOLocked--;
@@ -1124,9 +1123,9 @@ final public class RXTXPort extends SerialPort
 	*/
 		public void write( byte b[] ) throws IOException
 		{
-			if (debug_write)
+			if (LOG_WRITE.isDebugEnabled())
 			{
-				LOG.debug( "Entering RXTXPort:SerialOutputStream:write(" + b.length + ") "/* + new String(b)*/ );
+				LOG_WRITE.debug( "Entering RXTXPort:SerialOutputStream:write({})", Integer.valueOf(b.length));
 			}
 			if( speed == 0 ) return;
 			if ( monThreadisInterrupted == true )
@@ -1140,8 +1139,8 @@ final public class RXTXPort extends SerialPort
 			try {
 				waitForTheNativeCodeSilly();
 				writeArray( b, 0, b.length, monThreadisInterrupted );
-				if (debug_write)
-					LOG.debug( "Leaving RXTXPort:SerialOutputStream:write(" +b.length  +")");
+				if (LOG_WRITE.isDebugEnabled())
+					LOG_WRITE.debug( "Leaving RXTXPort:SerialOutputStream:write({})", Integer.valueOf(b.length));
 			} finally {
 				synchronized(IOLockedMutex) {
 					IOLocked--;
@@ -1168,9 +1167,9 @@ final public class RXTXPort extends SerialPort
 	 
 			byte send[] = new byte[len];
 			System.arraycopy( b, off, send, 0, len );
-			if (debug_write)
+			if (LOG_WRITE.isDebugEnabled())
 			{
-				LOG.debug( "Entering RXTXPort:SerialOutputStream:write(" + send.length + " " + off + " " + len + " " +") " /*+  new String(send) */ );
+				LOG_WRITE.debug( "Entering RXTXPort:SerialOutputStream:write(" + send.length + " " + off + " " + len + " " +") " /*+  new String(send) */ );
 			}
 			if ( fd == 0 ) throw new IOException();
 			if ( monThreadisInterrupted == true )
@@ -1184,8 +1183,8 @@ final public class RXTXPort extends SerialPort
 			{
 				waitForTheNativeCodeSilly();
 				writeArray( send, 0, len, monThreadisInterrupted );
-				if( debug_write )
-					LOG.debug( "Leaving RXTXPort:SerialOutputStream:write(" + send.length + " " + off + " " + len + " " +") "  /*+ new String(send)*/ );
+				if( LOG_WRITE.isDebugEnabled() )
+					LOG_WRITE.debug( "Leaving RXTXPort:SerialOutputStream:write(" + send.length + " " + off + " " + len + " " +") "  /*+ new String(send)*/ );
 			} finally {
 				synchronized (IOLockedMutex) {
 					IOLocked--;
