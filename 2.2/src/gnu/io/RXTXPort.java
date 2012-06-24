@@ -75,6 +75,7 @@ final public class RXTXPort extends SerialPort
 	private static final Logger LOG = LoggerFactory.getLogger(RXTXPort.class.getName());
 	private static final Logger LOG_EVENTS = LoggerFactory.getLogger(RXTXPort.class.getName()+".EVENTS");
 	private static final Logger LOG_READ = LoggerFactory.getLogger(RXTXPort.class.getName()+".READ");
+	private static final Logger LOG_READ_RES = LoggerFactory.getLogger(RXTXPort.class.getName()+".READ_RESULTS");
 	private static final Logger LOG_WRITE = LoggerFactory.getLogger(RXTXPort.class.getName()+".WRITE");
 	/* I had a report that some JRE's complain when MonitorThread
 	   tries to access private variables
@@ -82,7 +83,7 @@ final public class RXTXPort extends SerialPort
 
 	//protected final static boolean debug = false;
 	//protected final static boolean debug_read = false;
-	protected final static boolean debug_read_results = false;
+	//protected final static boolean debug_read_results = false;
 	//protected final static boolean debug_write = false;
 	//protected final static boolean debug_events = false;
 	//protected final static boolean debug_verbose = false;
@@ -1260,15 +1261,11 @@ final public class RXTXPort extends SerialPort
 				IOLocked++;
 			}
 			try {
-				if (debug_read_results)
-					LOG.debug(  "RXTXPort:SerialInputStream:read() L" );
+				LOG_READ_RES.debug(  "RXTXPort:SerialInputStream:read() L" );
 				waitForTheNativeCodeSilly();
-				if (debug_read_results)
-					LOG.debug(  "RXTXPort:SerialInputStream:read() N" );
+				LOG_READ_RES.debug(  "RXTXPort:SerialInputStream:read() N" );
 				int result = readByte();
-				if (debug_read_results)
-					//LOG.debug(  "RXTXPort:SerialInputStream:read() returns byte = " + result );
-					LOG.debug(  "RXTXPort:SerialInputStream:read() returns" );
+				LOG_READ_RES.debug(  "RXTXPort:SerialInputStream:read() returns" );
 				return( result );
 			}				
 			finally
@@ -1307,8 +1304,8 @@ final public class RXTXPort extends SerialPort
 			{
 				waitForTheNativeCodeSilly();
 				result = read( b, 0, b.length);
-				if (debug_read_results)
-					LOG.debug(  "RXTXPort:SerialInputStream:read() returned " + result + " bytes" );
+				if (LOG_READ_RES.isDebugEnabled())
+					LOG_READ_RES.debug(  "RXTXPort:SerialInputStream:read() returned " + result + " bytes" );
 				return( result );
 			}
 			finally
@@ -1417,8 +1414,8 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			{
 				waitForTheNativeCodeSilly();
 				result = readArray( b, off, Minimum);
-				if (debug_read_results)
-					LOG.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") returned " + result + " bytes"  /*+ new String(b) */);
+				if (LOG_READ_RES.isDebugEnabled())
+					LOG_READ_RES.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") returned " + result + " bytes"  /*+ new String(b) */);
 				return( result );
 			}
 			finally
@@ -1525,8 +1522,8 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 			{
 				waitForTheNativeCodeSilly();
 				result = readTerminatedArray( b, off, Minimum, t );
-				if (debug_read_results)
-					LOG.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") returned " + result + " bytes"  /*+ new String(b) */);
+				if (LOG_READ_RES.isDebugEnabled())
+					LOG_READ_RES.debug( "RXTXPort:SerialInputStream:read(" + b.length + " " + off + " " + len + ") returned " + result + " bytes"  /*+ new String(b) */);
 				return( result );
 			}
 			finally
