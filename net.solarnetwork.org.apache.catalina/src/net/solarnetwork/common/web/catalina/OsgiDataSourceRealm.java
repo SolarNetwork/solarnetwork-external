@@ -61,7 +61,7 @@ public class OsgiDataSourceRealm extends DataSourceRealm {
 	protected Connection open() {
 		BundleContext context = FrameworkUtil.getBundle(getClass()).getBundleContext();
 		try {
-			ServiceReference[] service = context.getServiceReferences(DataSource.class.getName(),
+			ServiceReference<?>[] service = context.getServiceReferences(DataSource.class.getName(),
 					getDataSourceName());
 			if ( service == null || service.length < 1 ) {
 				throw new RuntimeException("No " + DataSource.class.getName() + " available");
