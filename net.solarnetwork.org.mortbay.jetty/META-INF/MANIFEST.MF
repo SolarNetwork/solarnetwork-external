@@ -10,8 +10,8 @@ Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
  javax.net.ssl,
- javax.servlet;version="[2.5,3.0)",
- javax.servlet.http;version="[2.5,3.0)"
+ javax.servlet;version="2.5",
+ javax.servlet.http;version="2.5"
 Export-Package: 
  org.mortbay.component;version="6.1.26";uses:="new org.mortbay.component",
  org.mortbay.io;version="6.1.26";uses:="org.mortbay.util",
