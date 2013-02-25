@@ -1,7 +1,7 @@
+
 package net.solarnetwork.org.apache.derby;
 
 import java.util.Hashtable;
-
 import org.apache.derby.jdbc.Driver30;
 import org.apache.derby.jdbc.Driver40;
 import org.apache.derby.jdbc.InternalDriver;
@@ -15,7 +15,7 @@ public class Activator implements BundleActivator {
 	private static final String DRIVER_CLASS = "org.apache.derby.jdbc.EmbeddedDriver";
 	private static final String DRIVER_NAME = "Derby Embedded";
 
-	public ServiceRegistration dsf = null;
+	public ServiceRegistration<DataSourceFactory> dsf = null;
 
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
@@ -27,7 +27,7 @@ public class Activator implements BundleActivator {
 		boolean have40 = true;
 		try {
 			getClass().getClassLoader().loadClass(Driver40.class.getName());
-		} catch (Exception e) {
+		} catch ( Exception e ) {
 			have40 = false;
 		}
 
@@ -38,8 +38,7 @@ public class Activator implements BundleActivator {
 				String.valueOf(major) + '.' + String.valueOf(minor) + " JDBC "
 						+ (have40 ? "4.0" : "3.0"));
 
-		dsf = bundleContext.registerService(DataSourceFactory.class.getName(), 
-				dataSourceFactory, props);
+		dsf = bundleContext.registerService(DataSourceFactory.class, dataSourceFactory, props);
 	}
 
 	@Override
