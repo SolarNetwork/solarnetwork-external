@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.springframework.osgi.log4j.config</name>
+	<name>net.solarnetwork.external.org.apache.log4j.config</name>
 	<comment></comment>
 	<projects>
 	</projects>
