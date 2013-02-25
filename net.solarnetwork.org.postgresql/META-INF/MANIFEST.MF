@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PostgreSQL DataSourceFactory
 Bundle-SymbolicName: net.solarnetwork.external.org.postgresql
-Bundle-Version: 1.0.0
+Bundle-Version: 1.1.0
 Bundle-Activator: net.solarnetwork.org.postgresql.Activator
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
  javax.sql,
- org.osgi.framework;version="[1.5,2.0)",
+ org.osgi.framework;version="[1.7,2.0)",
  org.osgi.service.jdbc;version="[1.0,2.0)",
  org.postgresql;version="[8.4,9.1)",
  org.postgresql.ds;version="[8.4,9.1)",

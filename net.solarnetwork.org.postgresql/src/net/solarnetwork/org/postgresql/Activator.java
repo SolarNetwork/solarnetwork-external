@@ -25,7 +25,6 @@
 package net.solarnetwork.org.postgresql;
 
 import java.util.Hashtable;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
@@ -35,7 +34,7 @@ import org.osgi.service.jdbc.DataSourceFactory;
  * Activator for PostgreSQL DataSourceFactory.
  * 
  * @author matt
- * @version $Id$
+ * @version 1.1
  */
 public class Activator implements BundleActivator {
 
@@ -44,7 +43,7 @@ public class Activator implements BundleActivator {
 	private static final String DRIVER_VERSION = "3.0";
 	private static final String PGSQL_VERSION = "8.4";
 
-	public ServiceRegistration dsf = null;
+	public ServiceRegistration<DataSourceFactory> dsf = null;
 
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
@@ -53,10 +52,8 @@ public class Activator implements BundleActivator {
 		Hashtable<String, Object> props = new Hashtable<String, Object>();
 		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_CLASS, DRIVER_CLASS);
 		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_NAME, DRIVER_NAME);
-		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_VERSION, PGSQL_VERSION 
-				+ " JDBC " +DRIVER_VERSION);
-		dsf = bundleContext.registerService(DataSourceFactory.class.getName(), 
-				dataSourceFactory, props);
+		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_VERSION, PGSQL_VERSION + " JDBC " + DRIVER_VERSION);
+		dsf = bundleContext.registerService(DataSourceFactory.class, dataSourceFactory, props);
 	}
 
 	@Override
