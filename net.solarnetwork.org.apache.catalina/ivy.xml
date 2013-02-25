@@ -5,7 +5,7 @@
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
 	</configurations>
 	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
-		<dependency org="org.apache.catalina.springsource" name="com.springsource.org.apache.catalina.springsource" rev="6.0.32.S2-r1673" />
+		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.35" />
     	<dependency org="org.osgi" name="org.osgi.core" rev="4.2.0">
     		<artifact name="org.osgi.core" type="jar"/>
     	</dependency>
