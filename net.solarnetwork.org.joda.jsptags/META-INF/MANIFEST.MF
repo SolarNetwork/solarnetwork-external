@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jsptags
+Bundle-SymbolicName: net.solarnetwork.external.org.joda.jsptags
+Bundle-Version: 1.1.1
+Bundle-ClassPath: joda-time-jsptags-1.1.1.jar
+Bundle-Vendor: Joda.org/SolarNetwork
+Export-Package: org.joda.time.contrib.jsptag;version="1.1.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: 
+ javax.el;version="1.0.0",
+ javax.servlet;version="2.5",
+ javax.servlet.http;version="2.5",
+ javax.servlet.jsp;version="2.1",
+ javax.servlet.jsp.jstl.core;version="1.1.2",
+ javax.servlet.jsp.jstl.fmt;version="1.1.2",
+ javax.servlet.jsp.jstl.tlv;version="1.1.2",
+ javax.servlet.jsp.tagext;version="2.1",
+ org.joda.time;version="1.6.2",
+ org.joda.time.base;version="1.6.2",
+ org.joda.time.format;version="1.6.2"
