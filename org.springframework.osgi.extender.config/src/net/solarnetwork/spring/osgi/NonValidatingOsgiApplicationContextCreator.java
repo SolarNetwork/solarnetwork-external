@@ -26,70 +26,72 @@ package net.solarnetwork.spring.osgi;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.eclipse.gemini.blueprint.context.DelegatedExecutionOsgiBundleApplicationContext;
+import org.eclipse.gemini.blueprint.context.support.OsgiBundleXmlApplicationContext;
+import org.eclipse.gemini.blueprint.extender.support.ApplicationContextConfiguration;
+import org.eclipse.gemini.blueprint.extender.support.DefaultOsgiApplicationContextCreator;
+import org.eclipse.gemini.blueprint.extender.support.scanning.ConfigurationScanner;
+import org.eclipse.gemini.blueprint.extender.support.scanning.DefaultConfigurationScanner;
+import org.eclipse.gemini.blueprint.util.OsgiStringUtils;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.osgi.context.DelegatedExecutionOsgiBundleApplicationContext;
-import org.springframework.osgi.context.support.OsgiBundleXmlApplicationContext;
-import org.springframework.osgi.extender.support.ApplicationContextConfiguration;
-import org.springframework.osgi.extender.support.DefaultOsgiApplicationContextCreator;
-import org.springframework.osgi.extender.support.scanning.ConfigurationScanner;
-import org.springframework.osgi.extender.support.scanning.DefaultConfigurationScanner;
-import org.springframework.osgi.util.OsgiStringUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Replacement of {@link DefaultOsgiApplicationContextCreator} that disables 
- * XML validation on Spring configuration files.
+ * Replacement of {@link DefaultOsgiApplicationContextCreator} that disables XML
+ * validation on Spring configuration files.
  * 
- * <p>This can greatly increase application startup time on low-powered devices.</p>
+ * <p>
+ * This can greatly increase application startup time on low-powered devices.
+ * </p>
  * 
  * @author matt
- * @version $Revision$
+ * @version 1.0
  */
-public class NonValidatingOsgiApplicationContextCreator 
-implements org.springframework.osgi.extender.OsgiApplicationContextCreator {
+public class NonValidatingOsgiApplicationContextCreator implements
+		org.eclipse.gemini.blueprint.extender.OsgiApplicationContextCreator {
 
 	private static final Log log = LogFactory.getLog(DefaultOsgiApplicationContextCreator.class);
-	
-	private ConfigurationScanner configurationScanner = new DefaultConfigurationScanner();
-	
+
+	private final ConfigurationScanner configurationScanner = new DefaultConfigurationScanner();
+
 	@Override
 	public DelegatedExecutionOsgiBundleApplicationContext createApplicationContext(
 			BundleContext bundleContext) throws Exception {
 		Bundle bundle = bundleContext.getBundle();
-		ApplicationContextConfiguration config = new ApplicationContextConfiguration(
-				bundle, configurationScanner);
+		ApplicationContextConfiguration config = new ApplicationContextConfiguration(bundle,
+				configurationScanner);
 		if ( log.isTraceEnabled() ) {
 			log.trace("Created configuration " + config + " for bundle "
 					+ OsgiStringUtils.nullSafeNameAndSymName(bundle));
 		}
-		if (!config.isSpringPoweredBundle()) {
+		if ( !config.isSpringPoweredBundle() ) {
 			return null;
 		}
-		log.info("Discovered configurations " + ObjectUtils.nullSafeToString(config.getConfigurationLocations())
-				+ " in bundle [" + OsgiStringUtils.nullSafeNameAndSymName(bundle) + "]");
-		DelegatedExecutionOsgiBundleApplicationContext sdoac 
-			= new NonValidatingOsgiBundleXmlApplicationContext(config.getConfigurationLocations());
+		log.info("Discovered configurations "
+				+ ObjectUtils.nullSafeToString(config.getConfigurationLocations()) + " in bundle ["
+				+ OsgiStringUtils.nullSafeNameAndSymName(bundle) + "]");
+		DelegatedExecutionOsgiBundleApplicationContext sdoac = new NonValidatingOsgiBundleXmlApplicationContext(
+				config.getConfigurationLocations());
 		sdoac.setBundleContext(bundleContext);
 		sdoac.setPublishContextAsService(config.isPublishContextAsService());
 		return sdoac;
 	}
 
-	private static class NonValidatingOsgiBundleXmlApplicationContext extends OsgiBundleXmlApplicationContext {
+	private static class NonValidatingOsgiBundleXmlApplicationContext extends
+			OsgiBundleXmlApplicationContext {
 
-		public NonValidatingOsgiBundleXmlApplicationContext(
-				String[] configLocations) {
+		public NonValidatingOsgiBundleXmlApplicationContext(String[] configLocations) {
 			super(configLocations);
 		}
 
 		@Override
-		protected void initBeanDefinitionReader(
-				XmlBeanDefinitionReader beanDefinitionReader) {
+		protected void initBeanDefinitionReader(XmlBeanDefinitionReader beanDefinitionReader) {
 			super.initBeanDefinitionReader(beanDefinitionReader);
 			beanDefinitionReader.setValidating(false);
 		}
-		
+
 	}
-	
+
 }
