@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Java Modbus Library (RXTX)
-Bundle-SymbolicName: net.solarnetwork.net.wimpi.modbus
+Bundle-SymbolicName: net.solarnetwork.external.net.wimpi.modbus
 Bundle-Version: 1.2.0.rc1
 Bundle-ClassPath: RXTXjamod.jar
 Bundle-Vendor: Dieter Wimberger/SolarNetwork

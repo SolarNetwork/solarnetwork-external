@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RXTX Serial Library
-Bundle-SymbolicName: net.solarnetwork.org.rxtx
+Bundle-SymbolicName: net.solarnetwork.external.org.rxtx
 Bundle-Version: 2.2.0.pre2-20120623A
 Bundle-Vendor: rxtx.org/SolarNetwork
 Export-Package: gnu.io;version="2.2.0.pre2"

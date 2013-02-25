@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PostgreSQL JDBC4
-Bundle-SymbolicName: net.solarnetwork.org.postgresql.jdbc4
+Bundle-SymbolicName: net.solarnetwork.external.org.postgresql.jdbc4
 Bundle-Version: 9.0.801
 Bundle-ClassPath: postgresql-9.0-801.jdbc4.jar
 Bundle-Vendor: SolarNetwork/PostgreSQL

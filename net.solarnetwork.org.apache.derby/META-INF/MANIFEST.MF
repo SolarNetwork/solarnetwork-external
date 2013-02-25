@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Apache Derby DataSourceFactory
-Bundle-SymbolicName: net.solarnetwork.org.apache.derby
+Bundle-SymbolicName: net.solarnetwork.external.org.apache.derby
 Bundle-Version: 1.1.0
 Bundle-Activator: net.solarnetwork.org.apache.derby.Activator
 Bundle-Vendor: SolarNetwork

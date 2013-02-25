@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Taglibs Response
-Bundle-SymbolicName: net.solarnetwork.org.apache.taglibs.response
+Bundle-SymbolicName: net.solarnetwork.external.org.apache.taglibs.response
 Bundle-Version: 1.0.1
 Bundle-ClassPath: taglibs-response.jar
 Bundle-Vendor: SolarNetwork/Apache

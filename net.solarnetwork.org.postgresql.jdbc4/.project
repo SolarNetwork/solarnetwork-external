@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>net.solarnetwork.org.postgresql.jdbc4</name>
+	<name>net.solarnetwork.external.org.postgresql.jdbc4</name>
 	<comment></comment>
 	<projects>
 	</projects>

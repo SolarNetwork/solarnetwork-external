@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PostgreSQL DataSourceFactory
-Bundle-SymbolicName: net.solarnetwork.org.postgresql
+Bundle-SymbolicName: net.solarnetwork.external.org.postgresql
 Bundle-Version: 1.0.0
 Bundle-Activator: net.solarnetwork.org.postgresql.Activator
 Bundle-Vendor: SolarNetwork

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jetty 6
-Bundle-SymbolicName: net.solarnetwork.org.mortbay.jetty
+Bundle-SymbolicName: net.solarnetwork.external.org.mortbay.jetty
 Bundle-Version: 1.0.0
 Bundle-ClassPath: 
  jetty-6.1.26.jar,

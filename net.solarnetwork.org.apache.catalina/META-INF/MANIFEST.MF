@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SolarNetwork Tomcat Additions
-Bundle-SymbolicName: net.solarnetwork.org.apache.catalina
+Bundle-SymbolicName: net.solarnetwork.external.org.apache.catalina
 Bundle-Version: 1.0.0
 Fragment-Host: org.apache.catalina;bundle-version="7.0.35.v201302131125"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
