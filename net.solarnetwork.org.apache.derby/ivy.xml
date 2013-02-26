@@ -5,10 +5,10 @@
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
 	</configurations>
 	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
-		<dependency org="org.apache.derby" name="derby" rev="10.8.2.2">
+		<dependency org="org.apache.derby" name="derby" rev="10.8.3.0">
     		<artifact name="derby" type="jar" />
 		</dependency>
-		<dependency org="org.osgi" name="org.osgi.core" rev="4.2.0">
+		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0">
 			<artifact name="org.osgi.core" type="jar"/>
 		</dependency>
 		<dependency org="org.osgi" name="org.osgi.enterprise" rev="4.2.0">
