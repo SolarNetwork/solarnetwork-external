@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: yasdi4j
+Bundle-SymbolicName: net.solarnetwork.external.yasdi4j
+Bundle-Version: 0.1.5
+Bundle-ClassPath: yasdi4j-src.jar,yasdi4j.jar
+Bundle-Vendor: Michael Denk/SolarNetwork
+Export-Package: de.michaeldenk.yasdi4j;version="0.1.5"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-NativeCode: 
+ lib/Linux/i686-pc-linux-gnu/libyasdi4j.so;osname=Linux;processor=x86,
+ lib/Linux/i686-pc-linux-gnu/libyasdi.so;osname=Linux;processor=x86,
+ lib/Linux/i686-pc-linux-gnu/libyasdi_drv_ip.so;osname=Linux;processor=x86,
+ lib/Linux/i686-pc-linux-gnu/libyasdi_drv_serial.so;osname=Linux;processor=x86,
+ lib/Linux/i686-pc-linux-gnu/libyasdimaster.so;osname=Linux;processor=x86,
+ lib/Mac_OS_X/libyasdi.1.8.1.dylib;osname=Mac OS X;processor=x86-64,
+ lib/Mac_OS_X/libyasdi_drv_ip.1.8.1.dylib;osname=Mac OS X;processor=x86-64,
+ lib/Mac_OS_X/libyasdi_drv_serial.1.8.1.dylib;osname=Mac OS X;processor=x86-64,
+ lib/Mac_OS_X/libyasdimaster.1.8.1.dylib;osname=Mac OS X;processor=x86-64
