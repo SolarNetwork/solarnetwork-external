@@ -5,5 +5,8 @@
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
 	</configurations>
 	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
+		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0">
+			<artifact name="org.osgi.core" type="jar"/>
+		</dependency>
 	</dependencies>
 </ivy-module>
