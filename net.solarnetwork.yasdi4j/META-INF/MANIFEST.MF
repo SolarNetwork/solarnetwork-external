@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: yasdi4j
 Bundle-SymbolicName: net.solarnetwork.external.yasdi4j
 Bundle-Version: 0.1.5
-Bundle-ClassPath: yasdi4j.jar
 Bundle-Vendor: Michael Denk/SolarNetwork
 Export-Package: de.michaeldenk.yasdi4j;version="0.1.5"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
