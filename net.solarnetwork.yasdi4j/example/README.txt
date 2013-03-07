@@ -12,7 +12,14 @@ include
 in the JVM_ARGS section. Then modify ~solar/.profile to include
 
 	export LD_LIBRARY_PATH=/home/solar/lib
-	
-This is not ideal... if anyone knows how to compile the driver 
+
+The libyassdi-linux-i386.tgz archive included in this directory
+contains the compiled shared libraries and the yasdishell program.
+Expand this into solar's home directory like
+
+	cd ~solar
+	tar xzf libyasdi-linux-i386.tgz
+
+This setup is not ideal... if anyone knows how to compile the driver 
 libraries directly into YASDI, please chime in!
  
