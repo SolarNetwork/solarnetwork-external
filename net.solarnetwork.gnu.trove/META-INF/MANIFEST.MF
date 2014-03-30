@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GNU Trove
+Bundle-SymbolicName: net.solarnetwork.external.gnu.trove
+Bundle-Version: 3.0.3.SN01
+Bundle-ClassPath: trove-3.0.3.jar
+Bundle-Vendor: SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: 
+ gnu.trove;version="3.0.3",
+ gnu.trove.decorator;version="3.0.3",
+ gnu.trove.function;version="3.0.3",
+ gnu.trove.impl;version="3.0.3",
+ gnu.trove.impl.hash;version="3.0.3",
+ gnu.trove.impl.sync;version="3.0.3",
+ gnu.trove.impl.unmodifiable;version="3.0.3",
+ gnu.trove.iterator;version="3.0.3",
+ gnu.trove.iterator.hash;version="3.0.3",
+ gnu.trove.list;version="3.0.3",
+ gnu.trove.list.array;version="3.0.3",
+ gnu.trove.list.linked;version="3.0.3",
+ gnu.trove.map;version="3.0.3",
+ gnu.trove.map.custom_hash;version="3.0.3",
+ gnu.trove.map.hash;version="3.0.3",
+ gnu.trove.procedure;version="3.0.3",
+ gnu.trove.procedure.array;version="3.0.3",
+ gnu.trove.queue;version="3.0.3",
+ gnu.trove.set;version="3.0.3",
+ gnu.trove.set.hash;version="3.0.3",
+ gnu.trove.stack;version="3.0.3",
+ gnu.trove.stack.array;version="3.0.3",
+ gnu.trove.strategy;version="3.0.3"
