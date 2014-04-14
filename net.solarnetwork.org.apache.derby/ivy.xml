@@ -1,5 +1,5 @@
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-    <info organisation="net.solarnetwork" module="${bundle.name}" />
+    <info organisation="net.solarnetwork.external" module="${bundle.name}" />
 	<configurations defaultconf="compile,runtime">
 		<conf name="compile" visibility="public" description="Build dependencies"/>
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
@@ -10,15 +10,9 @@
 		<artifact type="bundle" ext="jar" conf="runtime"/>
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
-	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
-		<dependency org="org.apache.derby" name="derby" rev="10.8.3.0">
-    		<artifact name="derby" type="jar" />
-		</dependency>
-		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0">
-			<artifact name="org.osgi.core" type="jar"/>
-		</dependency>
-		<dependency org="org.osgi" name="org.osgi.enterprise" rev="4.2.0">
-			<artifact name="org.osgi.enterprise" type="jar"/>
-		</dependency>
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(runtime)">
+		<dependency org="org.apache.derby" name="derby" rev="10.8.3.0"/>
+		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
+		<dependency org="org.osgi" name="org.osgi.enterprise" rev="4.2.0"/>
     </dependencies>
 </ivy-module>
