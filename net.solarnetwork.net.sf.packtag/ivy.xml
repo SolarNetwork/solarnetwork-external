@@ -5,7 +5,7 @@
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
 	</configurations>
 	<publications>
-		<artifact type="pom" ext="pom" conf="compile"/>
-		<artifact type="bundle" ext="jar" conf="runtime"/>
+		<artifact type="pom" ext="pom"/>
+		<artifact type="bundle" ext="jar"/>
 	</publications>
 </ivy-module>
