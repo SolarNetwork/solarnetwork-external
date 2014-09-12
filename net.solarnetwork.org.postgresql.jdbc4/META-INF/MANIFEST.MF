@@ -2,37 +2,38 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PostgreSQL JDBC4
 Bundle-SymbolicName: net.solarnetwork.external.org.postgresql.jdbc4
-Bundle-Version: 9.2.1002.SN01
-Bundle-ClassPath: postgresql-9.2-1002.jdbc4.jar
+Bundle-Version: 9.3.1102.SN01
+Bundle-ClassPath: postgresql-9.3-1102.jdbc4.jar
 Bundle-Vendor: SolarNetwork/PostgreSQL
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
  javax.naming,
  javax.sql
 Export-Package: 
- org.postgresql;version="9.2.1002",
- org.postgresql.copy;version="9.2.1002",
- org.postgresql.core;version="9.2.1002",
- org.postgresql.core.types;version="9.2.1002",
- org.postgresql.core.v2;version="9.2.1002",
- org.postgresql.core.v3;version="9.2.1002",
- org.postgresql.ds;version="9.2.1002",
- org.postgresql.ds.common;version="9.2.1002",
- org.postgresql.ds.jdbc23;version="9.2.1002",
- org.postgresql.ds.jdbc4;version="9.2.1002",
- org.postgresql.fastpath;version="9.2.1002",
- org.postgresql.geometric;version="9.2.1002",
- org.postgresql.gss;version="9.2.1002",
- org.postgresql.jdbc2;version="9.2.1002",
- org.postgresql.jdbc2.optional;version="9.2.1002",
- org.postgresql.jdbc3;version="9.2.1002",
- org.postgresql.jdbc3g;version="9.2.1002",
- org.postgresql.jdbc4;version="9.2.1002",
- org.postgresql.largeobject;version="9.2.1002",
- org.postgresql.ssl;version="9.2.1002",
- org.postgresql.ssl.jdbc4;version="9.2.1002",
- org.postgresql.translation;version="9.2.1002",
- org.postgresql.util;version="9.2.1002",
- org.postgresql.xa;version="9.2.1002",
- org.postgresql.xa.jdbc3;version="9.2.1002",
- org.postgresql.xa.jdbc4;version="9.2.1002"
+ org.postgresql;version="9.3.1102",
+ org.postgresql.copy;version="9.3.1102",
+ org.postgresql.core;version="9.3.1102",
+ org.postgresql.core.types;version="9.3.1102",
+ org.postgresql.core.v2;version="9.3.1102",
+ org.postgresql.core.v3;version="9.3.1102",
+ org.postgresql.ds;version="9.3.1102",
+ org.postgresql.ds.common;version="9.3.1102",
+ org.postgresql.ds.jdbc23;version="9.3.1102",
+ org.postgresql.ds.jdbc4;version="9.3.1102",
+ org.postgresql.fastpath;version="9.3.1102",
+ org.postgresql.geometric;version="9.3.1102",
+ org.postgresql.gss;version="9.3.1102",
+ org.postgresql.jdbc2;version="9.3.1102",
+ org.postgresql.jdbc2.optional;version="9.3.1102",
+ org.postgresql.jdbc3;version="9.3.1102",
+ org.postgresql.jdbc3g;version="9.3.1102",
+ org.postgresql.jdbc4;version="9.3.1102",
+ org.postgresql.jdbc4.array;version="9.3.1102",
+ org.postgresql.largeobject;version="9.3.1102",
+ org.postgresql.ssl;version="9.3.1102",
+ org.postgresql.ssl.jdbc4;version="9.3.1102",
+ org.postgresql.translation;version="9.3.1102",
+ org.postgresql.util;version="9.3.1102",
+ org.postgresql.xa;version="9.3.1102",
+ org.postgresql.xa.jdbc3;version="9.3.1102",
+ org.postgresql.xa.jdbc4;version="9.3.1102"
