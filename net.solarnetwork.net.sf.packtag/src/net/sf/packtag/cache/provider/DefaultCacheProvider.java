@@ -12,20 +12,18 @@
  * 
  * $Log:$
  */
+
 package net.sf.packtag.cache.provider;
 
 import java.util.Hashtable;
 import java.util.Set;
-
 import net.sf.packtag.cache.Resource;
 
-
-
 /**
- * The default CacheProvider, which is derived from the
- * static cache in version 3.4.
+ * The default CacheProvider, which is derived from the static cache in version
+ * 3.4.
  * 
- * @author  Daniel Galán y Martins
+ * @author Daniel Galán y Martins
  * @version $Revision:$
  */
 public class DefaultCacheProvider extends AbstractCacheProvider {
@@ -33,55 +31,66 @@ public class DefaultCacheProvider extends AbstractCacheProvider {
 	private final Hashtable resourcesAbsolutePath = new Hashtable();
 	private final Hashtable resourcesMappedPath = new Hashtable();
 
+	private static String pathSansInfo(final String path) {
+		if ( path == null ) {
+			return path;
+		}
+		int index = path.lastIndexOf(';');
+		if ( index < 0 ) {
+			return path;
+		}
+		return path.substring(0, index);
+	}
 
+	@Override
 	public Resource getResourceByAbsolutePath(final String absolutePath) {
-		return (Resource)resourcesAbsolutePath.get(absolutePath);
+		return (Resource) resourcesAbsolutePath.get(pathSansInfo(absolutePath));
 	}
 
-
+	@Override
 	public Resource getResourceByMappedPath(final String mappedPath) {
-		return (Resource)resourcesMappedPath.get(mappedPath);
+		return (Resource) resourcesMappedPath.get(pathSansInfo(mappedPath));
 	}
 
-
+	@Override
 	public boolean existResource(final String absolutePath) {
-		return resourcesAbsolutePath.containsKey(absolutePath);
+		return resourcesAbsolutePath.containsKey(pathSansInfo(absolutePath));
 	}
 
-
+	@Override
 	public void store(final Resource resource, final boolean clearDependingCombinedResources) {
 		resourcesAbsolutePath.put(resource.getAbsolutePath(), resource);
 		resourcesMappedPath.put(resource.getMappedPath(), resource);
 
-		if (clearDependingCombinedResources) {
+		if ( clearDependingCombinedResources ) {
 			clearDependingCombinedResources(resource);
 		}
 	}
 
-
+	@Override
 	public void clearCache() {
 		resourcesAbsolutePath.clear();
 		resourcesMappedPath.clear();
 	}
 
-
+	@Override
 	public Set getAbsolutePathKeys() {
 		return resourcesAbsolutePath.keySet();
 	}
 
-
+	@Override
 	public Set getMappedPathKeys() {
 		return resourcesMappedPath.keySet();
 	}
 
-
+	@Override
 	public void removeAbsolutePath(final String absolutePath) {
-		resourcesAbsolutePath.remove(absolutePath);
+		resourcesAbsolutePath.remove(pathSansInfo(absolutePath));
 	}
 
-
+	@Override
 	public void removeMappedPath(final String mappedPath) {
-		resourcesMappedPath.remove(mappedPath);
+		resourcesMappedPath.remove(pathSansInfo(mappedPath));
 	}
 
 }
