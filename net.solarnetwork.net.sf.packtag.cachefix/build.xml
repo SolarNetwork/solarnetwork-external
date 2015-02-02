@@ -1,0 +1,12 @@
+<project basedir=".">
+
+	<!-- Note we use the non-Ivy dep build here, because the dep is a binary bundle and won't work via Ivy -->
+	<property name="bundle.deps" value="true"/>
+	<dirset id="bundle.deps" dir="${basedir}/..">
+		<include name="net.solarnetwork.net.sf.packtag"/>
+	</dirset>
+
+	<property name="dir.osgi.base" value="${basedir}/../../solarnetwork-build/solarnetwork-osgi-lib"/>
+	<import file="${dir.osgi.base}/lib-build.xml"/>
+	
+</project>
