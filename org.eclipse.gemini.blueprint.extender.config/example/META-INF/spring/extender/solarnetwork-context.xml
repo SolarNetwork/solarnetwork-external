@@ -19,7 +19,7 @@
 		class="net.solarnetwork.spring.osgi.NonValidatingOsgiApplicationContextCreator"/>
 
 	<util:properties id="extenderProperties">
-		<prop key="dependencies.wait.time">20000</prop><!-- Default 5m -->
+		<prop key="dependencies.wait.time">60000</prop><!-- Default 5m -->
 		<prop key="shutdown.wait.time">5000</prop><!-- Default 10s -->
 	</util:properties>
 
