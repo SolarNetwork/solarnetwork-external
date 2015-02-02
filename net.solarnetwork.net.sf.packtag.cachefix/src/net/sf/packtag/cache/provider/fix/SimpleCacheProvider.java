@@ -20,13 +20,13 @@
  * ==================================================================
  */
 
-package net.sf.packtag.cache.provider;
+package net.sf.packtag.cache.provider.fix;
 
 import net.sf.packtag.cache.Resource;
 import net.sf.packtag.cache.provider.DefaultCacheProvider;
 
 /**
- * Extension of {@link net.sf.packtag.cache.provider.DefaultCacheProvider} that
+ * Extension of {@link net.sf.packtag.cache.provider.fix.DefaultCacheProvider} that
  * removes any trailing path info from the passed in paths, e.g.
  * {@code ;JSESSIONID=X}.
  * 
