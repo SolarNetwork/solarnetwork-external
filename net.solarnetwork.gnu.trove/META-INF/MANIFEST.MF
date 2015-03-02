@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: GNU Trove
 Bundle-SymbolicName: net.solarnetwork.external.gnu.trove
 Bundle-Version: 3.0.3.SN01
-Bundle-ClassPath: trove-3.0.3.jar
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: 

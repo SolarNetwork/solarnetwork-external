@@ -1,0 +1,20 @@
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="net.solarnetwork.external" module="${bundle.name}" />
+	<configurations defaultconf="compile,runtime">
+		<conf name="compile" visibility="public" description="Build dependencies"/>
+		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
+		<conf name="sources"/>
+	</configurations>
+	<publications>
+		<artifact type="pom" ext="pom"/>
+		<artifact type="bundle" ext="jar"/>
+		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
+	</publications>
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet" rev="2.5.0" />
+		<dependency org="javax.servlet" name="com.springsource.javax.servlet.jsp" rev="2.1.0" />
+		<dependency org="log4j" name="log4j" rev="1.2.17" conf="compile"/>
+		<dependency org="net.sf.ehcache" name="ehcache" rev="2.7.0" conf="compile"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.1" conf="compile"/>
+	</dependencies>
+</ivy-module>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UrlRewriteFilter
 Bundle-SymbolicName: net.solarnetwork.external.org.tuckey.urlrewritefilter
-Bundle-Version: 4.0.4
+Bundle-Version: 4.0.4.SN01
 Bundle-ClassPath: urlrewritefilter-4.0.4.jar
 Bundle-Vendor: Paul Tuckey/SolarNetwork
 Export-Package: 
