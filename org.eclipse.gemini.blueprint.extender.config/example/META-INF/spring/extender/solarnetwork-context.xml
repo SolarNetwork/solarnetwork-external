@@ -8,19 +8,17 @@
 		http://www.springframework.org/schema/util
 		http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 	
-	<bean id="taskExecutor"
-		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
 		<property name="corePoolSize" value="1"/>
-		<property name="maxPoolSize" value="50"/>
+		<property name="maxPoolSize" value="5"/>
 		<property name="keepAliveSeconds" value="60"/>
 	</bean>
 
-	<bean id="applicationContextCreator" 
-		class="net.solarnetwork.spring.osgi.NonValidatingOsgiApplicationContextCreator"/>
+	<bean id="applicationContextCreator" class="net.solarnetwork.spring.osgi.NonValidatingOsgiApplicationContextCreator"/>
 
 	<util:properties id="extenderProperties">
-		<prop key="dependencies.wait.time">60000</prop><!-- Default 5m -->
-		<prop key="shutdown.wait.time">5000</prop><!-- Default 10s -->
+		<prop key="dependencies.wait.time">600000</prop><!-- Default 5m -->
+		<prop key="shutdown.wait.time">10000</prop><!-- Default 10s -->
 	</util:properties>
 
 </beans>
