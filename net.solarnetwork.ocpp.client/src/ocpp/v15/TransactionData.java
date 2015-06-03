@@ -3,6 +3,7 @@ package ocpp.v15;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -33,8 +34,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "TransactionData", propOrder = {
     "values"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class TransactionData {
 
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected List<MeterValue> values;
 
     /**
@@ -59,6 +62,7 @@ public class TransactionData {
      * 
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public List<MeterValue> getValues() {
         if (values == null) {
             values = new ArrayList<MeterValue>();

@@ -3,6 +3,7 @@ package ocpp.v15;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -52,12 +53,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "timestamp",
     "value"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class MeterValue {
 
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected XMLGregorianCalendar timestamp;
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected List<MeterValue.Value> value;
 
     /**
@@ -68,6 +72,7 @@ public class MeterValue {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
     }
@@ -80,6 +85,7 @@ public class MeterValue {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
     }
@@ -106,6 +112,7 @@ public class MeterValue {
      * 
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public List<MeterValue.Value> getValue() {
         if (value == null) {
             value = new ArrayList<MeterValue.Value>();
@@ -139,19 +146,26 @@ public class MeterValue {
     @XmlType(name = "", propOrder = {
         "value"
     })
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public static class Value {
 
         @XmlValue
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected String value;
         @XmlAttribute(name = "context")
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected ReadingContext context;
         @XmlAttribute(name = "format")
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected ValueFormat format;
         @XmlAttribute(name = "measurand")
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected Measurand measurand;
         @XmlAttribute(name = "location")
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected Location location;
         @XmlAttribute(name = "unit")
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         protected UnitOfMeasure unit;
 
         /**
@@ -162,6 +176,7 @@ public class MeterValue {
          *     {@link String }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public String getValue() {
             return value;
         }
@@ -174,6 +189,7 @@ public class MeterValue {
          *     {@link String }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setValue(String value) {
             this.value = value;
         }
@@ -186,6 +202,7 @@ public class MeterValue {
          *     {@link ReadingContext }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public ReadingContext getContext() {
             return context;
         }
@@ -198,6 +215,7 @@ public class MeterValue {
          *     {@link ReadingContext }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setContext(ReadingContext value) {
             this.context = value;
         }
@@ -210,6 +228,7 @@ public class MeterValue {
          *     {@link ValueFormat }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public ValueFormat getFormat() {
             return format;
         }
@@ -222,6 +241,7 @@ public class MeterValue {
          *     {@link ValueFormat }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setFormat(ValueFormat value) {
             this.format = value;
         }
@@ -234,6 +254,7 @@ public class MeterValue {
          *     {@link Measurand }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public Measurand getMeasurand() {
             return measurand;
         }
@@ -246,6 +267,7 @@ public class MeterValue {
          *     {@link Measurand }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setMeasurand(Measurand value) {
             this.measurand = value;
         }
@@ -258,6 +280,7 @@ public class MeterValue {
          *     {@link Location }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public Location getLocation() {
             return location;
         }
@@ -270,6 +293,7 @@ public class MeterValue {
          *     {@link Location }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setLocation(Location value) {
             this.location = value;
         }
@@ -282,6 +306,7 @@ public class MeterValue {
          *     {@link UnitOfMeasure }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public UnitOfMeasure getUnit() {
             return unit;
         }
@@ -294,6 +319,7 @@ public class MeterValue {
          *     {@link UnitOfMeasure }
          *     
          */
+        @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
         public void setUnit(UnitOfMeasure value) {
             this.unit = value;
         }

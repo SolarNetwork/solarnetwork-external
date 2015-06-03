@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -46,23 +47,32 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "vendorId",
     "vendorErrorCode"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class StatusNotificationRequest {
 
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int connectorId;
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected ChargePointStatus status;
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected ChargePointErrorCode errorCode;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String info;
     @XmlSchemaType(name = "dateTime")
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected XMLGregorianCalendar timestamp;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String vendorId;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String vendorErrorCode;
 
     /**
      * Gets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getConnectorId() {
         return connectorId;
     }
@@ -71,6 +81,7 @@ public class StatusNotificationRequest {
      * Sets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setConnectorId(int value) {
         this.connectorId = value;
     }
@@ -83,6 +94,7 @@ public class StatusNotificationRequest {
      *     {@link ChargePointStatus }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public ChargePointStatus getStatus() {
         return status;
     }
@@ -95,6 +107,7 @@ public class StatusNotificationRequest {
      *     {@link ChargePointStatus }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setStatus(ChargePointStatus value) {
         this.status = value;
     }
@@ -107,6 +120,7 @@ public class StatusNotificationRequest {
      *     {@link ChargePointErrorCode }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public ChargePointErrorCode getErrorCode() {
         return errorCode;
     }
@@ -119,6 +133,7 @@ public class StatusNotificationRequest {
      *     {@link ChargePointErrorCode }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setErrorCode(ChargePointErrorCode value) {
         this.errorCode = value;
     }
@@ -131,6 +146,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getInfo() {
         return info;
     }
@@ -143,6 +159,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setInfo(String value) {
         this.info = value;
     }
@@ -155,6 +172,7 @@ public class StatusNotificationRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
     }
@@ -167,6 +185,7 @@ public class StatusNotificationRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
     }
@@ -179,6 +198,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getVendorId() {
         return vendorId;
     }
@@ -191,6 +211,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setVendorId(String value) {
         this.vendorId = value;
     }
@@ -203,6 +224,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getVendorErrorCode() {
         return vendorErrorCode;
     }
@@ -215,6 +237,7 @@ public class StatusNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setVendorErrorCode(String value) {
         this.vendorErrorCode = value;
     }

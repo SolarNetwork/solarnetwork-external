@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -32,9 +33,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "AuthorizeRequest", propOrder = {
     "idTag"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class AuthorizeRequest {
 
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String idTag;
 
     /**
@@ -45,6 +48,7 @@ public class AuthorizeRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getIdTag() {
         return idTag;
     }
@@ -57,6 +61,7 @@ public class AuthorizeRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setIdTag(String value) {
         this.idTag = value;
     }

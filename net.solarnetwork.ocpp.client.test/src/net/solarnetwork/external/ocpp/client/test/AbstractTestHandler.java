@@ -24,11 +24,14 @@ package net.solarnetwork.external.ocpp.client.test;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mortbay.jetty.Request;
 import org.mortbay.jetty.handler.AbstractHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Extension of {@link AbstractHandler} to aid with unit tests.
@@ -40,9 +43,17 @@ public abstract class AbstractTestHandler extends AbstractHandler {
 
 	private boolean handled = false;
 
+	protected final Logger log = LoggerFactory.getLogger(getClass());
+
 	@Override
 	public final void handle(String target, HttpServletRequest request, HttpServletResponse response,
 			int dispatch) throws IOException, ServletException {
+		log.trace("HTTP target {} request {}", target, request.getRequestURI());
+		Enumeration<String> headerNames = request.getHeaderNames();
+		while ( headerNames.hasMoreElements() ) {
+			String headerName = headerNames.nextElement();
+			log.trace("HTTP header {} = {}", headerName, request.getHeader(headerName));
+		}
 		try {
 			handled = handleInternal(target, request, response, dispatch);
 			((Request) request).setHandled(handled);
@@ -64,10 +75,10 @@ public abstract class AbstractTestHandler extends AbstractHandler {
 	 * @param dispatch
 	 * @return <em>true</em> if the request was handled successfully, and as
 	 *         expected.
-	 * @throws IOException
-	 * @throws ServletException
+	 * @throws Exception
+	 *         If any problem occurs.
 	 */
-	public abstract boolean handleInternal(String target, HttpServletRequest request,
+	protected abstract boolean handleInternal(String target, HttpServletRequest request,
 			HttpServletResponse response, int dispatch) throws Exception;
 
 	/**

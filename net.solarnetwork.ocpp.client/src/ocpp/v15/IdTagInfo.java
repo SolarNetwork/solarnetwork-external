@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,12 +37,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "expiryDate",
     "parentIdTag"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class IdTagInfo {
 
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected AuthorizationStatus status;
     @XmlSchemaType(name = "dateTime")
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected XMLGregorianCalendar expiryDate;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String parentIdTag;
 
     /**
@@ -52,6 +57,7 @@ public class IdTagInfo {
      *     {@link AuthorizationStatus }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public AuthorizationStatus getStatus() {
         return status;
     }
@@ -64,6 +70,7 @@ public class IdTagInfo {
      *     {@link AuthorizationStatus }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setStatus(AuthorizationStatus value) {
         this.status = value;
     }
@@ -76,6 +83,7 @@ public class IdTagInfo {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public XMLGregorianCalendar getExpiryDate() {
         return expiryDate;
     }
@@ -88,6 +96,7 @@ public class IdTagInfo {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setExpiryDate(XMLGregorianCalendar value) {
         this.expiryDate = value;
     }
@@ -100,6 +109,7 @@ public class IdTagInfo {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getParentIdTag() {
         return parentIdTag;
     }
@@ -112,6 +122,7 @@ public class IdTagInfo {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setParentIdTag(String value) {
         this.parentIdTag = value;
     }

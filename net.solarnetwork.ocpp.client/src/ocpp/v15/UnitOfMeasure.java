@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -32,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlType(name = "UnitOfMeasure")
 @XmlEnum
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public enum UnitOfMeasure {
 
     @XmlEnumValue("Wh")

@@ -3,6 +3,7 @@ package ocpp.v15;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -37,16 +38,21 @@ import javax.xml.bind.annotation.XmlType;
     "transactionId",
     "values"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class MeterValuesRequest {
 
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int connectorId;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected Integer transactionId;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected List<MeterValue> values;
 
     /**
      * Gets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getConnectorId() {
         return connectorId;
     }
@@ -55,6 +61,7 @@ public class MeterValuesRequest {
      * Sets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setConnectorId(int value) {
         this.connectorId = value;
     }
@@ -67,6 +74,7 @@ public class MeterValuesRequest {
      *     {@link Integer }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public Integer getTransactionId() {
         return transactionId;
     }
@@ -79,6 +87,7 @@ public class MeterValuesRequest {
      *     {@link Integer }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTransactionId(Integer value) {
         this.transactionId = value;
     }
@@ -105,6 +114,7 @@ public class MeterValuesRequest {
      * 
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public List<MeterValue> getValues() {
         if (values == null) {
             values = new ArrayList<MeterValue>();

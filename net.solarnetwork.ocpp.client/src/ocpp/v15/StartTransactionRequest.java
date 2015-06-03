@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,21 +43,28 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "meterStart",
     "reservationId"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class StartTransactionRequest {
 
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int connectorId;
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String idTag;
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected XMLGregorianCalendar timestamp;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int meterStart;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected Integer reservationId;
 
     /**
      * Gets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getConnectorId() {
         return connectorId;
     }
@@ -65,6 +73,7 @@ public class StartTransactionRequest {
      * Sets the value of the connectorId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setConnectorId(int value) {
         this.connectorId = value;
     }
@@ -77,6 +86,7 @@ public class StartTransactionRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getIdTag() {
         return idTag;
     }
@@ -89,6 +99,7 @@ public class StartTransactionRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setIdTag(String value) {
         this.idTag = value;
     }
@@ -101,6 +112,7 @@ public class StartTransactionRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
     }
@@ -113,6 +125,7 @@ public class StartTransactionRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
     }
@@ -121,6 +134,7 @@ public class StartTransactionRequest {
      * Gets the value of the meterStart property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getMeterStart() {
         return meterStart;
     }
@@ -129,6 +143,7 @@ public class StartTransactionRequest {
      * Sets the value of the meterStart property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setMeterStart(int value) {
         this.meterStart = value;
     }
@@ -141,6 +156,7 @@ public class StartTransactionRequest {
      *     {@link Integer }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public Integer getReservationId() {
         return reservationId;
     }
@@ -153,6 +169,7 @@ public class StartTransactionRequest {
      *     {@link Integer }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setReservationId(Integer value) {
         this.reservationId = value;
     }

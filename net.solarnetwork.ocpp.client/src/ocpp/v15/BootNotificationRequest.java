@@ -1,6 +1,7 @@
 
 package ocpp.v15;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -48,18 +49,28 @@ import javax.xml.bind.annotation.XmlType;
     "meterType",
     "meterSerialNumber"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class BootNotificationRequest {
 
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String chargePointVendor;
     @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String chargePointModel;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String chargePointSerialNumber;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String chargeBoxSerialNumber;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String firmwareVersion;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String iccid;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String imsi;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String meterType;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String meterSerialNumber;
 
     /**
@@ -70,6 +81,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getChargePointVendor() {
         return chargePointVendor;
     }
@@ -82,6 +94,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setChargePointVendor(String value) {
         this.chargePointVendor = value;
     }
@@ -94,6 +107,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getChargePointModel() {
         return chargePointModel;
     }
@@ -106,6 +120,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setChargePointModel(String value) {
         this.chargePointModel = value;
     }
@@ -118,6 +133,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getChargePointSerialNumber() {
         return chargePointSerialNumber;
     }
@@ -130,6 +146,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setChargePointSerialNumber(String value) {
         this.chargePointSerialNumber = value;
     }
@@ -142,6 +159,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getChargeBoxSerialNumber() {
         return chargeBoxSerialNumber;
     }
@@ -154,6 +172,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setChargeBoxSerialNumber(String value) {
         this.chargeBoxSerialNumber = value;
     }
@@ -166,6 +185,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getFirmwareVersion() {
         return firmwareVersion;
     }
@@ -178,6 +198,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setFirmwareVersion(String value) {
         this.firmwareVersion = value;
     }
@@ -190,6 +211,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getIccid() {
         return iccid;
     }
@@ -202,6 +224,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setIccid(String value) {
         this.iccid = value;
     }
@@ -214,6 +237,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getImsi() {
         return imsi;
     }
@@ -226,6 +250,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setImsi(String value) {
         this.imsi = value;
     }
@@ -238,6 +263,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getMeterType() {
         return meterType;
     }
@@ -250,6 +276,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setMeterType(String value) {
         this.meterType = value;
     }
@@ -262,6 +289,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getMeterSerialNumber() {
         return meterSerialNumber;
     }
@@ -274,6 +302,7 @@ public class BootNotificationRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setMeterSerialNumber(String value) {
         this.meterSerialNumber = value;
     }

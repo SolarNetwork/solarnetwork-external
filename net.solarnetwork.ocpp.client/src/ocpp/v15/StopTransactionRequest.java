@@ -3,6 +3,7 @@ package ocpp.v15;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -44,20 +45,27 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "meterStop",
     "transactionData"
 })
+@Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
 public class StopTransactionRequest {
 
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int transactionId;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected String idTag;
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected XMLGregorianCalendar timestamp;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected int meterStop;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     protected List<TransactionData> transactionData;
 
     /**
      * Gets the value of the transactionId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getTransactionId() {
         return transactionId;
     }
@@ -66,6 +74,7 @@ public class StopTransactionRequest {
      * Sets the value of the transactionId property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTransactionId(int value) {
         this.transactionId = value;
     }
@@ -78,6 +87,7 @@ public class StopTransactionRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public String getIdTag() {
         return idTag;
     }
@@ -90,6 +100,7 @@ public class StopTransactionRequest {
      *     {@link String }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setIdTag(String value) {
         this.idTag = value;
     }
@@ -102,6 +113,7 @@ public class StopTransactionRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
     }
@@ -114,6 +126,7 @@ public class StopTransactionRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
     }
@@ -122,6 +135,7 @@ public class StopTransactionRequest {
      * Gets the value of the meterStop property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public int getMeterStop() {
         return meterStop;
     }
@@ -130,6 +144,7 @@ public class StopTransactionRequest {
      * Sets the value of the meterStop property.
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public void setMeterStop(int value) {
         this.meterStop = value;
     }
@@ -156,6 +171,7 @@ public class StopTransactionRequest {
      * 
      * 
      */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-06-04T10:08:51+12:00", comments = "JAXB RI v2.2.4-2")
     public List<TransactionData> getTransactionData() {
         if (transactionData == null) {
             transactionData = new ArrayList<TransactionData>();
