@@ -56,6 +56,8 @@ public class AuthorizeTest extends AbstractClientEndpointTest {
 					HttpServletResponse response, int dispatch, Document soap, NodeList headers,
 					Node body) throws Exception {
 				assertEquals("POST", request.getMethod());
+				assertEquals("Client ident", TEST_CHARGE_POINT_IDENTITY,
+						getChargeBoxIdentityHeader(headers));
 				assertEquals("Authorize request", "authorizeRequest", body.getLocalName());
 
 				response.setContentType("application/soap+xml");
