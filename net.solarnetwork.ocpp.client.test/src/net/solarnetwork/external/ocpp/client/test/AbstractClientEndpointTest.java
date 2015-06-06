@@ -22,7 +22,10 @@
 
 package net.solarnetwork.external.ocpp.client.test;
 
+import java.net.URL;
+import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
+import javax.xml.ws.soap.AddressingFeature;
 import net.solarnetwork.support.XmlSupport;
 import ocpp.v15.CentralSystemService;
 import ocpp.v15.CentralSystemService_Service;
@@ -68,7 +71,10 @@ public abstract class AbstractClientEndpointTest {
 		nsContext.bindNamespaceUri(OCPP_NS_PREFIX, OCPP_NS);
 		xmlSupport.setNsContext(nsContext);
 
-		CentralSystemService client = new CentralSystemService_Service().getCentralSystemServiceSoap12();
+		URL wsdl = CentralSystemService.class.getResource("ocpp_centralsystemservice_1.5_final.wsdl");
+		QName name = new QName("urn://Ocpp/Cs/2012/06/", "CentralSystemService");
+		CentralSystemService client = new CentralSystemService_Service(wsdl, name)
+				.getCentralSystemServiceSoap12(new AddressingFeature());
 		String endpointURL = getHttpServerAbsoluteURLPath("/ocpp");
 		((BindingProvider) client).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
 				endpointURL);
