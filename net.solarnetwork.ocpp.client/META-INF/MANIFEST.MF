@@ -6,6 +6,7 @@ Bundle-Version: 1.5.0
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
+ javax.jws,
  javax.jws.soap,
  javax.xml.bind,
  javax.xml.bind.annotation,
