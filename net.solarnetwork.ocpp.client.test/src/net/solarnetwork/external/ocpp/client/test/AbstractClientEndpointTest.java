@@ -23,12 +23,15 @@
 package net.solarnetwork.external.ocpp.client.test;
 
 import java.net.URL;
+import java.util.List;
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.Handler;
 import javax.xml.ws.soap.AddressingFeature;
 import net.solarnetwork.support.XmlSupport;
 import ocpp.v15.cs.CentralSystemService;
 import ocpp.v15.cs.CentralSystemService_Service;
+import ocpp.v15.support.WSAddressingFromHandler;
 import org.junit.After;
 import org.junit.Before;
 import org.mortbay.jetty.Server;
@@ -57,6 +60,8 @@ public abstract class AbstractClientEndpointTest {
 	private XmlSupport xmlSupport;
 	private CentralSystemService centralSystem;
 
+	private final WSAddressingFromHandler fromHandler = new WSAddressingFromHandler();
+
 	protected final Logger log = LoggerFactory.getLogger(getClass());
 
 	@Before
@@ -76,8 +81,17 @@ public abstract class AbstractClientEndpointTest {
 		CentralSystemService client = new CentralSystemService_Service(wsdl, name)
 				.getCentralSystemServiceSoap12(new AddressingFeature());
 		String endpointURL = getHttpServerAbsoluteURLPath("/ocpp");
-		((BindingProvider) client).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
-				endpointURL);
+
+		// set up endpoint address
+		BindingProvider bindingProvider = (BindingProvider) client;
+		bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+
+		// insert WSAddressingFromHandler
+		@SuppressWarnings("rawtypes")
+		List<Handler> chain = bindingProvider.getBinding().getHandlerChain();
+		chain.add(fromHandler);
+		bindingProvider.getBinding().setHandlerChain(chain);
+
 		centralSystem = client;
 	}
 

@@ -23,4 +23,5 @@ Export-Package:
   uses:="javax.xml.bind,
    javax.xml.ws,
    javax.xml.namespace,
-   javax.xml.datatype"
+   javax.xml.datatype",
+ ocpp.v15.support;version="1.5.0"
