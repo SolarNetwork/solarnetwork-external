@@ -47,11 +47,11 @@ import javax.xml.ws.handler.soap.SOAPMessageContext;
  */
 public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> {
 
-	public static final String WSA_NS = "http://www.w3.org/2005/08/addressing/";
+	public static final String WSA_NS = "http://www.w3.org/2005/08/addressing";
 	public static final QName WSA_FROM = new QName(WSA_NS, "From");
 	public static final QName WSA_ADDRESS = new QName(WSA_NS, "Address");
 
-	private String dynamicFromPath = "/ocpp";
+	private String dynamicFromPath = "/ocpp/v15";
 	private String networkInterfaceName;
 	private String fromURL;
 	private boolean preferIPv4Address = Boolean.valueOf(System.getProperty("java.net.preferIPv4Stack",
