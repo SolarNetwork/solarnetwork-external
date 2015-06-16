@@ -31,6 +31,7 @@ import javax.xml.ws.soap.AddressingFeature;
 import net.solarnetwork.support.XmlSupport;
 import ocpp.v15.cs.CentralSystemService;
 import ocpp.v15.cs.CentralSystemService_Service;
+import ocpp.v15.support.HMACHandler;
 import ocpp.v15.support.WSAddressingFromHandler;
 import org.junit.After;
 import org.junit.Before;
@@ -61,6 +62,7 @@ public abstract class AbstractClientEndpointTest {
 	private CentralSystemService centralSystem;
 
 	private final WSAddressingFromHandler fromHandler = new WSAddressingFromHandler();
+	private final HMACHandler hmacHandler = new HMACHandler();
 
 	protected final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -90,6 +92,7 @@ public abstract class AbstractClientEndpointTest {
 		@SuppressWarnings("rawtypes")
 		List<Handler> chain = bindingProvider.getBinding().getHandlerChain();
 		chain.add(fromHandler);
+		chain.add(hmacHandler);
 		bindingProvider.getBinding().setHandlerChain(chain);
 
 		centralSystem = client;
