@@ -37,6 +37,8 @@ import javax.xml.soap.SOAPHeader;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * {@link SOAPHandler} for inserting {@code wsa:From} headers into outbound
@@ -56,6 +58,8 @@ public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> 
 	private String fromURL;
 	private boolean preferIPv4Address = Boolean.valueOf(System.getProperty("java.net.preferIPv4Stack",
 			"true"));
+
+	private final Logger log = LoggerFactory.getLogger(getClass());
 
 	// <wsa:From><wsa:Address>fromURL</wsa:Address></wsa:From>
 
@@ -87,7 +91,8 @@ public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> 
 					}
 					fromAddr.setTextContent(fromAddressValue);
 				} catch ( SOAPException e ) {
-					// TODO
+					log.error("Exception generating WS-Addressing From header to {}", fromAddressValue,
+							e);
 				}
 			}
 		}
@@ -135,7 +140,7 @@ public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> 
 
 	@Override
 	public boolean handleFault(SOAPMessageContext context) {
-		return false;
+		return true;
 	}
 
 	@Override
