@@ -88,7 +88,7 @@ import org.slf4j.LoggerFactory;
  * difference allowed between the system's reported current time and the
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  */
 public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 
@@ -103,6 +103,7 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 	public static final String DEFAULT_SECRET = "changeit";
 
 	private String secret = DEFAULT_SECRET;
+	private boolean required = true;
 	private Mac hmac;
 	private long maximumTimeSkew = 5 * 60 * 1000L; // 5 minutes
 
@@ -218,9 +219,8 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 				header.normalize();
 				hashValue = header.getTextContent();
 			}
-			if ( cbIdent == null
-					&& (OCPP_CS_CHARGE_BOX_IDENTITY.equals(headerName) || OCPP_CP_CHARGE_BOX_IDENTITY
-							.equals(headerName)) ) {
+			if ( cbIdent == null && (OCPP_CS_CHARGE_BOX_IDENTITY.equals(headerName)
+					|| OCPP_CP_CHARGE_BOX_IDENTITY.equals(headerName)) ) {
 				cbIdent = hashValue;
 			}
 			buf.append(hashKey).append('=').append(hashValue).append('\n');
@@ -317,17 +317,71 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 		return Collections.singleton(SN_WS_AUTH);
 	}
 
+	/**
+	 * Set the shared secret value.
+	 * 
+	 * This value must be shared with the OCPP central system.
+	 * 
+	 * @param secret
+	 *        The secret value to use. If <em>null</em>, an empty string will be
+	 *        used.
+	 */
 	public void setSecret(String secret) {
+		if ( secret == null ) {
+			secret = "";
+		}
 		this.secret = secret;
 		hmac = null;
 	}
 
+	/**
+	 * Set the maximum allowed time skew, in milliseconds.
+	 * 
+	 * The {@code ts} attribute of incoming messages will be compared to the
+	 * current system time, and if it differs by more than this amount the
+	 * message will be rejected. In order for this check to be effective, the
+	 * system's clock must be kept accurate, for example by using a service like
+	 * NTP or GPS to synchronize the system's clock.
+	 * 
+	 * @param maximumTimeSkew
+	 *        The maximum time skew allowed.
+	 */
 	public void setMaximumTimeSkew(long maximumTimeSkew) {
 		this.maximumTimeSkew = maximumTimeSkew;
 	}
 
+	/**
+	 * Get the maximum allowed time skew.
+	 * 
+	 * @return The configured maximum time skew, in milliseconds.
+	 */
 	public long getMaximumTimeSkew() {
 		return maximumTimeSkew;
+	}
+
+	/**
+	 * Get the required flag.
+	 * 
+	 * @return The configured required flag value. Defaults to <em>true</em>.
+	 */
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * Set the required flag.
+	 * 
+	 * If <em>true</em> then an authentication header is required to be present
+	 * (and valid) or else an exception will be throw. If <em>false</em> then a
+	 * missing authentication header will not cause any exception to be thrown,
+	 * but if provided will still be validated and if not valid an exception
+	 * will still be thrown.
+	 * 
+	 * @param required
+	 *        The required flag value to set.
+	 */
+	public void setRequired(boolean required) {
+		this.required = required;
 	}
 
 }
