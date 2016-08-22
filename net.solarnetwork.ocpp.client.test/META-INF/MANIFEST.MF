@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OCPP Client Test
 Bundle-SymbolicName: net.solarnetwork.external.ocpp.client.test
-Bundle-Version: 1.5.0
+Bundle-Version: 1.6.0
 Bundle-Vendor: SolarNetwork
 Fragment-Host: net.solarnetwork.external.ocpp.client;bundle-version="1.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -19,10 +19,10 @@ Import-Package:
  org.mortbay.jetty;version="6.1.26",
  org.mortbay.jetty.handler;version="6.1.26",
  org.slf4j;version="[1.5.0,2.0.0)",
- org.springframework.test.annotation;version="[3.0,4.0)",
- org.springframework.test.context;version="[3.0,4.0)",
- org.springframework.test.context.junit4;version="[3.0,4.0)",
- org.springframework.test.context.support;version="[3.0,4.0)",
- org.springframework.test.context.transaction;version="[3.0,4.0)",
- org.springframework.util;version="[3.0,4.0)",
- org.springframework.util.xml;version="[3.0,4.0)"
+ org.springframework.test.annotation;version="[4.2,5.0)",
+ org.springframework.test.context;version="[4.2,5.0)",
+ org.springframework.test.context.junit4;version="[4.2,5.0)",
+ org.springframework.test.context.support;version="[4.2,5.0)",
+ org.springframework.test.context.transaction;version="[4.2,5.0)",
+ org.springframework.util;version="[4.2,5.0)",
+ org.springframework.util.xml;version="[4.2,5.0)"
