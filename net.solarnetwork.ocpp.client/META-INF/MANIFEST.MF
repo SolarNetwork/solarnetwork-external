@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OCPP JAX-WS Client
 Bundle-SymbolicName: net.solarnetwork.external.ocpp.client
-Bundle-Version: 1.5.1
+Bundle-Version: 1.6.0
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
@@ -16,7 +16,7 @@ Import-Package:
  javax.xml.namespace,
  javax.xml.ws,
  org.apache.commons.codec.binary;version="[1.7,2.0)";resolution:=optional,
- org.slf4j;version="[1.5,2.0)";resolution:=optional
+ org.slf4j;version="[1.7,2.0)";resolution:=optional
 Export-Package: 
  ocpp.v15.cp;version="1.5.0";uses:="
    javax.xml.bind,
