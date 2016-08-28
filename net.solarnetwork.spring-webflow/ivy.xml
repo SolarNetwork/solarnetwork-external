@@ -8,8 +8,4 @@
 		<artifact type="pom" ext="pom"/>
 		<artifact type="bundle" ext="jar"/>
 	</publications>
-	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
-    	<dependency org="commons-codec" name="commons-codec" rev="1.7"/>
-    	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21"/>
-	</dependencies>
 </ivy-module>

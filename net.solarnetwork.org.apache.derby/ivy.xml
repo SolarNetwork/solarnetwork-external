@@ -11,7 +11,7 @@
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(runtime)">
-		<dependency org="org.apache.derby" name="derby" rev="10.8.3.0"/>
+		<dependency org="org.apache.servicemix.bundles" name="org.apache.servicemix.bundles.derby" rev="10.12.1.1_1"/>
 		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
 		<dependency org="org.osgi" name="org.osgi.enterprise" rev="4.2.0"/>
     </dependencies>
