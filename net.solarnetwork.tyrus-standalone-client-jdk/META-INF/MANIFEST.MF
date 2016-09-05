@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tyrus Websocket Client (JDK)
+Bundle-SymbolicName: net.solarnetwork.external.tyrus-standalone-client-jdk
+Bundle-Version: 1.13.0
+Bundle-ClassPath: tyrus-standalone-client-jdk-1.13.jar
+Bundle-Vendor: Glassfish/SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: 
+ javax.websocket;version="1.1.0",
+ javax.websocket.server;version="1.1.0",
+ org.glassfish.tyrus.client;version="1.13.0",
+ org.glassfish.tyrus.client.auth;version="1.13.0",
+ org.glassfish.tyrus.container.jdk.client;version="1.13.0",
+ org.glassfish.tyrus.core;version="1.13.0",
+ org.glassfish.tyrus.core.cluster;version="1.13.0",
+ org.glassfish.tyrus.core.coder;version="1.13.0",
+ org.glassfish.tyrus.core.extension;version="1.13.0",
+ org.glassfish.tyrus.core.frame;version="1.13.0",
+ org.glassfish.tyrus.core.l10n;version="1.13.0",
+ org.glassfish.tyrus.core.monitoring;version="1.13.0",
+ org.glassfish.tyrus.core.uri;version="1.13.0",
+ org.glassfish.tyrus.core.uri.internal;version="1.13.0",
+ org.glassfish.tyrus.core.wsadl.model;version="1.13.0",
+ org.glassfish.tyrus.spi;version="1.13.0"
+Import-Package: 
+ javax.net.ssl,
+ org.osgi.framework;version="1.7.0"
