@@ -49,8 +49,8 @@ import org.springframework.util.ObjectUtils;
  * @author matt
  * @version 1.1
  */
-public class NonValidatingOsgiApplicationContextCreator implements
-		org.eclipse.gemini.blueprint.extender.OsgiApplicationContextCreator {
+public class NonValidatingOsgiApplicationContextCreator
+		implements org.eclipse.gemini.blueprint.extender.OsgiApplicationContextCreator {
 
 	private static final Log log = LogFactory.getLog(DefaultOsgiApplicationContextCreator.class);
 
@@ -83,8 +83,8 @@ public class NonValidatingOsgiApplicationContextCreator implements
 		return sdoac;
 	}
 
-	private static class NonValidatingOsgiBundleXmlApplicationContext extends
-			OsgiBundleXmlApplicationContext {
+	private static class NonValidatingOsgiBundleXmlApplicationContext
+			extends OsgiBundleXmlApplicationContext {
 
 		public NonValidatingOsgiBundleXmlApplicationContext(String[] configLocations) {
 			super(configLocations);
