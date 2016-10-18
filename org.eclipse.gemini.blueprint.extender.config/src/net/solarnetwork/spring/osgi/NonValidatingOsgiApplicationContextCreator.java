@@ -47,7 +47,7 @@ import org.springframework.util.ObjectUtils;
  * </p>
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  */
 public class NonValidatingOsgiApplicationContextCreator implements
 		org.eclipse.gemini.blueprint.extender.OsgiApplicationContextCreator {
@@ -59,6 +59,10 @@ public class NonValidatingOsgiApplicationContextCreator implements
 	@Override
 	public DelegatedExecutionOsgiBundleApplicationContext createApplicationContext(
 			BundleContext bundleContext) throws Exception {
+		if ( bundleContext == null ) {
+			log.info("Cannot create ApplicationContext for null BundleContext");
+			return null;
+		}
 		Bundle bundle = bundleContext.getBundle();
 		ApplicationContextConfiguration config = new ApplicationContextConfiguration(bundle,
 				configurationScanner);
