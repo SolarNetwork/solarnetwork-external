@@ -1,10 +1,8 @@
 
 package net.solarnetwork.org.apache.derby;
 
+import java.sql.Driver;
 import java.util.Hashtable;
-import org.apache.derby.jdbc.Driver30;
-import org.apache.derby.jdbc.Driver40;
-import org.apache.derby.jdbc.InternalDriver;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
@@ -21,22 +19,16 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		DataSourceFactory dataSourceFactory = new DerbyDataSourceFactory();
 
-		InternalDriver driver = new Driver30();
+		java.sql.Driver driver = (Driver) getClass().getClassLoader().loadClass(DRIVER_CLASS)
+				.newInstance();
 		final int major = driver.getMajorVersion();
 		final int minor = driver.getMinorVersion();
-		boolean have40 = true;
-		try {
-			getClass().getClassLoader().loadClass(Driver40.class.getName());
-		} catch ( Exception e ) {
-			have40 = false;
-		}
 
 		Hashtable<String, Object> props = new Hashtable<String, Object>();
 		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_CLASS, DRIVER_CLASS);
 		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_NAME, DRIVER_NAME);
 		props.put(DataSourceFactory.OSGI_JDBC_DRIVER_VERSION,
-				String.valueOf(major) + '.' + String.valueOf(minor) + " JDBC "
-						+ (have40 ? "4.0" : "3.0"));
+				String.valueOf(major) + '.' + String.valueOf(minor) + " JDBC 4+");
 
 		dsf = bundleContext.registerService(DataSourceFactory.class, dataSourceFactory, props);
 	}

@@ -18,8 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 
  * 02111-1307 USA
  * ==================================================================
- * $Id$
- * ==================================================================
  */
 
 package net.solarnetwork.org.apache.derby;
@@ -33,11 +31,9 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
-
 import javax.sql.ConnectionPoolDataSource;
 import javax.sql.DataSource;
 import javax.sql.XADataSource;
-
 import org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.derby.jdbc.EmbeddedDriver;
@@ -45,19 +41,10 @@ import org.apache.derby.jdbc.EmbeddedXADataSource;
 import org.osgi.service.jdbc.DataSourceFactory;
 
 /**
- * FIXME
- * 
- * <p>TODO</p>
- * 
- * <p>The configurable properties of this class are:</p>
- * 
- * <dl class="class-properties">
- *   <dt></dt>
- *   <dd></dd>
- * </dl>
+ * DataSourceFactory for Apache Derby.
  * 
  * @author matt
- * @version $Revision$
+ * @version 1.0
  */
 public class DerbyDataSourceFactory implements DataSourceFactory {
 
@@ -69,16 +56,15 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 	}
 
 	@Override
-	public ConnectionPoolDataSource createConnectionPoolDataSource(
-			Properties props) throws SQLException {
+	public ConnectionPoolDataSource createConnectionPoolDataSource(Properties props)
+			throws SQLException {
 		EmbeddedConnectionPoolDataSource ds = new EmbeddedConnectionPoolDataSource();
 		configureDataSourceProperties(ds, props);
 		return ds;
 	}
 
 	@Override
-	public XADataSource createXADataSource(Properties props)
-			throws SQLException {
+	public XADataSource createXADataSource(Properties props) throws SQLException {
 		EmbeddedXADataSource ds = new EmbeddedXADataSource();
 		configureDataSourceProperties(ds, props);
 		return ds;
@@ -91,16 +77,15 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 		return driver;
 	}
 
-	private void configureDataSourceProperties(Object object, Properties props)
-	throws SQLException {
-	    if (props == null) {
-	    	return;
-	    }
-	    
+	private void configureDataSourceProperties(Object object, Properties props) throws SQLException {
+		if ( props == null ) {
+			return;
+		}
+
 		Enumeration<?> enumeration = props.keys();
-		while (enumeration.hasMoreElements()) {
+		while ( enumeration.hasMoreElements() ) {
 			String name = (String) enumeration.nextElement();
-			
+
 			// special support for "url"
 			if ( "url".equals(name) ) {
 				String jdbcUrl = props.getProperty(name);
@@ -115,7 +100,7 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 					int splitIndex = dbName.indexOf(';');
 					if ( splitIndex != -1 ) {
 						if ( splitIndex < (dbName.length() - 1) ) {
-							connAttributes = dbName.substring(splitIndex+1);
+							connAttributes = dbName.substring(splitIndex + 1);
 						}
 						dbName = dbName.substring(0, splitIndex);
 					}
@@ -123,7 +108,7 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 					if ( connAttributes != null ) {
 						setProperty(object, "connectionAttributes", connAttributes);
 					}
-				} catch (URISyntaxException e) {
+				} catch ( URISyntaxException e ) {
 					throw new SQLException("Unparsable 'url' property", e);
 				}
 			} else {
@@ -132,150 +117,97 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 		}
 	}
 
-	protected void throwSQLException(Exception cause, String theType, String value)
-			throws SQLException {
-		SQLException sqlException = new SQLException("Invalid " + theType
-				+ " value: " + value);
+	protected void throwSQLException(Exception cause, String theType, String value) throws SQLException {
+		SQLException sqlException = new SQLException("Invalid " + theType + " value: " + value);
 		sqlException.initCause(cause);
 		throw sqlException;
 	}
 
 	protected Object toBasicType(String value, String type) throws SQLException {
-		if (value == null) {
+		if ( value == null ) {
 			return null;
-		}
-		else
-			if (type == null || type.equals(String.class.getName())) {
-				return value;
+		} else if ( type == null || type.equals(String.class.getName()) ) {
+			return value;
+		} else if ( type.equals(Integer.class.getName()) || type.equals(int.class.getName()) ) {
+			try {
+				return Integer.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Integer", value);
 			}
-			else
-				if (type.equals(Integer.class.getName())
-						|| type.equals(int.class.getName())) {
-					try {
-						return Integer.valueOf(value);
-					}
-					catch (NumberFormatException e) {
-						throwSQLException(e, "Integer", value);
-					}
-				}
-				else
-					if (type.equals(Float.class.getName())
-							|| type.equals(float.class.getName())) {
-						try {
-							return Float.valueOf(value);
-						}
-						catch (NumberFormatException e) {
-							throwSQLException(e, "Float", value);
-						}
-					}
-					else
-						if (type.equals(Long.class.getName())
-								|| type.equals(long.class.getName())) {
-							try {
-								return Long.valueOf(value);
-							}
-							catch (NumberFormatException e) {
-								throwSQLException(e, "Long", value);
-							}
-						}
-						else
-							if (type.equals(Double.class.getName())
-									|| type.equals(double.class.getName())) {
-								try {
-									return Double.valueOf(value);
-								}
-								catch (NumberFormatException e) {
-									throwSQLException(e, "Double", value);
-								}
-							}
-							else
-								if (type.equals(Character.class.getName())
-										|| type.equals(char.class.getName())) {
-									if (value.length() != 1) {
-										throw new SQLException(
-												"Invalid Character value: "
-														+ value);
-									}
+		} else if ( type.equals(Float.class.getName()) || type.equals(float.class.getName()) ) {
+			try {
+				return Float.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Float", value);
+			}
+		} else if ( type.equals(Long.class.getName()) || type.equals(long.class.getName()) ) {
+			try {
+				return Long.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Long", value);
+			}
+		} else if ( type.equals(Double.class.getName()) || type.equals(double.class.getName()) ) {
+			try {
+				return Double.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Double", value);
+			}
+		} else if ( type.equals(Character.class.getName()) || type.equals(char.class.getName()) ) {
+			if ( value.length() != 1 ) {
+				throw new SQLException("Invalid Character value: " + value);
+			}
 
-									return new Character(value.charAt(0));
-								}
-								else
-									if (type.equals(Byte.class.getName())
-											|| type
-													.equals(byte.class
-															.getName())) {
-										try {
-											return Byte.valueOf(value);
-										}
-										catch (NumberFormatException e) {
-											throwSQLException(e, "Byte", value);
-										}
-									}
-									else
-										if (type.equals(Short.class.getName())
-												|| type.equals(short.class
-														.getName())) {
-											try {
-												return Short.valueOf(value);
-											}
-											catch (NumberFormatException e) {
-												throwSQLException(e, "Short",
-														value);
-											}
-										}
-										else
-											if (type.equals(Boolean.class
-													.getName())
-													|| type
-															.equals(boolean.class
-																	.getName())) {
-												try {
-													return Boolean
-															.valueOf(value);
-												}
-												catch (NumberFormatException e) {
-													throwSQLException(e,
-															"Boolean", value);
-												}
-											}
-											else {
-												throw new SQLException(
-														"Invalid property type: "
-																+ type);
-											}
+			return new Character(value.charAt(0));
+		} else if ( type.equals(Byte.class.getName()) || type.equals(byte.class.getName()) ) {
+			try {
+				return Byte.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Byte", value);
+			}
+		} else if ( type.equals(Short.class.getName()) || type.equals(short.class.getName()) ) {
+			try {
+				return Short.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Short", value);
+			}
+		} else if ( type.equals(Boolean.class.getName()) || type.equals(boolean.class.getName()) ) {
+			try {
+				return Boolean.valueOf(value);
+			} catch ( NumberFormatException e ) {
+				throwSQLException(e, "Boolean", value);
+			}
+		} else {
+			throw new SQLException("Invalid property type: " + type);
+		}
 		return null;
 	}
 
-	protected void setProperty(Object object, String name, String value)
-			throws SQLException {
+	protected void setProperty(Object object, String name, String value) throws SQLException {
 		Class<?> type = object.getClass();
 
 		java.beans.PropertyDescriptor[] descriptors;
 		try {
-			descriptors = java.beans.Introspector.getBeanInfo(type)
-					.getPropertyDescriptors();
-		}
-		catch (Exception exc) {
+			descriptors = java.beans.Introspector.getBeanInfo(type).getPropertyDescriptors();
+		} catch ( Exception exc ) {
 			SQLException sqlException = new SQLException();
 			sqlException.initCause(exc);
 			throw sqlException;
 		}
 		List<String> names = new ArrayList<String>();
 
-		for (int i = 0; i < descriptors.length; i++) {
-			if (descriptors[i].getWriteMethod() == null) {
+		for ( int i = 0; i < descriptors.length; i++ ) {
+			if ( descriptors[i].getWriteMethod() == null ) {
 				continue;
 			}
 
-			if (descriptors[i].getName().equals(name)) {
+			if ( descriptors[i].getName().equals(name) ) {
 				Method method = descriptors[i].getWriteMethod();
 				Class<?> paramType = method.getParameterTypes()[0];
 				Object param = toBasicType(value, paramType.getName());
 
 				try {
-					method.invoke(object, new Object[] {param});
-				}
-				catch (Exception exc) {
+					method.invoke(object, new Object[] { param });
+				} catch ( Exception exc ) {
 					SQLException sqlException = new SQLException();
 					sqlException.initCause(exc);
 					throw sqlException;
@@ -285,8 +217,8 @@ public class DerbyDataSourceFactory implements DataSourceFactory {
 
 			names.add(descriptors[i].getName());
 		}
-		throw new SQLException("No such property: " + name
-				+ ", exists.  Writable properties are: " + names);
+		throw new SQLException(
+				"No such property: " + name + ", exists.  Writable properties are: " + names);
 	}
 
 }

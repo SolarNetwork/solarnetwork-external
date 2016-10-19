@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Apache Derby DataSourceFactory
 Bundle-SymbolicName: net.solarnetwork.external.org.apache.derby
-Bundle-Version: 1.2.0
+Bundle-Version: 1.3.0
 Bundle-Activator: net.solarnetwork.org.apache.derby.Activator
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: 
  javax.sql,
- org.apache.derby.jdbc,
+ org.apache.derby.jdbc;version="10.10",
  org.osgi.framework;version="[1.7,2.0)",
  org.osgi.service.jdbc;version="[1.0,2.0)"

@@ -1,0 +1,17 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+Apache Felix Utils
+
+
+From: 'an unknown organization'
+  - org.osgi.compendium  org.osgi:org.osgi.compendium:jar:4.2.0
+
+  - org.osgi.core  org.osgi:org.osgi.core:jar:4.1.0
+
+
+
+
+

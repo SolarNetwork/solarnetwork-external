@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SolarNetwork Gemini Blueprint Extender Config
 Bundle-SymbolicName: net.solarnetwork.external.org.eclipse.gemini.blueprint.extender.config
-Bundle-Version: 1.1.1
+Bundle-Version: 2.0.1
 Bundle-Vendor: SolarNetwork
-Fragment-Host: org.eclipse.gemini.blueprint.extender;bundle-version="[1.0.0,2.0.0)"
+Fragment-Host: org.eclipse.gemini.blueprint.extender;bundle-version="[2.0.0,3.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.springframework.scheduling.concurrent;version="[3.0,4.0)"
+Import-Package: org.springframework.scheduling.concurrent;version="[4.2,5.0)"
