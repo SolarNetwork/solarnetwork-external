@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: pack:tag
 Bundle-SymbolicName: net.solarnetwork.external.net.sf.packtag
-Bundle-Version: 3.8.0.SN02
+Bundle-Version: 3.8.0.SN03
 Bundle-Vendor: SolarNetwork/Daniel Galán y Martins
 Export-Package: net.sf.packtag.cache;version="3.8",
  net.sf.packtag.cache.provider;version="3.8",
