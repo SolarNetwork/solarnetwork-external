@@ -64,7 +64,8 @@ import org.slf4j.LoggerFactory;
  * </p>
  * 
  * <pre>
- * &lt;Authentication xmlns="urn://SolarNetwork/SolarNode/WS" ts="2015-01-01T12:00:00.000Z"&gt;doEIdjlsdkfjsopdifjso==&lt;/Authentication&gt;
+ * &lt;Authentication xmlns="urn://SolarNetwork/SolarNode/WS" 
+ *    ts="2015-01-01T12:00:00.000Z"&gt;doEIdjlsdkfjsopdifjso==&lt;/Authentication&gt;
  * </pre>
  * 
  * <p>
@@ -76,20 +77,84 @@ import org.slf4j.LoggerFactory;
  * <ol>
  * <li>The OCPP {@code chargePointIdentity} SOAP header value, or an empty
  * string if not available.</li>
- * <li>The current date, in ISO 8601 format in the UTC time zone.
- * <li>
- * <li>Top-level SOAP header elements, in DOM order.
- * <li>
+ * <li>The current date, in ISO 8601 format in the UTC time zone.</li>
+ * <li>Top-level SOAP header elements, in DOM order. In addition, for any
+ * top-level element in the {@code http://www.w3.org/2005/08/addressing}
+ * namespace (WS-Addressing) then the first of any child {@code Address} element
+ * is included. This is to ensure all WS-Addressing values are included in the
+ * digest.</li>
  * <li>Recursive SOAP body elements, in DOM order, including the SOAP body
  * element itself.</li>
  * </ol>
+ * 
+ * <p>
+ * For any SOAP element to be included in the digest, the syntax of the value to
+ * add is <code>{fqn}localName=value</code> where <code>fqn</code> is the fully
+ * qualified namespace of the element, <code>localName</code> is the element
+ * name, and <code>value</code> is the normalized text value of the element
+ * (normalized by calling {@link org.w3c.dom.Node.normalize()}). If the text
+ * value is only whitespace, however, the entire value (and <code>=</code>
+ * character are omitted.
+ * </p>
+ * 
+ * <p>
+ * For example, a SOAP message like this:
+ * </p>
+ * 
+ * <pre>
+ * &lt;S:Envelope xmlns:S="http://www.w3.org/2003/05/soap-envelope"&gt;
+	&lt;S:Header&gt;
+		&lt;chargeBoxIdentity xmlns="urn://Ocpp/Cs/2012/06/"&gt;UID=1013,O=SolarDev&lt;/chargeBoxIdentity&gt;
+		&lt;To xmlns="http://www.w3.org/2005/08/addressing"
+			&gt;http://localhost:9000/steve/services/CentralSystemService&lt;/To&gt;
+		&lt;Action xmlns="http://www.w3.org/2005/08/addressing"&gt;/BootNotification&lt;/Action&gt;
+		&lt;ReplyTo xmlns="http://www.w3.org/2005/08/addressing"&gt;
+			&lt;Address&gt;http://www.w3.org/2005/08/addressing/anonymous&lt;/Address&gt;
+		&lt;/ReplyTo&gt;
+		&lt;MessageID xmlns="http://www.w3.org/2005/08/addressing"
+			&gt;uuid:f86a3b23-5db3-4260-ab21-d72348da5ecc&lt;/MessageID&gt;
+		&lt;From xmlns="http://www.w3.org/2005/08/addressing"&gt;
+			&lt;Address&gt;http://192.168.1.44:8680/ocpp/v15&lt;/Address&gt;
+		&lt;/From&gt;
+	&lt;/S:Header&gt;
+	&lt;S:Body&gt;
+		&lt;bootNotificationRequest xmlns="urn://Ocpp/Cs/2012/06/"&gt;
+			&lt;chargePointVendor&gt;SolarNetwork&lt;/chargePointVendor&gt;
+			&lt;chargePointModel&gt;SolarNode&lt;/chargePointModel&gt;
+			&lt;chargePointSerialNumber&gt;155&lt;/chargePointSerialNumber&gt;
+			&lt;firmwareVersion&gt;0.1.0&lt;/firmwareVersion&gt;
+		&lt;/bootNotificationRequest&gt;
+	&lt;/S:Body&gt;
+&lt;/S:Envelope&gt;
+ * </pre>
+ * 
+ * <p>
+ * would result in a canonical digest value like this:
+ * </p>
+ * 
+ * <pre>
+ * UID=1013,O=SolarDev
+2015-06-16T06:31:13.492Z
+{urn://Ocpp/Cs/2012/06/}chargeBoxIdentity=UID=1013,O=SolarDev
+{http://www.w3.org/2005/08/addressing}To=http://localhost:9000/steve/services/CentralSystemService
+{http://www.w3.org/2005/08/addressing}Action=/BootNotification
+{http://www.w3.org/2005/08/addressing}ReplyTo=http://www.w3.org/2005/08/addressing/anonymous
+{http://www.w3.org/2005/08/addressing}MessageID=uuid:f86a3b23-5db3-4260-ab21-d72348da5ecc
+{http://www.w3.org/2005/08/addressing}From=http://192.168.1.44:8680/ocpp/v15
+{http://www.w3.org/2003/05/soap-envelope}Body
+{urn://Ocpp/Cs/2012/06/}bootNotificationRequest
+{urn://Ocpp/Cs/2012/06/}chargePointVendor=SolarNetwork
+{urn://Ocpp/Cs/2012/06/}chargePointModel=SolarNode
+{urn://Ocpp/Cs/2012/06/}chargePointSerialNumber=155
+{urn://Ocpp/Cs/2012/06/}firmwareVersion=0.1.0
+ * </pre>
  * 
  * <p>
  * The {@link #getMaximumTimeSkew()} value represents the maximum amount of time
  * difference allowed between the system's reported current time and the
  * 
  * @author matt
- * @version 1.1
+ * @version 1.2
  */
 public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 

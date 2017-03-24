@@ -28,7 +28,7 @@ Export-Package:
    javax.xml.namespace,
    javax.xml.datatype,
    javax.xml.ws",
- ocpp.v15.support;version="1.5.1";uses:="
+ ocpp.v15.support;version="1.5.2";uses:="
    javax.crypto,
    javax.crypto.spec,
    javax.xml.namespace,
