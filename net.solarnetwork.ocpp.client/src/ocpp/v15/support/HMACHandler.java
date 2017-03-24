@@ -33,6 +33,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TimeZone;
+import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.namespace.QName;
@@ -101,6 +102,8 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 			"chargeBoxIdentity");
 
 	public static final String DEFAULT_SECRET = "changeit";
+
+	private static final Pattern NON_WHITESPACE = Pattern.compile("\\S");
 
 	private String secret = DEFAULT_SECRET;
 	private boolean required = true;
@@ -301,7 +304,11 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 					continue;
 				}
 				t.normalize();
-				buf.append(name.toString()).append('=').append(t.getTextContent()).append('\n');
+
+				// only append non-whitespace text
+				if ( NON_WHITESPACE.matcher(t.getTextContent()).find() ) {
+					buf.append(name.toString()).append('=').append(t.getTextContent()).append('\n');
+				}
 			}
 		}
 	}
