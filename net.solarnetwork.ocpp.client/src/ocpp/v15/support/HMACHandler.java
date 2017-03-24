@@ -286,10 +286,14 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 
 	private void appendHashData(SOAPElement root, StringBuilder buf) {
 		QName name = root.getElementQName();
+		boolean first = true;
 		for ( Iterator<?> itr = root.getChildElements(); itr.hasNext(); ) {
 			Object o = itr.next();
 			if ( o instanceof SOAPElement ) {
-				buf.append(name.toString()).append('\n');
+				if ( first ) {
+					buf.append(name.toString()).append('\n');
+					first = false;
+				}
 				appendHashData((SOAPElement) o, buf);
 			} else if ( o instanceof Text ) {
 				Text t = (Text) o;
