@@ -1,0 +1,24 @@
+<S:Envelope xmlns:S="http://www.w3.org/2003/05/soap-envelope">
+	<S:Header>
+		<chargeBoxIdentity xmlns="urn://Ocpp/Cs/2012/06/">UID=1013,O=SolarDev</chargeBoxIdentity>
+		<To xmlns="http://www.w3.org/2005/08/addressing"
+			>http://localhost:9000/steve/services/CentralSystemService</To>
+		<Action xmlns="http://www.w3.org/2005/08/addressing">/BootNotification</Action>
+		<ReplyTo xmlns="http://www.w3.org/2005/08/addressing">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</ReplyTo>
+		<MessageID xmlns="http://www.w3.org/2005/08/addressing"
+			>uuid:f86a3b23-5db3-4260-ab21-d72348da5ecc</MessageID>
+		<From xmlns="http://www.w3.org/2005/08/addressing">
+			<Address>http://192.168.1.44:8680/ocpp/v15</Address>
+		</From>
+	</S:Header>
+	<S:Body>
+		<bootNotificationRequest xmlns="urn://Ocpp/Cs/2012/06/">
+			<chargePointVendor>SolarNetwork</chargePointVendor>
+			<chargePointModel>SolarNode</chargePointModel>
+			<chargePointSerialNumber>155</chargePointSerialNumber>
+			<firmwareVersion>0.1.0</firmwareVersion>
+		</bootNotificationRequest>
+	</S:Body>
+</S:Envelope>
