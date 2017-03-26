@@ -89,12 +89,11 @@ import org.slf4j.LoggerFactory;
  * 
  * <p>
  * For any SOAP element to be included in the digest, the syntax of the value to
- * add is <code>{fqn}localName=value</code> where <code>fqn</code> is the fully
- * qualified namespace of the element, <code>localName</code> is the element
- * name, and <code>value</code> is the normalized text value of the element
- * (normalized by calling {@link org.w3c.dom.Node.normalize()}). If the text
- * value is only whitespace, however, the entire value (and <code>=</code>
- * character are omitted.
+ * add is <code>{uri}localName=value</code> where <code>uri</code> is the URI of
+ * the namespace of the element, <code>localName</code> is the element name, and
+ * <code>value</code> is the normalized text value of the element (normalized by
+ * calling {@link org.w3c.dom.Node.normalize()}). If the text value is only
+ * whitespace, however, the <code>=value</code> part is omitted.
  * </p>
  * 
  * <p>
