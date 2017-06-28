@@ -28,12 +28,8 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Map;
-import java.util.TimeZone;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.soap.MessageFactory;
@@ -95,17 +91,6 @@ public class HMACHandlerTest {
 			// should never get here
 			throw new RuntimeException(e);
 		}
-	}
-
-	private DateFormat getTimestampDateFormat() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-		sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-		return sdf;
-	}
-
-	private String getTimestampString(long time) {
-		DateFormat sdf = getTimestampDateFormat();
-		return sdf.format(new Date(time));
 	}
 
 	private String digestForResource(String resource, Map<String, String> props) throws IOException {

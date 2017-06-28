@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OCPP Client Test
 Bundle-SymbolicName: net.solarnetwork.external.ocpp.client.test
-Bundle-Version: 1.7.0
+Bundle-Version: 1.7.1
 Bundle-Vendor: SolarNetwork
 Fragment-Host: net.solarnetwork.external.ocpp.client;bundle-version="1.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
