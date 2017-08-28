@@ -1,0 +1,21 @@
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="net.solarnetwork.external" module="${bundle.name}" />
+	<configurations defaultconf="compile,runtime">
+		<conf name="compile" visibility="public" description="Build dependencies"/>
+		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
+	</configurations>
+	<publications>
+		<artifact type="pom" ext="pom"/>
+		<artifact type="bundle" ext="jar"/>
+	</publications>
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+		<dependency org="javax.money" name="money-api" rev="1.0.1"/>
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0" />
+		<dependency org="javax.servlet.jsp" name="javax.servlet.jsp-api" rev="2.3.0" />
+		<dependency org="log4j" name="log4j" rev="1.2.17" conf="compile"/>
+		<dependency org="net.sf.ehcache" name="ehcache" rev="2.7.0" conf="compile"/>
+		<dependency org="org.apache.commons" name="com.springsource.org.apache.commons.logging" rev="1.1.1" conf="compile"/>
+		<dependency org="org.javamoney" name="moneta" rev="1.1"/>
+		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
+	</dependencies>
+</ivy-module>

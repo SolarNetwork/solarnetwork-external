@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Moneta
+Bundle-SymbolicName: net.solarnetwork.external.moneta
+Bundle-Version: 1.1.0
+Bundle-Vendor: Moneta/SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .,moneta-1.1.jar
+Bundle-Activator: net.solarnetwork.javax.money.internal.Activator
+Import-Package: 
+ javax.money;version="[1.0,2.0)",
+ javax.money.convert;version="[1.0,2.0)",
+ javax.money.format;version="[1.0,2.0)",
+ javax.money.spi;version="[1.0,2.0)",
+ org.osgi.framework;version="[1.7,2.0)"
+Export-Package: 
+ net.solarnetwork.javax.money;version="1.0.1"
