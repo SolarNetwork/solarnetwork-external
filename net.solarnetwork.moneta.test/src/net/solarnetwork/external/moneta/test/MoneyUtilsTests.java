@@ -26,12 +26,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import java.math.BigDecimal;
 import java.util.Locale;
-import javax.money.spi.Bootstrap;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import net.solarnetwork.javax.money.MoneyUtils;
-import net.solarnetwork.javax.money.internal.ClassLoaderServiceProvider;
 
 /**
  * Test cases for the {@link MoneyUtils} class.
@@ -43,7 +41,7 @@ public class MoneyUtilsTests {
 
 	@Before
 	public void setup() {
-		Bootstrap.init(new ClassLoaderServiceProvider(getClass().getClassLoader()));
+		MoneyUtils.bootstrap();
 	}
 
 	@Test
