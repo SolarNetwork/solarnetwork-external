@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Primitive Collections for Java
+Bundle-SymbolicName: net.solarnetwork.external.pcj
+Bundle-Version: 1.2.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.3
+Bundle-Vendor: Søren Bak/SolarNetwork
+Export-Package: 
+ bak.pcj;version="1.2.0";uses:="bak.pcj.map,bak.pcj.list,bak.pcj.set",
+ bak.pcj.adapter;version="1.2.0";
+  uses:="bak.pcj.map,
+   bak.pcj,
+   bak.pcj.list,
+   bak.pcj.set",
+ bak.pcj.hash;version="1.2.0",
+ bak.pcj.list;version="1.2.0";uses:="bak.pcj",
+ bak.pcj.map;version="1.2.0";uses:="bak.pcj,bak.pcj.hash,bak.pcj.set",
+ bak.pcj.set;version="1.2.0";uses:="bak.pcj,bak.pcj.hash",
+ bak.pcj.util;version="1.2.0"
