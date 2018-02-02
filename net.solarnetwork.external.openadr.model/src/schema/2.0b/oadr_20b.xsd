@@ -23,7 +23,7 @@
 		</xs:complexType>
 	</xs:element>
 	<!--  ******* oadrSignedObject  ******** -->
-	<!--  The URI attribute of the XML signature Reference element should point to this object (#oadr:oadrSiggedObject) -->
+	<!--  The URI attribute of the XML signature Reference element should point to this object (#oadr:oadrSignedObject) -->
 	<xs:element name="oadrSignedObject">
 		<xs:complexType>
 			<xs:choice>
@@ -51,6 +51,7 @@
 				<xs:element ref="oadr:oadrQueryRegistration"/>
 				<xs:element ref="oadr:oadrPoll"/>
 			</xs:choice>
+			<xs:attribute name="Id" type="xs:ID" use="optional"/>
 		</xs:complexType>
 	</xs:element>
 	<!-- ##### EVENT PAYLOADS ##### -->
@@ -144,7 +145,7 @@
 				<xs:sequence>
 					<xs:element ref="pyld:requestID"/>
 					<xs:element ref="ei:qualifiedEventID" minOccurs="0"/>
-					<xs:element ref="ei:eiTarget" minOccurs="0"/>
+					<xs:element ref="ei:eiTarget"/>
 					<xs:element ref="oadr:oadrDeviceClass" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
@@ -236,6 +237,7 @@
 			<xs:element ref="pyld:requestID"/>
 			<xs:element ref="oadr:oadrReport" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="ei:venID" minOccurs="0"/>
+			<xs:element ref="ei:reportRequestID" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute ref="ei:schemaVersion" use="optional"/>
 	</xs:complexType>
@@ -612,7 +614,7 @@
 					<xs:element ref="scale:siScaleCode"/>
 				</xs:sequence>
 			</xs:extension>
-		</xs:complexContent>	
+		</xs:complexContent>
 	</xs:complexType>
 	<!-- current -->
 	<xs:element name="current" type="oadr:CurrentType" substitutionGroup="emix:itemBase"/>
@@ -939,6 +941,7 @@
 	<xs:simpleType name="oadrDataQualityType">
 		<xs:restriction base="xs:token">
 			<xs:enumeration value="No Quality - No Value"/>
+			<xs:enumeration value="No New Value - Previous Value Used"/>
 			<xs:enumeration value="Quality Bad - Non Specific"/>
 			<xs:enumeration value="Quality Bad - Configuration Error"/>
 			<xs:enumeration value="Quality Bad - Not Connected"/>

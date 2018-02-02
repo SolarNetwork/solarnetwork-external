@@ -154,6 +154,11 @@
       <package name="openadr.model.v20b.xml" />
     </schemaBindings>
   </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_xmldsig-properties-schema.xsd">
+    <schemaBindings>
+      <package name="openadr.model.v20b.xmldsig.properties" />
+    </schemaBindings>
+  </bindings>
   <bindings schemaLocation="../schema/2.0b/oadr_xmldsig.xsd">
     <schemaBindings>
       <package name="openadr.model.v20b.xmldsig" />
