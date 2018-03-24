@@ -42,7 +42,8 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.ModbusIOException;
 import net.wimpi.modbus.msg.ModbusMessage;
@@ -60,6 +61,8 @@ import net.wimpi.modbus.util.ModbusUtil;
 public class ModbusTCPTransport
     implements ModbusTransport {
 
+  private static final Logger log = LoggerFactory.getLogger(ModbusTCPTransport.class);
+
   //instance attributes
   private DataInputStream m_Input;	  //input stream
   private DataOutputStream m_Output;	 //output stream
@@ -75,7 +78,7 @@ public class ModbusTCPTransport
     try {
       setSocket(socket);
     } catch (IOException ex) {
-      if(Modbus.debug) System.out.println("ModbusTCPTransport::Socket invalid.");
+      log.trace("ModbusTCPTransport::Socket invalid.");
       //
 
       throw new IllegalStateException("Socket invalid.");

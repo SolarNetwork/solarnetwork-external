@@ -42,6 +42,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Hashtable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class implementing a <tt>UDPSlaveTerminal</tt>.
@@ -51,6 +53,8 @@ import java.util.Hashtable;
  */
 class UDPSlaveTerminal
     implements UDPTerminal {
+
+  private static final Logger log = LoggerFactory.getLogger(UDPSlaveTerminal.class);
 
   //instance attributes
   private DatagramSocket m_Socket;
@@ -114,7 +118,7 @@ class UDPSlaveTerminal
   public synchronized void activate()
       throws Exception {
     if (!isActive()) {
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::activate()");
+      log.trace("UDPSlaveTerminal::activate()");
       if (m_Socket == null) {
         if (m_LocalAddress != null && m_LocalPort != -1) {
           m_Socket = new DatagramSocket(m_LocalPort, m_LocalAddress);
@@ -124,8 +128,8 @@ class UDPSlaveTerminal
           m_LocalAddress = m_Socket.getLocalAddress();
         }
       }
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::haveSocket():" + m_Socket.toString());
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::addr=:" + m_LocalAddress.toString() + ":port=" + m_LocalPort);
+      log.trace("UDPSlaveTerminal::haveSocket(): {}", m_Socket);
+      log.trace("UDPSlaveTerminal::addr=:{}:port={}", m_LocalAddress, Integer.valueOf(m_LocalPort));
 
 
       m_Socket.setReceiveBufferSize(1024);
@@ -133,16 +137,16 @@ class UDPSlaveTerminal
       m_PacketReceiver = new PacketReceiver();
       m_Receiver = new Thread(m_PacketReceiver);
       m_Receiver.start();
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::receiver started()");
+      log.trace("UDPSlaveTerminal::receiver started()");
       m_PacketSender = new PacketSender();
       m_Sender = new Thread(m_PacketSender);
       m_Sender.start();
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::sender started()");
+      log.trace("UDPSlaveTerminal::sender started()");
       m_ModbusTransport = new ModbusUDPTransport(this);
-      if (Modbus.debug) System.out.println("UDPSlaveTerminal::transport created");
+      log.trace("UDPSlaveTerminal::transport created");
       m_Active = true;
     }
-    if (Modbus.debug) System.out.println("UDPSlaveTerminal::activated");
+    log.trace("UDPSlaveTerminal::activated");
   }//activate
 
   /**
@@ -256,7 +260,7 @@ class UDPSlaveTerminal
               req.getAddress(),
               req.getPort());
           m_Socket.send(res);
-          if (Modbus.debug) System.out.println("Sent package from queue.");
+          log.trace("Sent package from queue.");
         } catch (Exception ex) {
           DEBUG:ex.printStackTrace();
         }
@@ -290,7 +294,7 @@ class UDPSlaveTerminal
           m_Requests.put(tid, packet);
           //3. place the data buffer in the queue
           m_ReceiveQueue.put(buffer);
-          if (Modbus.debug) System.out.println("Received package to queue.");
+          log.trace("Received package to queue.");
         } catch (Exception ex) {
           DEBUG:ex.printStackTrace();
         }

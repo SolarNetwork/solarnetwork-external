@@ -36,7 +36,8 @@ package net.wimpi.modbus.net;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTCPTransport;
 import net.wimpi.modbus.io.ModbusTransport;
@@ -48,6 +49,8 @@ import net.wimpi.modbus.io.ModbusTransport;
  * @version 1.2rc2 (14/04/2014)
  */
 public class TCPMasterConnection {
+
+  private static final Logger log = LoggerFactory.getLogger(TCPMasterConnection.class);
 
   //instance attributes
   private Socket m_Socket;
@@ -81,7 +84,7 @@ public class TCPMasterConnection {
   public synchronized void connect()
       throws Exception {
     if(!m_Connected) {
-      if(Modbus.debug) System.out.println("connect()");
+      log.trace("connect()");
       m_Socket = new Socket(m_Address, m_Port);
       setTimeout(m_Timeout);
       m_Socket.setReuseAddress(true);
@@ -109,7 +112,7 @@ public class TCPMasterConnection {
     	  // ignore
     	}
       }
-      if(Modbus.debug) System.out.println("close()");
+      log.trace("close()");
       m_Connected = false;
     }
   }//close

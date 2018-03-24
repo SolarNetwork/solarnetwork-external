@@ -153,7 +153,7 @@ public class ModbusBINTransport
       } while (!done);
       return request;
     } catch (Exception ex) {
-      if(Modbus.debug) System.out.println(ex.getMessage());
+      log.trace(ex.getMessage());
       throw new ModbusIOException("I/O exception - failed to read.");
     }
 
@@ -208,7 +208,7 @@ public class ModbusBINTransport
       } while (!done);
       return response;
     } catch (Exception ex) {
-      if(Modbus.debug) System.out.println(ex.getMessage());
+      log.trace(ex.getMessage());
       throw new ModbusIOException("I/O exception - failed to read.");
     }
   }//readResponse

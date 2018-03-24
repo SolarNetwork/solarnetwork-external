@@ -90,8 +90,8 @@ public class ModbusASCIITransport
         //write message
         m_OutputStream.write(FRAME_START);               //FRAMESTART
         m_OutputStream.write(buf, 0, len);                 //PDU
-        if(Modbus.debug)
-          System.out.println("Writing: " + ModbusUtil.toHex(buf, 0, len));
+        if(log.isTraceEnabled())
+          log.trace("Writing: {}", ModbusUtil.toHex(buf, 0, len));
         m_OutputStream.write(ModbusUtil.calculateLRC(buf, 0, len)); //LRC
         m_OutputStream.write(FRAME_END);                 //FRAMEEND
         m_OutputStream.flush();
@@ -153,7 +153,7 @@ public class ModbusASCIITransport
       } while (!done);
       return request;
     } catch (Exception ex) {
-      if(Modbus.debug) System.out.println(ex.getMessage());
+      log.trace(ex.getMessage());
       throw new ModbusIOException("readRequest: I/O exception - failed to read.");
     }
 
@@ -184,15 +184,15 @@ public class ModbusASCIITransport
             m_ByteInOut.writeByte(in);
           }
           int len = m_ByteInOut.size();
-          if (Modbus.debug)
-            System.out.println("Received: " +
+          if (log.isTraceEnabled())
+            log.trace("Received: {}",
                                ModbusUtil.toHex(m_InBuffer, 0, len));
           //check LRC
           if (((int)m_InBuffer[len-1] & 0xff) != ModbusUtil.calculateLRC(m_InBuffer, 0, len - 1)) {
-            if (Modbus.debug)
-             System.out.println("LRC is wrong: received=" +
-                 ((int)m_InBuffer[len-1] & 0xff) +
-                 " calculated=" + ModbusUtil.calculateLRC(m_InBuffer, 0, len - 1));
+            if (log.isTraceEnabled())
+             log.trace("LRC is wrong: received={} calculated=",
+                 Integer.valueOf((int)m_InBuffer[len-1] & 0xff),
+                 Integer.valueOf(ModbusUtil.calculateLRC(m_InBuffer, 0, len - 1)));
             continue;
           }
 
@@ -218,7 +218,7 @@ public class ModbusASCIITransport
       } while (!done);
       return response;
     } catch (Exception ex) {
-      if(Modbus.debug) System.out.println(ex.getMessage());
+      log.trace(ex.getMessage());
       throw new ModbusIOException("readResponse I/O exception - failed to read.");
     }
   }//readResponse

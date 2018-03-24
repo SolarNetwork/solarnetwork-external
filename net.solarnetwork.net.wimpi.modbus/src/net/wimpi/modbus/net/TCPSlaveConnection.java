@@ -36,7 +36,8 @@ package net.wimpi.modbus.net;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTCPTransport;
 import net.wimpi.modbus.io.ModbusTransport;
@@ -48,6 +49,8 @@ import net.wimpi.modbus.io.ModbusTransport;
  * @version 1.2rc2 (14/04/2014)
  */
 public class TCPSlaveConnection {
+
+	private static final Logger log = LoggerFactory.getLogger(TCPSlaveConnection.class);
 
   //instance attributes
   private Socket m_Socket;
@@ -65,7 +68,7 @@ public class TCPSlaveConnection {
     try {
       setSocket(socket);
     } catch (IOException ex) {
-       if(Modbus.debug) System.out.println("TCPSlaveConnection::Socket invalid.");
+       log.trace("TCPSlaveConnection::Socket invalid.");
       //
 
       throw new IllegalStateException("Socket invalid.");
@@ -82,7 +85,7 @@ public class TCPSlaveConnection {
         m_ModbusTransport.close();
         m_Socket.close();
       } catch (IOException ex) {
-        if(Modbus.debug) ex.printStackTrace();
+    	log.debug("Error closing connection", ex);
       }
       m_Connected = false;
     }

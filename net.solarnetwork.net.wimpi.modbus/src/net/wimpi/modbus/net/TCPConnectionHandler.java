@@ -33,6 +33,8 @@
  ***/
 package net.wimpi.modbus.net;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.ModbusIOException;
@@ -47,6 +49,8 @@ import net.wimpi.modbus.msg.ModbusResponse;
  * @version 1.2rc2 (14/04/2014)
  */
 public class TCPConnectionHandler implements Runnable {
+
+  private static final Logger log = LoggerFactory.getLogger(TCPConnectionHandler.class);
 
   private TCPSlaveConnection m_Connection;
   private ModbusTransport m_Transport;
@@ -87,8 +91,8 @@ public class TCPConnectionHandler implements Runnable {
           response = request.createResponse();
         }
         /*DEBUG*/
-        if (Modbus.debug) System.out.println("Request:" + request.getHexMessage());
-        if (Modbus.debug) System.out.println("Response:" + response.getHexMessage());
+        log.trace("Request:" + request.getHexMessage());
+        log.trace("Response:" + response.getHexMessage());
 
         //System.out.println("Response:" + response.getHexMessage());
         m_Transport.writeMessage(response);

@@ -37,6 +37,8 @@ import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.io.ModbusTransport;
 
 import java.net.InetAddress;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class that implements a UDPMasterConnection.
@@ -45,6 +47,8 @@ import java.net.InetAddress;
  * @version 1.2rc2 (14/04/2014)
  */
 public class UDPMasterConnection {
+	
+  private static final Logger log = LoggerFactory.getLogger(UDPMasterConnection.class);
 
   //instance attributes
   private UDPMasterTerminal m_Terminal;
@@ -91,7 +95,7 @@ public class UDPMasterConnection {
       try {
         m_Terminal.deactivate();
       } catch (Exception ex) {
-        if (Modbus.debug) ex.printStackTrace();
+    	log.warn("Error closing terminal", ex);
       }
       m_Connected = false;
     }

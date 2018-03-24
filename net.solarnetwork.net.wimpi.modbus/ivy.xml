@@ -10,5 +10,6 @@
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
     	<dependency org="net.solarnetwork.external" name="net.solarnetwork.external.org.rxtx" rev="2.2.0.pre2-20120623A"/>
+    	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21"/>
 	</dependencies>
 </ivy-module>

@@ -44,6 +44,8 @@ import java.io.IOException;
 import gnu.io.CommPort;
 import java.io.InputStream;
 import java.io.OutputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import gnu.io.UnsupportedCommOperationException;
 
 /**
@@ -57,6 +59,9 @@ import gnu.io.UnsupportedCommOperationException;
  */
 abstract public class ModbusSerialTransport
     implements ModbusTransport {
+
+  protected final Logger log = LoggerFactory.getLogger(getClass());
+
   protected CommPort  m_CommPort;
   protected boolean   m_Echo = false;     // require RS-485 echo processing
 
@@ -183,13 +188,11 @@ abstract public class ModbusSerialTransport
     byte echoBuf[] = new byte[len];
     setReceiveThreshold(len);
     int echoLen = m_CommPort.getInputStream().read(echoBuf, 0, len);
-    if (Modbus.debug)
-      System.out.println("Echo: " +
-                         ModbusUtil.toHex(echoBuf, 0, echoLen));
+    if (log.isTraceEnabled())
+      log.trace("Echo: {}", ModbusUtil.toHex(echoBuf, 0, echoLen));
     m_CommPort.disableReceiveThreshold();
     if (echoLen != len) {
-      if (Modbus.debug)
-        System.err.println("Error: Transmit echo not received.");
+      log.trace("Error: Transmit echo not received.");
       throw new IOException("Echo not received.");
     }
   }//readEcho

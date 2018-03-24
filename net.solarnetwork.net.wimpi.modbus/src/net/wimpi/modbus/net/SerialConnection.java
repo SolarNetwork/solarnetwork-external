@@ -42,6 +42,8 @@ import gnu.io.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.TooManyListenersException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class that implements a serial connection which
@@ -53,6 +55,8 @@ import java.util.TooManyListenersException;
  */
 public class SerialConnection
     implements SerialPortEventListener {
+
+  private static final Logger log = LoggerFactory.getLogger(SerialConnection.class);
 
   private SerialParameters m_Parameters;
   private ModbusSerialTransport m_Transport;
@@ -104,7 +108,7 @@ public class SerialConnection
       m_PortIdentifyer =
           CommPortIdentifier.getPortIdentifier(m_Parameters.getPortName());
     } catch (NoSuchPortException e) {
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
       throw new Exception(e.getMessage());
     }
     //System.out.println("Got Port Identifier");
@@ -114,7 +118,7 @@ public class SerialConnection
       m_SerialPort = (SerialPort)
           m_PortIdentifyer.open("Modbus Serial Master", 30000);
     } catch (PortInUseException e) {
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
 
       throw new Exception(e.getMessage());
     }
@@ -127,7 +131,7 @@ public class SerialConnection
     } catch (Exception e) {
       //ensure it is closed
       m_SerialPort.close();
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
       throw e;
     }
 
@@ -150,7 +154,7 @@ public class SerialConnection
 //                                  m_SerialPort.getOutputStream());
     } catch (IOException e) {
       m_SerialPort.close();
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
 
       throw new Exception("Error opening i/o streams");
     }
@@ -161,7 +165,7 @@ public class SerialConnection
       m_SerialPort.addEventListener(this);
     } catch (TooManyListenersException e) {
       m_SerialPort.close();
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
       throw new Exception("too many listeners added");
     }
 
@@ -178,7 +182,7 @@ public class SerialConnection
     try {
       m_SerialPort.enableReceiveTimeout(ms);
     } catch (UnsupportedCommOperationException e) {
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
     }
   }//setReceiveTimeout
   /**
@@ -210,7 +214,7 @@ public class SerialConnection
       m_Parameters.setDatabits(oldDatabits);
       m_Parameters.setStopbits(oldStopbits);
       m_Parameters.setParity(oldParity);
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
 
       throw new Exception("Unsupported parameter");
     }
@@ -220,7 +224,7 @@ public class SerialConnection
       m_SerialPort.setFlowControlMode(m_Parameters.getFlowControlIn()
           | m_Parameters.getFlowControlOut());
     } catch (UnsupportedCommOperationException e) {
-      if(Modbus.debug) System.out.println(e.getMessage());
+      log.trace(e.getMessage());
 
       throw new Exception("Unsupported flow control");
     }
@@ -287,10 +291,10 @@ public class SerialConnection
 */
         break;
       case SerialPortEvent.BI:
-        if (Modbus.debug) System.out.println("Serial port break detected");
+        log.trace("Serial port break detected");
         break;
       default:
-        if (Modbus.debug) System.out.println("Serial port event: " + e.getEventType());
+        log.trace("Serial port event: {}", Integer.valueOf(e.getEventType()));
     }
   }//serialEvent
 

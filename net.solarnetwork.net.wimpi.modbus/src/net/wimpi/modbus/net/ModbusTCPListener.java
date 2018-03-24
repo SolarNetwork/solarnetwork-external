@@ -39,7 +39,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.util.ThreadPool;
 
@@ -53,6 +54,8 @@ import net.wimpi.modbus.util.ThreadPool;
  */
 public class ModbusTCPListener
     implements Runnable {
+
+  private static final Logger log = LoggerFactory.getLogger(ModbusTCPListener.class);
 
   private static int c_RequestCounter = 0;
 
@@ -145,12 +148,12 @@ public class ModbusTCPListener
           program logins can probably be prevented.
       */
       m_ServerSocket = new ServerSocket(m_Port, m_FloodProtection, m_Address);
-      if(Modbus.debug) System.out.println("Listenening to " + m_ServerSocket.toString() + "(Port " + m_Port + ")");
+      log.trace("Listenening to {}(Port {})", m_ServerSocket, Integer.valueOf(m_Port));
 
       //Infinite loop, taking care of resources in case of a lot of parallel logins
       do {
         Socket incoming = m_ServerSocket.accept();
-        if (Modbus.debug) System.out.println("Making new connection " + incoming.toString());
+        log.trace("Making new connection {}", incoming);
         if (m_Listening) {
           //FIXME: Replace with object pool due to resource issues
           m_ThreadPool.execute(

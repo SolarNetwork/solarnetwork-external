@@ -85,7 +85,7 @@ public class ModbusRTUTransport
         byte buf[] = m_ByteOut.getBuffer();
         m_OutputStream.write(buf, 0, len);     //PDU + CRC
         m_OutputStream.flush();
-        if(Modbus.debug) System.out.println("Sent: " + ModbusUtil.toHex(buf, 0, len));
+        if(log.isTraceEnabled()) log.trace("Sent: {}", ModbusUtil.toHex(buf, 0, len));
         // clears out the echoed message
         // for RS485
         if (m_Echo) {
@@ -116,7 +116,7 @@ public class ModbusRTUTransport
       int len = m_InputStream.available();
       byte buf[] = new byte[len];
       m_InputStream.read(buf, 0, len);
-      if(Modbus.debug) System.out.println("Clear input: " +
+      if(log.isTraceEnabled()) log.trace("Clear input: {}",
                   ModbusUtil.toHex(buf, 0, len));
     }
   }//cleanInput
@@ -150,7 +150,7 @@ public class ModbusRTUTransport
             // timeout and to message specific parsing to read a response.
             getResponse(fc, m_ByteInOut);
             dlength = m_ByteInOut.size() - 2; // less the crc
-            if (Modbus.debug) System.out.println("Response: " +
+            if (log.isTraceEnabled()) log.trace("Response: {}",
                ModbusUtil.toHex(m_ByteInOut.getBuffer(), 0, dlength + 2));
 
             m_ByteIn.reset(m_InBuffer, dlength);

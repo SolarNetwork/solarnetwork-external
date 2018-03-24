@@ -34,7 +34,8 @@
 package net.wimpi.modbus.net;
 
 import java.net.InetAddress;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.wimpi.modbus.Modbus;
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.ModbusIOException;
@@ -49,6 +50,8 @@ import net.wimpi.modbus.msg.ModbusResponse;
  * @version 1.2rc2 (14/04/2014)
  */
 public class ModbusUDPListener {
+
+  private static final Logger log = LoggerFactory.getLogger(ModbusUDPListener.class);
 
   private UDPSlaveTerminal m_Terminal;
   private ModbusUDPHandler m_Handler;
@@ -164,8 +167,8 @@ public class ModbusUDPListener {
             response = request.createResponse();
           }
           /*DEBUG*/
-          if (Modbus.debug) System.out.println("Request:" + request.getHexMessage());
-          if (Modbus.debug) System.out.println("Response:" + response.getHexMessage());
+          log.trace("Request: {}", request.getHexMessage());
+          log.trace("Response: {}", response.getHexMessage());
 
           //System.out.println("Response:" + response.getHexMessage());
           m_Transport.writeMessage(response);
