@@ -67,6 +67,7 @@ public class ModbusTCPTransaction
       Modbus.DEFAULT_VALIDITYCHECK;
   private boolean m_Reconnecting = Modbus.DEFAULT_RECONNECTING;
   private int m_Retries = Modbus.DEFAULT_RETRIES;
+  private long m_RetryDelayMillis;
 
   private Mutex m_TransactionLock = new Mutex();
 
@@ -214,6 +215,9 @@ public class ModbusTCPTransaction
             throw new ModbusIOException("Executing transaction failed (tried " + m_Retries + " times)");
           } else {
             retryCounter++;
+            if (m_RetryDelayMillis > 0) {
+              Thread.sleep(m_RetryDelayMillis);
+            }
             continue;
           }
         }
@@ -270,5 +274,24 @@ public class ModbusTCPTransaction
    */
   protected void checkValidity() throws ModbusException {
   }//checkValidity
+
+
+  /**
+   * Get the retry delay.
+   * 
+   * @return the delay; defaults to {@literal 0} no delay
+   */
+  public long getRetryDelayMillis() {
+    return m_RetryDelayMillis;
+  }
+
+  /**
+   * Set a retry delay, in milliseconds, to wait between error retries.
+   * 
+   * @param retryDelayMillis the delay, in milliseconds
+   */
+  public void setRetryDelayMillis(long retryDelayMillis) {
+    this.m_RetryDelayMillis = retryDelayMillis;
+  }
 
 }//class ModbusTCPTransaction

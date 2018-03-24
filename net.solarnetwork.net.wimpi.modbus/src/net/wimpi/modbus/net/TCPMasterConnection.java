@@ -56,6 +56,10 @@ public class TCPMasterConnection {
 
   private InetAddress m_Address;
   private int m_Port = Modbus.DEFAULT_PORT;
+  private boolean m_SocketReuseAddress = true;
+  private int m_SocketLinger = 1;
+  private boolean m_SocketKeepAlive = true;
+  private long m_RetryDelayMillis;
 
   //private int m_Retries = Modbus.DEFAULT_RETRIES;
   private ModbusTCPTransport m_ModbusTransport;
@@ -81,6 +85,9 @@ public class TCPMasterConnection {
       if(Modbus.debug) System.out.println("connect()");
       m_Socket = new Socket(m_Address, m_Port);
       setTimeout(m_Timeout);
+      m_Socket.setReuseAddress(true);
+      m_Socket.setSoLinger(m_SocketLinger > 0, m_SocketLinger);
+      m_Socket.setKeepAlive(m_SocketKeepAlive);
       prepareTransport();
       m_Connected = true;
     }
@@ -94,8 +101,16 @@ public class TCPMasterConnection {
       try {
         m_ModbusTransport.close();
       } catch (IOException ex) {
-        if(Modbus.debug) System.out.println("close()");
+        // ignore
       }
+      if ( m_Socket != null ) {
+    	try {
+          m_Socket.close();
+    	} catch (IOException ex) {
+    	  // ignore
+    	}
+      }
+      if(Modbus.debug) System.out.println("close()");
       m_Connected = false;
     }
   }//close
@@ -196,8 +211,53 @@ public class TCPMasterConnection {
    * @return <tt>true</tt> if connected, <tt>false</tt> otherwise.
    */
   public boolean isConnected() {
+    if (m_Connected && m_Socket != null) {
+      if (!m_Socket.isConnected() || m_Socket.isClosed()
+          || m_Socket.isInputShutdown()
+          || m_Socket.isOutputShutdown()) {
+        close();
+      }
+    }
     return m_Connected;
   }//isConnected
 
+  public boolean isSocketReuseAddress() {
+    return m_SocketReuseAddress;
+  }
+
+  /**
+   * Control the socket reuse setting.
+   * 
+   * @param reuse {@literal true} to enable socket reuse
+   */
+  public void setSocketReuseAddress(boolean reuse) {
+    this.m_SocketReuseAddress = reuse;
+  }
+
+  public int getSocketLinger() {
+    return m_SocketLinger;
+  }
+
+  /**
+   * Set the socket linger time, in seconds.
+   * 
+   * @param lingerSeconds the linger time, or {@literal 0} to disable
+   */
+  public void setSocketLinger(int lingerSeconds) {
+    this.m_SocketLinger = lingerSeconds;
+  }
+
+  public boolean isSocketKeepAlive() {
+    return m_SocketKeepAlive;
+  }
+
+  /**
+   * Set the socket keep-alive flag.
+   * 
+   * @param keepAlive {@literal true} to enable keep alive mode
+   */
+  public void setSocketKeepAlive(boolean keepAlive) {
+    this.m_SocketKeepAlive = keepAlive;
+  }
 
 }//class TCPMasterConnection
