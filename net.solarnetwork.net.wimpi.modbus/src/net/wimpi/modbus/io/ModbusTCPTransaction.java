@@ -68,6 +68,7 @@ public class ModbusTCPTransaction
   private boolean m_Reconnecting = Modbus.DEFAULT_RECONNECTING;
   private int m_Retries = Modbus.DEFAULT_RETRIES;
   private long m_RetryDelayMillis;
+  private boolean m_RetryReconnect;
 
   private Mutex m_TransactionLock = new Mutex();
 
@@ -187,21 +188,21 @@ public class ModbusTCPTransaction
        */
       m_TransactionLock.acquire();
 
-      //3. open the connection if not connected
-      if (!m_Connection.isConnected()) {
-        try {
-          m_Connection.connect();
-          m_IO = m_Connection.getModbusTransport();
-        } catch (Exception ex) {
-          throw new ModbusIOException("Connecting failed.");
-        }
-      }
-
-      //4. Retry transaction m_Retries times, in case of
+      //Retry transaction m_Retries times, in case of
       //I/O Exception problems.
       int retryCounter = 0;
 
       while (retryCounter <= m_Retries) {
+        //3. open the connection if not connected
+        if (!m_Connection.isConnected()) {
+          try {
+            m_Connection.connect();
+            m_IO = m_Connection.getModbusTransport();
+          } catch (Exception ex) {
+            throw new ModbusIOException("Connecting failed.");
+          }
+        }
+
         try {
           //toggle and set the id
           m_Request.setTransactionID(c_TransactionID.increment());
@@ -214,6 +215,9 @@ public class ModbusTCPTransaction
           if (retryCounter == m_Retries) {
             throw new ModbusIOException("Executing transaction failed (tried " + m_Retries + " times): " +ex.getMessage());
           } else {
+        	if (m_RetryReconnect) {
+        		m_Connection.close();
+        	}
             retryCounter++;
             if (m_RetryDelayMillis > 0) {
               Thread.sleep(m_RetryDelayMillis);
@@ -291,6 +295,29 @@ public class ModbusTCPTransaction
    */
   public void setRetryDelayMillis(long retryDelayMillis) {
     this.m_RetryDelayMillis = retryDelayMillis;
+  }
+
+  /**
+   * Get the retry reconnect mode.
+   * 
+   * @return {@literal} true to reconnect between error retries, {@literal false}
+   * to continue using the same connection; defaults to {@literal false}
+   */
+  public boolean isRetryReconnect() {
+    return m_RetryReconnect;
+  }
+
+  /**
+   * Toggle the mode to reconnect between error retries.
+   * 
+   * <p>When enabled, if an IO error occurs while executing a transaction the
+   * connection will be closed and reopened.</p>
+   * 
+   * @param retryReconnect {@literal} true to reconnect between error retries, {@literal false}
+   * to continue using the same connection
+   */
+  public void setRetryReconnect(boolean retryReconnect) {
+    this.m_RetryReconnect = retryReconnect;
   }
 
 }//class ModbusTCPTransaction
