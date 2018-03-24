@@ -212,13 +212,12 @@ public class ModbusTCPTransaction
           break;
         } catch (ModbusIOException ex) {
           if (retryCounter == m_Retries) {
-            throw new ModbusIOException("Executing transaction failed (tried " + m_Retries + " times)");
+            throw new ModbusIOException("Executing transaction failed (tried " + m_Retries + " times): " +ex.getMessage());
           } else {
             retryCounter++;
             if (m_RetryDelayMillis > 0) {
               Thread.sleep(m_RetryDelayMillis);
             }
-            continue;
           }
         }
       }
