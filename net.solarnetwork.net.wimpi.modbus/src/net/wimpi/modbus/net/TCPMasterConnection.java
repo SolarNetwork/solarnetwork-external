@@ -59,7 +59,6 @@ public class TCPMasterConnection {
   private boolean m_SocketReuseAddress = true;
   private int m_SocketLinger = 1;
   private boolean m_SocketKeepAlive = true;
-  private long m_RetryDelayMillis;
 
   //private int m_Retries = Modbus.DEFAULT_RETRIES;
   private ModbusTCPTransport m_ModbusTransport;
