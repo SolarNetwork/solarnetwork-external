@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenDNP3 Bindings
+Bundle-SymbolicName: net.solarnetwork.external.opendnp3-bindings
+Automatic-Module-Name: net.solarnetwork.external.opendnp3-bindings
+Bundle-Version: 2.2.0
+Bundle-ClassPath: opendnp3-bindings-2.2.0.jar
+Bundle-Vendor: OpenDNP3/SolarNetwork
+Export-Package: 
+ com.automatak.dnp3;version="2.2.0";uses:="com.automatak.dnp3.enums",
+ com.automatak.dnp3.enums;version="2.2.0",
+ com.automatak.dnp3.impl;version="2.2.0";uses:="com.automatak.dnp3.enums,com.automatak.dnp3",
+ com.automatak.dnp3.mock;version="2.2.0";uses:="com.automatak.dnp3.enums,com.automatak.dnp3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
