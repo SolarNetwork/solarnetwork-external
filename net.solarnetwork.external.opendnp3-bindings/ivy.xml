@@ -11,6 +11,8 @@
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+       	<dependency org="com.automatak.dnp3" name="opendnp3-bindings" rev="2.2.0"/>
 		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
+ 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21"/>
 	</dependencies>
 </ivy-module>
