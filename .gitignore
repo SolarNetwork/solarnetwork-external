@@ -1,3 +1,4 @@
 /solarnetwork-osgi-target
 build/
 target/
+.DS_Store
