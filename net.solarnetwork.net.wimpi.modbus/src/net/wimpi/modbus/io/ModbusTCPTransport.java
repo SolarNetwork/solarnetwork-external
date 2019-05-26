@@ -106,7 +106,7 @@ public class ModbusTCPTransport
       m_Output.flush();
       //write more sophisticated exception handling
     } catch (Exception ex) {
-      throw new ModbusIOException("I/O exception - failed to write.");
+      throw new ModbusIOException("I/O exception - failed to write: " +ex.getMessage());
     }
   }//write
 

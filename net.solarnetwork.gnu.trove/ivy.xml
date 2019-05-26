@@ -3,9 +3,11 @@
 	<configurations defaultconf="compile,runtime">
 		<conf name="compile" visibility="public" description="Build dependencies"/>
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
+		<conf name="sources"/>
 	</configurations>
 	<publications>
 		<artifact type="pom" ext="pom"/>
 		<artifact type="bundle" ext="jar"/>
+		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
 </ivy-module>

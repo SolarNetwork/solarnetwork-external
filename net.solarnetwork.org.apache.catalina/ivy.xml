@@ -11,7 +11,7 @@
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(runtime)">
-		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.35" />
+		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="8.5.35" />
     	<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
 	</dependencies>
 </ivy-module>

@@ -2,12 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spring Security Messaging
 Bundle-SymbolicName: net.solarnetwork.external.spring-security-messaging
-Bundle-Version: 4.1.0.RELEASE_1
-Bundle-ClassPath: spring-security-messaging-4.1.0.RELEASE.jar
+Automatic-Module-Name: net.solarnetwork.external.spring-security-messaging
+Bundle-Version: 4.2.4.RELEASE_1
+Bundle-ClassPath: spring-security-messaging-4.2.4.RELEASE.jar
 Bundle-Vendor: Spring Security/SolarNetwork
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: 
- org.springframework.security.messaging.access.expression;version="4.1.0.RELEASE";
+ org.springframework.security.messaging.access.expression;version="4.2.4.RELEASE";
   uses:="org.springframework.security.messaging.access.intercept,
    org.springframework.security.authentication,
    org.springframework.security.access,
@@ -15,47 +16,49 @@ Export-Package:
    org.springframework.security.access.expression,
    org.springframework.security.core,
    org.springframework.expression",
- org.springframework.security.messaging.access.intercept;version="4.1.0.RELEASE";
+ org.springframework.security.messaging.access.intercept;version="4.2.4.RELEASE";
   uses:="org.springframework.messaging.support,
    org.springframework.security.access,
    org.springframework.messaging,
    org.springframework.security.access.intercept",
- org.springframework.security.messaging.context;version="4.1.0.RELEASE";
+ org.springframework.security.messaging.context;version="4.2.4.RELEASE";
   uses:="org.springframework.messaging.support,
    org.springframework.messaging.handler.invocation,
    org.springframework.messaging,
    org.springframework.security.core,
    org.springframework.core",
- org.springframework.security.messaging.util.matcher;version="4.1.0.RELEASE";
+ org.springframework.security.messaging.util.matcher;version="4.2.4.RELEASE";
   uses:="org.springframework.messaging.simp,
    org.apache.commons.logging,
    org.springframework.messaging,
    org.springframework.util",
- org.springframework.security.messaging.web.csrf;version="4.1.0.RELEASE";uses:="org.springframework.messaging.support,org.springframework.messaging",
- org.springframework.security.messaging.web.socket.server;version="4.1.0.RELEASE";uses:="org.springframework.web.socket,org.springframework.web.socket.server,org.springframework.http.server"
+ org.springframework.security.messaging.web.csrf;version="4.2.4.RELEASE";
+  uses:="org.springframework.messaging.support,org.springframework.messaging",
+ org.springframework.security.messaging.web.socket.server;version="4.2.4.RELEASE";
+  uses:="org.springframework.web.socket,org.springframework.web.socket.server,org.springframework.http.server"
 Import-Package: 
  javax.servlet.http,
  org.apache.commons.logging;version="1.1.1",
- org.springframework.core;version="[4.2,5.0)",
- org.springframework.core.annotation;version="[4.2,5.0)",
- org.springframework.expression;version="[4.2,5.0)",
- org.springframework.expression.spel.standard;version="[4.2,5.0)",
- org.springframework.expression.spel.support;version="[4.2,5.0)",
- org.springframework.http.server;version="[4.2,5.0)",
- org.springframework.messaging;version="[4.2,5.0)",
- org.springframework.messaging.handler.invocation;version="[4.2,5.0)",
- org.springframework.messaging.simp;version="[4.2,5.0)",
- org.springframework.messaging.support;version="[4.2,5.0)",
- org.springframework.security.access;version="[4.1,5.0)",
- org.springframework.security.access.expression;version="[4.1,5.0)",
- org.springframework.security.access.hierarchicalroles;version="[4.1,5.0)",
- org.springframework.security.access.intercept;version="[4.1,5.0)",
- org.springframework.security.authentication;version="[4.1,5.0)",
- org.springframework.security.core;version="[4.1,5.0)",
- org.springframework.security.core.annotation;version="[4.1,5.0)",
- org.springframework.security.core.authority;version="[4.1,5.0)",
- org.springframework.security.core.context;version="[4.1,5.0)",
- org.springframework.security.web.csrf;version="[4.1,5.0)",
- org.springframework.util;version="[4.2,5.0)",
- org.springframework.web.socket;version="[4.2,5.0)",
- org.springframework.web.socket.server;version="[4.2,5.0)"
+ org.springframework.core;version="[4.3,5.0)",
+ org.springframework.core.annotation;version="[4.3,5.0)",
+ org.springframework.expression;version="[4.3,5.0)",
+ org.springframework.expression.spel.standard;version="[4.3,5.0)",
+ org.springframework.expression.spel.support;version="[4.3,5.0)",
+ org.springframework.http.server;version="[4.3,5.0)",
+ org.springframework.messaging;version="[4.3,5.0)",
+ org.springframework.messaging.handler.invocation;version="[4.3,5.0)",
+ org.springframework.messaging.simp;version="[4.3,5.0)",
+ org.springframework.messaging.support;version="[4.3,5.0)",
+ org.springframework.security.access;version="[4.2,5.0)",
+ org.springframework.security.access.expression;version="[4.2,5.0)",
+ org.springframework.security.access.hierarchicalroles;version="[4.2,5.0)",
+ org.springframework.security.access.intercept;version="[4.2,5.0)",
+ org.springframework.security.authentication;version="[4.2,5.0)",
+ org.springframework.security.core;version="[4.2,5.0)",
+ org.springframework.security.core.annotation;version="[4.2,5.0)",
+ org.springframework.security.core.authority;version="[4.2,5.0)",
+ org.springframework.security.core.context;version="[4.2,5.0)",
+ org.springframework.security.web.csrf;version="[4.2,5.0)",
+ org.springframework.util;version="[4.3,5.0)",
+ org.springframework.web.socket;version="[4.3,5.0)",
+ org.springframework.web.socket.server;version="[4.3,5.0)"
