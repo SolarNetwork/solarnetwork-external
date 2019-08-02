@@ -22,6 +22,7 @@
 
 package net.solarnetwork.external.moneta.test;
 
+import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import java.math.BigDecimal;
@@ -57,7 +58,7 @@ public class MoneyUtilsTests {
 		Locale locale = new Locale("en", "US");
 		String result = MoneyUtils.formattedMoneyAmountFormatWithSymbolCurrencyStyle(locale, "NZD",
 				new BigDecimal("1.99"));
-		assertThat(result, equalTo("NZD1.99"));
+		assertThat(result, anyOf(equalTo("NZD1.99"), equalTo("NZ$1.99")));
 	}
 
 	@Test
@@ -65,7 +66,7 @@ public class MoneyUtilsTests {
 		Locale locale = new Locale("en", "US");
 		String result = MoneyUtils.formattedMoneyAmountFormatWithSymbolCurrencyStyle(locale, "USD",
 				new BigDecimal("1.99"));
-		assertThat(result, Matchers.equalTo("$1.99"));
+		assertThat(result, equalTo("$1.99"));
 	}
 
 	@Test
@@ -73,6 +74,6 @@ public class MoneyUtilsTests {
 		Locale locale = new Locale("de", "DE");
 		String result = MoneyUtils.formattedMoneyAmountFormatWithSymbolCurrencyStyle(locale, "USD",
 				new BigDecimal("1.99"));
-		assertThat(result, Matchers.equalTo("1,99 USD"));
+		assertThat(result, anyOf(equalTo("1,99 USD"), equalTo("1,99 $")));
 	}
 }
