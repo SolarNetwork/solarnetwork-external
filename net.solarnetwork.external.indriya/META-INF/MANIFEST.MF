@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: javax.measure reference implementation
+Bundle-SymbolicName: net.solarnetwork.external.indriya
+Bundle-Version: 2.0.1
+Bundle-Activator: net.solarnetwork.external.indriya.osgi.Activator
+Bundle-Vendor: SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: net.solarnetwork.external.indriya
+Bundle-ClassPath: .,
+ lib/indriya-2.0.1.jar,
+ lib/unit-api-2.0.jar,
+ lib/uom-lib-common-2.0.jar
+Import-Package: 
+ org.osgi.framework;version="[1.7,2.0)"
+Export-Package: 
+ javax.measure;version="2.0.0",
+ javax.measure.format;version="2.0.0",
+ javax.measure.quantity;version="2.0.0",
+ javax.measure.spi;version="2.0.0",
+ net.solarnetwork.javax.measure;version="2.0.0"
