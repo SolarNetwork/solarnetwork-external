@@ -27,6 +27,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
+import net.solarnetwork.javax.measure.DelegateMeasurementServiceProvider;
 import net.solarnetwork.javax.measure.MeasurementServiceProvider;
 import tech.units.indriya.spi.DefaultServiceProvider;
 

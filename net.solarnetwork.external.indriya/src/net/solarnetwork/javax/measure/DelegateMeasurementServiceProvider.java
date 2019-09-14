@@ -20,14 +20,13 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.indriya.osgi;
+package net.solarnetwork.javax.measure;
 
 import javax.measure.Quantity;
 import javax.measure.spi.FormatService;
 import javax.measure.spi.QuantityFactory;
 import javax.measure.spi.ServiceProvider;
 import javax.measure.spi.SystemOfUnitsService;
-import net.solarnetwork.javax.measure.MeasurementServiceProvider;
 
 /**
  * Implementation of {@link MeasurementServiceProvider} that delgates to a
