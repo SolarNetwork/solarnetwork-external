@@ -17,4 +17,24 @@ at runtime, each backed by a different `ServiceProvider` for different systems o
  * **Unicode** - Unicode Common Locale Data Repository (CLDR) units
  * **Default** - the default units defined by Indriya
 
+## OSGi service properties
+
+Each registered [`MeasurementServiceProvider`][MeasurementServiceProvider] service will include
+the following service properties:
+
+| Property | Description |
+|:---------|:------------|
+| `service.name` | The name as shown in the list of instances above, e.g. `UCUM`, `SI`, etc. |
+| `service.ranking` | Set to the priority of the `ServiceProvider` that backs the service. The list of instances above is shown in descending rank, so `UCUM` will be the default service used if no other service filter criteria are used. |
+| `service.vendor` | Set to `Indriya`. |
+
+At runtime, you can thus access a specific unit system by using a service filter. For example, to
+access the SI instance, you would do something like this:
+
+```java
+org.osgi.framework.BundleContext ctx = ...;
+ServiceReference<MeasurementServiceProvider>[] refs = ctx.getServiceReferences(
+    MeasurementServiceProvider.class, "(service.name=SI)");
+```
+
 [MeasurementServiceProvider]: src/net/solarnetwork/javax/measure/
