@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/si-quantity-2.0.1.jar" sourcepath="lib-src/si-quantity-2.0.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/si-units-2.0.1.jar" sourcepath="lib-src/si-units-2.0.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/systems-common-2.0-SNAPSHOT.jar" sourcepath="lib-src/systems-common-2.0-SNAPSHOT-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/systems-quantity-2.0-SNAPSHOT.jar" sourcepath="lib-src/systems-quantity-2.0-SNAPSHOT-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/systems-ucum-2.0-SNAPSHOT.jar" sourcepath="lib-src/systems-ucum-2.0-SNAPSHOT-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/systems-unicode-2.0-SNAPSHOT.jar" sourcepath="lib-src/systems-unicode-2.0-SNAPSHOT-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/indriya-2.0.1.jar" sourcepath="lib-src/indriya-2.0.1-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/unit-api-2.0.jar" sourcepath="lib-src/unit-api-2.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/uom-lib-common-2.0.jar" sourcepath="lib-src/uom-lib-common-2.0-sources.jar"/>

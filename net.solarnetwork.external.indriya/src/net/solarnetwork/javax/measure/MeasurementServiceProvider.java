@@ -29,6 +29,7 @@ import javax.measure.spi.FormatService;
 import javax.measure.spi.QuantityFactory;
 import javax.measure.spi.SystemOfUnits;
 import javax.measure.spi.SystemOfUnitsService;
+import javax.measure.spi.UnitFormatService;
 
 /**
  * API for interacting with Units of Measurement services.
@@ -54,6 +55,20 @@ public interface MeasurementServiceProvider {
 	 *         {@link QuantityFormat}, or {@code null}.
 	 */
 	FormatService getFormatService();
+
+	/**
+	 * Returns the service to obtain a {@link UnitFormat}, or {@code null} if
+	 * none.
+	 * 
+	 * <p>
+	 * This API is deprecated in {@code javax.measure} 2.0, but the reference
+	 * implementation exposes some parsing features only through this API (UCUM)
+	 * so it is repeated here.
+	 * </p>
+	 *
+	 * @return the service to obtain a {@link UnitFormat}, or {@code null}.
+	 */
+	UnitFormatService getUnitFormatService();
 
 	/**
 	 * Returns a factory for the given {@link Quantity} type.

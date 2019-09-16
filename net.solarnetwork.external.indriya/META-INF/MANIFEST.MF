@@ -10,12 +10,29 @@ Automatic-Module-Name: net.solarnetwork.external.indriya
 Bundle-ClassPath: .,
  lib/indriya-2.0.1.jar,
  lib/unit-api-2.0.jar,
- lib/uom-lib-common-2.0.jar
+ lib/uom-lib-common-2.0.jar,
+ lib/si-quantity-2.0.1.jar,
+ lib/si-units-2.0.1.jar,
+ lib/systems-common-2.0-SNAPSHOT.jar,
+ lib/systems-quantity-2.0-SNAPSHOT.jar,
+ lib/systems-ucum-2.0-SNAPSHOT.jar,
+ lib/systems-unicode-2.0-SNAPSHOT.jar
 Import-Package: 
+ javax.annotation,
+ javax.inject,
  org.osgi.framework;version="[1.7,2.0)"
 Export-Package: 
  javax.measure;version="2.0.0",
  javax.measure.format;version="2.0.0",
  javax.measure.quantity;version="2.0.0",
  javax.measure.spi;version="2.0.0",
- net.solarnetwork.javax.measure;version="2.0.0"
+ net.solarnetwork.javax.measure;version="2.0.0",
+ si.uom;version="2.0.0",
+ systems.uom.common.internal;version="2.0.0",
+ systems.uom.ucum.internal;version="2.0.0",
+ systems.uom.unicode.internal;version="2.0.0",
+ tech.units.indriya.function;version="2.0.1",
+ tech.units.indriya.quantity;version="2.0.1",
+ tech.units.indriya.quantity.time;version="2.0.1",
+ tech.units.indriya.spi;version="2.0.1",
+ tech.units.indriya.unit;version="2.0.1"

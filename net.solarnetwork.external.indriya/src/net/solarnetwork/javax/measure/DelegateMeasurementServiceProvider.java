@@ -27,6 +27,7 @@ import javax.measure.spi.FormatService;
 import javax.measure.spi.QuantityFactory;
 import javax.measure.spi.ServiceProvider;
 import javax.measure.spi.SystemOfUnitsService;
+import javax.measure.spi.UnitFormatService;
 
 /**
  * Implementation of {@link MeasurementServiceProvider} that delgates to a
@@ -63,6 +64,12 @@ public class DelegateMeasurementServiceProvider implements MeasurementServicePro
 	@Override
 	public FormatService getFormatService() {
 		return delegate.getFormatService();
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public UnitFormatService getUnitFormatService() {
+		return delegate.getUnitFormatService();
 	}
 
 	@Override
