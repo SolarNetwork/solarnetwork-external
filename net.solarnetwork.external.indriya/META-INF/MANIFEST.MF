@@ -46,6 +46,12 @@ Export-Package:
    tech.units.indriya.spi",
  systems.uom.unicode;version="2.0.0";uses:="javax.measure,tech.units.indriya",
  systems.uom.unicode.internal;version="2.0.0";uses:="javax.measure.spi,tech.uom.lib.common.function,tech.units.indriya.spi",
+ tech.units.indriya;version="2.0.1";
+  uses:="javax.measure,
+   javax.measure.spi,
+   tech.uom.lib.common.function,
+   tech.units.indriya.format,
+   tech.units.indriya.spi",
  tech.units.indriya.function;version="2.0.1";
   uses:="javax.measure,
    tech.units.indriya.quantity,
