@@ -26,7 +26,8 @@ Export-Package:
  javax.measure.format;version="2.0.0";uses:="javax.measure",
  javax.measure.quantity;version="2.0.0";uses:="javax.measure",
  javax.measure.spi;version="2.0.0";uses:="javax.measure,javax.measure.format",
- net.solarnetwork.javax.measure;version="2.0.0";uses:="javax.measure.spi",
+ net.solarnetwork.external.indriya;version="2.0.1";uses:="javax.measure.spi,javax.measure,net.solarnetwork.javax.measure",
+ net.solarnetwork.javax.measure;version="2.0.0";uses:="javax.measure.spi,javax.measure",
  si.uom;version="2.0.1";
   uses:="javax.measure,
    javax.measure.spi,

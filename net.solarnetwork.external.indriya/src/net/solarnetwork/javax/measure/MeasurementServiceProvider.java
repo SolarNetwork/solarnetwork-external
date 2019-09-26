@@ -23,6 +23,7 @@
 package net.solarnetwork.javax.measure;
 
 import javax.measure.Quantity;
+import javax.measure.Unit;
 import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
 import javax.measure.spi.FormatService;
@@ -80,5 +81,18 @@ public interface MeasurementServiceProvider {
 	 * @return the {@link QuantityFactory} for the given type
 	 */
 	<Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
+
+	/**
+	 * Get a quantity for a given number and unit.
+	 * 
+	 * @param <Q>
+	 *        the quantity type
+	 * @param value
+	 *        the quantity amount
+	 * @param unit
+	 *        the quantity unit
+	 * @return the quantity, or {@code null} if one cannot be obtained
+	 */
+	<Q extends Quantity<Q>> Quantity<Q> quantityForUnit(Number value, Unit<Q> unit);
 
 }

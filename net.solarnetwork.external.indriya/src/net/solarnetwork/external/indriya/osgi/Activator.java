@@ -31,7 +31,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
-import net.solarnetwork.javax.measure.DelegateMeasurementServiceProvider;
+import net.solarnetwork.external.indriya.IndriyaMeasurementServiceProvider;
 import net.solarnetwork.javax.measure.MeasurementServiceProvider;
 import si.uom.SIServiceProvider;
 import systems.uom.common.internal.CommonServiceProvider;
@@ -80,7 +80,7 @@ public class Activator implements BundleActivator {
 		properties.put("service.name", name);
 		properties.put(Constants.SERVICE_RANKING, provider.getPriority());
 		properties.put(Constants.SERVICE_VENDOR, "Indriya");
-		MeasurementServiceProvider s = new DelegateMeasurementServiceProvider(provider);
+		MeasurementServiceProvider s = new IndriyaMeasurementServiceProvider(provider);
 		registrations
 				.add(bundleContext.registerService(MeasurementServiceProvider.class, s, properties));
 	}

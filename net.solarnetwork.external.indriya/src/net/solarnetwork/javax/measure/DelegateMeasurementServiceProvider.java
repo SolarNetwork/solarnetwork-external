@@ -36,7 +36,7 @@ import javax.measure.spi.UnitFormatService;
  * @author matt
  * @version 1.0
  */
-public class DelegateMeasurementServiceProvider implements MeasurementServiceProvider {
+public abstract class DelegateMeasurementServiceProvider implements MeasurementServiceProvider {
 
 	private final ServiceProvider delegate;
 
