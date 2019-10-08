@@ -76,6 +76,7 @@ public class Activator implements BundleActivator {
 
 	private void registerServiceProvider(BundleContext bundleContext, ServiceProvider provider,
 			String name) {
+		setupServiceProvider(provider);
 		Hashtable<String, Object> properties = new Hashtable<>();
 		properties.put("service.name", name);
 		properties.put(Constants.SERVICE_RANKING, provider.getPriority());
@@ -83,6 +84,15 @@ public class Activator implements BundleActivator {
 		MeasurementServiceProvider s = new IndriyaMeasurementServiceProvider(provider);
 		registrations
 				.add(bundleContext.registerService(MeasurementServiceProvider.class, s, properties));
+	}
+
+	@SuppressWarnings("deprecation")
+	private void setupServiceProvider(ServiceProvider provider) {
+		// verify internal classes are loaded by _this_ bundle, as internally ThreadContextClassLoader is used
+		// by ServiceLoader :-(
+		provider.getFormatService();
+		provider.getUnitFormatService();
+		provider.getSystemOfUnitsService();
 	}
 
 	@Override
