@@ -10,6 +10,9 @@
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
     	<dependency org="commons-codec" name="commons-codec" rev="1.7"/>
+		<dependency org="javax.xml.bind" name="jaxb-api" rev="2.2.12"/>
+		<dependency org="javax.xml.ws" name="jaxws-api" rev="2.2.12"/>
+		<dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.2.10"/>
     	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21"/>
 	</dependencies>
 </ivy-module>
