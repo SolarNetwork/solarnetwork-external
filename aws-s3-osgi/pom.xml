@@ -1,0 +1,33 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.solarnetwork.external</groupId>
+	<artifactId>net.solarnetwork.external.aws-sdk-mini</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.11.688.SN20191206A</version>
+	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.9</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>software.amazon.ion</groupId>
+			<artifactId>ion-java</artifactId>
+			<version>1.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

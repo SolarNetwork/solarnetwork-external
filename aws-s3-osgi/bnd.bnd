@@ -1,0 +1,34 @@
+ver: 1.11.688
+verb: SN20191206A
+-classpath: build/libs/aws-sdk-mini-${ver}.jar
+Bundle-SymbolicName: net.solarnetwork.external.aws-sdk-mini
+-output: build/libs/${bsn}-${ver}.${verb}.jar
+Bundle-Version: ${ver}
+Bundle-Name: AWS SDK (Mini)
+Bundle-Description: Mini version of AWS SDK that includes only core components for SolarNode.
+Bundle-Vendor: SolarNetwork
+Export-Package: com.amazonaws*;version=${ver}
+Import-Package: \
+ !kotlin, \
+ !org.junit.*, \
+ !org.springframework.*, \
+ !org.apache.avalon.*, \
+ !org.apache.log.*, \
+ !org.aspectj.*, \
+ com.fasterxml.jackson*;resolution:=optional, \
+ com.sun.org.apache.xpath.internal.*;resolution:=optional, \
+ javax.crypto*, \
+ javax.management, \
+ javax.security.auth.x500;resolution:=optional, \
+ javax.naming, \
+ javax.naming.directory, \
+ javax.naming.ldap, \
+ javax.net*, \
+ javax.xml*, \
+ org.apache.commons.logging*;version="[1.1,2)";resolution:=optional, \
+ org.apache.http*, \
+ org.ietf.jgss;resolution:=optional, \
+ org.joda.time*;version="[2.8,3)", \
+ org.w3c.dom, \
+ org.xml.sax*, \
+ software.amazon.ion*;version="[1.0,2)"
