@@ -1,0 +1,45 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OCPP Core API
+Bundle-Description: Core Open Charge Point Protocol API.
+Bundle-SymbolicName: net.solarnetwork.external.ocpp
+Bundle-Version: 1.0.0
+Bundle-Vendor: SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: 
+ javax.crypto;resolution:=optional,
+ javax.crypto.spec;resolution:=optional,
+ javax.jws,
+ javax.jws.soap,
+ javax.xml.bind,
+ javax.xml.bind.annotation,
+ javax.xml.datatype,
+ javax.xml.namespace,
+ javax.xml.ws,
+ org.apache.commons.codec.binary;version="[1.7,2.0)";resolution:=optional,
+ org.slf4j;version="[1.7,2.0)";resolution:=optional
+Export-Package: 
+ ocpp.v15.cp;version="2.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind",
+ ocpp.v15.cs;version="2.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind",
+ ocpp.v15.support;version="2.0.0";
+  uses:="javax.xml.ws.handler,
+   javax.xml.namespace,
+   javax.xml.ws.handler.soap",
+ ocpp.v16.cp;version="1.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind",
+ ocpp.v16.cs;version="1.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind"
