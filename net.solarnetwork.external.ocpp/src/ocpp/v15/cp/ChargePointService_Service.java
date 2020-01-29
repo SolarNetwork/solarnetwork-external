@@ -19,7 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ChargePointService", targetNamespace = "urn://Ocpp/Cp/2012/06/", wsdlLocation = "file:/Users/matt/Documents/SolarNetwork/OCPP/OCPP_1.5_Specification/ocpp_chargepointservice_1.5_final.wsdl")
+@WebServiceClient(name = "ChargePointService", targetNamespace = "urn://Ocpp/Cp/2012/06/", wsdlLocation = "file:ocpp_chargepointservice_1.5_final.wsdl")
 public class ChargePointService_Service
     extends Service
 {
@@ -32,7 +32,7 @@ public class ChargePointService_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/Users/matt/Documents/SolarNetwork/OCPP/OCPP_1.5_Specification/ocpp_chargepointservice_1.5_final.wsdl");
+            url = new URL("file:ocpp_chargepointservice_1.5_final.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

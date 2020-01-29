@@ -19,7 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "CentralSystemService", targetNamespace = "urn://Ocpp/Cs/2012/06/", wsdlLocation = "file:/Users/matt/Documents/SolarNetwork/OCPP/OCPP_1.5_Specification/ocpp_centralsystemservice_1.5_final.wsdl")
+@WebServiceClient(name = "CentralSystemService", targetNamespace = "urn://Ocpp/Cs/2012/06/", wsdlLocation = "file:ocpp_centralsystemservice_1.5_final.wsdl")
 public class CentralSystemService_Service
     extends Service
 {
@@ -32,7 +32,7 @@ public class CentralSystemService_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/Users/matt/Documents/SolarNetwork/OCPP/OCPP_1.5_Specification/ocpp_centralsystemservice_1.5_final.wsdl");
+            url = new URL("file:ocpp_centralsystemservice_1.5_final.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
