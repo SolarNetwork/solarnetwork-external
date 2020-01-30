@@ -1,5 +1,5 @@
 /* ==================================================================
- * AuthorizeTest.java - 4/06/2015 7:07:33 am
+ * HeartbeatTest.java - 3/06/2015 2:17:43 pm
  * 
  * Copyright 2007-2015 SolarNetwork.net Dev Team
  * 
@@ -20,35 +20,34 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.ocpp.client.test;
+package ocpp.v15.cs.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ocpp.v15.cs.AuthorizationStatus;
-import ocpp.v15.cs.AuthorizeRequest;
-import ocpp.v15.cs.AuthorizeResponse;
+import javax.xml.datatype.XMLGregorianCalendar;
 import ocpp.v15.cs.CentralSystemService;
-import ocpp.v15.cs.IdTagInfo;
+import ocpp.v15.cs.HeartbeatRequest;
+import ocpp.v15.cs.HeartbeatResponse;
+import ocpp.v15.test.AbstractClientEndpointTest;
+import ocpp.v15.test.AbstractSOAPTestHandler;
 import org.junit.Test;
-import org.springframework.util.FileCopyUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * Test the Authorize endpoint.
+ * Test the Heartbeat endpoint.
  * 
  * @author matt
  * @version 1.0
  */
-public class AuthorizeTest extends AbstractClientEndpointTest {
+public class HeartbeatTest extends AbstractClientEndpointTest {
 
 	@Test
-	public void authorize() {
+	public void callService() throws Exception {
 		AbstractSOAPTestHandler handler = new AbstractSOAPTestHandler(getXmlSupport()) {
 
 			@Override
@@ -58,13 +57,13 @@ public class AuthorizeTest extends AbstractClientEndpointTest {
 				assertEquals("POST", request.getMethod());
 				assertEquals("Client ident", TEST_CHARGE_POINT_IDENTITY,
 						getChargeBoxIdentityHeader(headers));
-				assertEquals("Authorize request", "authorizeRequest", body.getLocalName());
+				assertEquals("Heartbeat request", "heartbeatRequest", body.getLocalName());
 
 				response.setContentType("application/soap+xml");
 				PrintWriter out = response.getWriter();
-				String authorizeResponse = FileCopyUtils.copyToString(new InputStreamReader(getClass()
-						.getResourceAsStream("authorize-req.xml"), "UTF-8"));
-				respondWithSoapBody(out, authorizeResponse);
+				respondWithSoapBody(
+						out,
+						"<heartbeatResponse xmlns=\"urn://Ocpp/Cs/2012/06/\"><currentTime>2015-06-03T15:00:00.000+00:12</currentTime></heartbeatResponse>");
 				out.flush();
 				response.flushBuffer();
 				return true;
@@ -75,17 +74,13 @@ public class AuthorizeTest extends AbstractClientEndpointTest {
 
 		CentralSystemService client = getCentralSystem();
 
-		AuthorizeRequest req = new AuthorizeRequest();
-		AuthorizeResponse res = client.authorize(req, TEST_CHARGE_POINT_IDENTITY);
+		HeartbeatRequest req = new HeartbeatRequest();
+		HeartbeatResponse res = client.heartbeat(req, TEST_CHARGE_POINT_IDENTITY);
 		assertNotNull("Response should not be null", res);
 
-		IdTagInfo idTag = res.getIdTagInfo();
-		assertNotNull("IdTagInfo should be set", idTag);
-		assertNotNull("Expiry date should be set", idTag.getExpiryDate());
-		assertEquals("Response date", "2015-06-03T15:00:00.000+00:12", idTag.getExpiryDate()
-				.toXMLFormat());
-		assertEquals("Auth status", AuthorizationStatus.ACCEPTED, idTag.getStatus());
-		assertEquals("Parent IdTag", "01234567890123456789", idTag.getParentIdTag());
+		XMLGregorianCalendar resultTimestamp = res.getCurrentTime();
+		assertNotNull("Response date should be set", resultTimestamp);
+		assertEquals("Response date", "2015-06-03T15:00:00.000+00:12", resultTimestamp.toXMLFormat());
 	}
 
 }

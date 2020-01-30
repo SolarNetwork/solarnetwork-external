@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package ocpp.v15.support;
+package ocpp.xml.support;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;

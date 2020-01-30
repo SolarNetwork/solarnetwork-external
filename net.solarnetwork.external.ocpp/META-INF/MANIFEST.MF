@@ -7,6 +7,7 @@ Bundle-Version: 1.0.0
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
+ com.fasterxml.jackson.annotation;version="[2.9,3.0)",
  javax.crypto;resolution:=optional,
  javax.crypto.spec;resolution:=optional,
  javax.jws,
@@ -29,10 +30,6 @@ Export-Package:
    javax.xml.datatype,
    javax.xml.ws,
    javax.xml.bind",
- ocpp.v15.support;version="2.0.0";
-  uses:="javax.xml.ws.handler,
-   javax.xml.namespace,
-   javax.xml.ws.handler.soap",
  ocpp.v16.cp;version="1.0.0";
   uses:="javax.xml.namespace,
    javax.xml.datatype,
@@ -42,4 +39,8 @@ Export-Package:
   uses:="javax.xml.namespace,
    javax.xml.datatype,
    javax.xml.ws,
-   javax.xml.bind"
+   javax.xml.bind",
+ ocpp.xml.support;version="2.0.0";
+  uses:="javax.xml.ws.handler,
+   javax.xml.namespace,
+   javax.xml.ws.handler.soap"

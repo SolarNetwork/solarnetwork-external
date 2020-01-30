@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.ocpp.client.test;
+package ocpp.v15.cs.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -44,6 +44,8 @@ import org.w3c.dom.NodeList;
 import ocpp.v15.cs.CentralSystemService;
 import ocpp.v15.cs.MeterValue;
 import ocpp.v15.cs.MeterValue.Value;
+import ocpp.v15.test.AbstractClientEndpointTest;
+import ocpp.v15.test.AbstractSOAPTestHandler;
 import ocpp.v15.cs.MeterValuesRequest;
 import ocpp.v15.cs.MeterValuesResponse;
 import ocpp.v15.cs.ReadingContext;

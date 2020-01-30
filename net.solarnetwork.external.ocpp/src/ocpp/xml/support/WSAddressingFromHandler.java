@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package ocpp.v15.support;
+package ocpp.xml.support;
 
 import java.net.Inet6Address;
 import java.net.InetAddress;

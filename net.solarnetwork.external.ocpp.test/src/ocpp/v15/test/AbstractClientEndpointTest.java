@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.ocpp.client.test;
+package ocpp.v15.test;
 
 import java.net.URL;
 import java.util.List;
@@ -31,8 +31,8 @@ import javax.xml.ws.soap.AddressingFeature;
 import net.solarnetwork.support.XmlSupport;
 import ocpp.v15.cs.CentralSystemService;
 import ocpp.v15.cs.CentralSystemService_Service;
-import ocpp.v15.support.HMACHandler;
-import ocpp.v15.support.WSAddressingFromHandler;
+import ocpp.xml.support.HMACHandler;
+import ocpp.xml.support.WSAddressingFromHandler;
 import org.junit.After;
 import org.junit.Before;
 import org.mortbay.jetty.Server;

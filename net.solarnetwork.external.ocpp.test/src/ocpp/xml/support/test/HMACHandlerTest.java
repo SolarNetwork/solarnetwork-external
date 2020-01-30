@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.ocpp.client.test;
+package ocpp.xml.support.test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,7 +48,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import ocpp.v15.support.HMACHandler;
+import ocpp.xml.support.HMACHandler;
 
 /**
  * Test cases for the {@link HMACHandler} class.

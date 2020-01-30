@@ -20,7 +20,7 @@
  * ==================================================================
  */
 
-package net.solarnetwork.external.ocpp.client.test;
+package ocpp.v15.test;
 
 import java.io.IOException;
 import java.io.Writer;
