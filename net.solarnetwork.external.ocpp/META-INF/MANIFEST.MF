@@ -45,7 +45,7 @@ Export-Package:
    javax.xml.datatype,
    javax.xml.ws,
    javax.xml.bind",
- ocpp.xml.support;version="2.0.0";
+ ocpp.xml.support;version="1.0.0";
   uses:="javax.xml.ws.handler,
    javax.xml.namespace,
    javax.xml.ws.handler.soap,
