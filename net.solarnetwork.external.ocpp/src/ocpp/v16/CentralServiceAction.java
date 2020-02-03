@@ -1,5 +1,5 @@
 /* ==================================================================
- * Action.java - 31/01/2020 7:17:52 am
+ * CentralServiceAction.java - 3/02/2020 8:05:02 am
  * 
  * Copyright 2020 SolarNetwork.net Dev Team
  * 
@@ -23,26 +23,16 @@
 package ocpp.v16;
 
 /**
- * OCPP v1.6 action enumeration.
+ * OCPP 1.6 Central Service action enumeration.
  * 
  * @author matt
  * @version 1.0
  */
-public enum Action implements ocpp.domain.Action {
+public enum CentralServiceAction implements ocpp.domain.Action {
 
 	Authorize,
 
 	BootNotification,
-
-	CancelReservation,
-
-	ChangeAvailability,
-
-	ChangeConfiguration,
-
-	ClearCache,
-
-	ClearChargingProfile,
 
 	DataTransfer,
 
@@ -50,45 +40,15 @@ public enum Action implements ocpp.domain.Action {
 
 	FirmwareStatusNotification,
 
-	GetCompositeSchedule,
-
-	GetConfiguration,
-
-	GetDiagnostics,
-
-	GetLocalListVersion,
-
-	GetVariables,
-
 	Heartbeat,
 
 	MeterValues,
-
-	RemoteStartTransaction,
-
-	RemoteStopTransaction,
-
-	ReserveNow,
-
-	Reset,
-
-	SendLocalList,
-
-	SetChargingProfile,
-
-	SetVariables,
 
 	StartTransaction,
 
 	StatusNotification,
 
-	StopTransaction,
-
-	TriggerMessage,
-
-	UnlockConnector,
-
-	UpdateFirmware;
+	StopTransaction;
 
 	@Override
 	public String getName() {

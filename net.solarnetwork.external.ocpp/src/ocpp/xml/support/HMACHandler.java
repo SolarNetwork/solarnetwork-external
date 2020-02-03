@@ -22,12 +22,12 @@
 
 package ocpp.xml.support;
 
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
@@ -47,7 +47,6 @@ import javax.xml.soap.Text;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
-import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -343,12 +342,7 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 			mac.reset();
 			hash = mac.doFinal(data.getBytes());
 		}
-		try {
-			return new String(Base64.encodeBase64(hash, false), "US-ASCII");
-		} catch ( UnsupportedEncodingException e ) {
-			// should never get here
-			throw new RuntimeException(e);
-		}
+		return Base64.getEncoder().encodeToString(hash);
 	}
 
 	private void appendHashData(SOAPElement root, StringBuilder buf) {

@@ -22,6 +22,7 @@
 
 package ocpp.xml.support;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -86,6 +87,61 @@ public final class XmlDateUtils {
 		GregorianCalendar now = (GregorianCalendar) UTC_CALENDAR.clone();
 		now.setTimeInMillis(date);
 		return datatypeFactory.newXMLGregorianCalendar(now);
+	}
+
+	/**
+	 * Get a {@link XMLGregorianCalendar} for a specific time, set to the UTC
+	 * time zone, using the {@link #DATATYPE_FACTORY}.
+	 * 
+	 * @param year
+	 *        the year
+	 * @param month
+	 *        the month of the year, starting with {@literal 1} for January
+	 * @param day
+	 *        the day of the month
+	 * @param hour
+	 *        the hour of the day, from {@literal 0} for midnight
+	 * @param minute
+	 *        the minute of the hour
+	 * @param second
+	 *        the second of the minute
+	 * @param millisecond
+	 *        the millisecond of the second
+	 * @return a new calendar instance
+	 */
+	public static XMLGregorianCalendar newXmlCalendar(int year, int month, int day, int hour, int minute,
+			int second, int millisecond) {
+		return newXmlCalendar(DATATYPE_FACTORY, year, month, day, hour, minute, second, millisecond);
+	}
+
+	/**
+	 * Get a {@link XMLGregorianCalendar} for a specific time, set to the UTC
+	 * time zone, using the {@link #DATATYPE_FACTORY}.
+	 * 
+	 * @param datatypeFactory
+	 *        the factory to use
+	 * @param year
+	 *        the year
+	 * @param month
+	 *        the month of the year, starting with {@literal 1} for January
+	 * @param day
+	 *        the day of the month
+	 * @param hour
+	 *        the hour of the day, from {@literal 0} for midnight
+	 * @param minute
+	 *        the minute of the hour
+	 * @param second
+	 *        the second of the minute
+	 * @param millisecond
+	 *        the millisecond of the second
+	 * @return a new calendar instance
+	 */
+	public static XMLGregorianCalendar newXmlCalendar(DatatypeFactory datatypeFactory, int year,
+			int month, int day, int hour, int minute, int second, int millisecond) {
+		GregorianCalendar cal = (GregorianCalendar) UTC_CALENDAR.clone();
+		cal.set(year, month - 1, day, hour, minute, second);
+		cal.set(Calendar.MILLISECOND, millisecond);
+		return datatypeFactory.newXMLGregorianCalendar(cal);
 	}
 
 }

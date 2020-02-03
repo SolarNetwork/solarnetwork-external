@@ -43,6 +43,13 @@ public interface CallMessage extends Message {
 	}
 
 	/**
+	 * Get the ID of the client that initiated the call.
+	 * 
+	 * @return the client ID
+	 */
+	String getClientId();
+
+	/**
 	 * Get a unique ID for this message.
 	 * 
 	 * <p>

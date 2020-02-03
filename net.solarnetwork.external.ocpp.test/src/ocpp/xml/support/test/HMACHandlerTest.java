@@ -25,9 +25,9 @@ package ocpp.xml.support.test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.Map;
 import javax.crypto.Mac;
@@ -39,7 +39,6 @@ import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
-import org.apache.commons.codec.binary.Base64;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Test;
@@ -85,12 +84,7 @@ public class HMACHandlerTest {
 	private String hash(String data) {
 		Mac mac = createHMAC();
 		byte[] hash = mac.doFinal(data.getBytes());
-		try {
-			return new String(Base64.encodeBase64(hash, false), "US-ASCII");
-		} catch ( UnsupportedEncodingException e ) {
-			// should never get here
-			throw new RuntimeException(e);
-		}
+		return Base64.getEncoder().encodeToString(hash);
 	}
 
 	private String digestForResource(String resource, Map<String, String> props) throws IOException {
