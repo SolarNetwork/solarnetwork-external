@@ -7,9 +7,11 @@ Bundle-Version: 1.0.0
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
- com.fasterxml.jackson.databind;version="[2.9,3.0)";resolution:=optional,
- com.fasterxml.jackson.core;version="[2.9,3.0)";resolution:=optional,
- com.fasterxml.jackson.module.jaxb;version="[2.9,3.0)";resolution:=optional,
+ com.fasterxml.jackson.annotation;version="[2.10,3.0)",
+ com.fasterxml.jackson.databind;version="[2.10,3.0)",
+ com.fasterxml.jackson.core;version="[2.10,3.0)",
+ com.fasterxml.jackson.module.jaxb;version="[2.10,3.0)",
+ com.sun.xml.bind.v2;resolution:=optional,
  javax.crypto;resolution:=optional,
  javax.crypto.spec;resolution:=optional,
  javax.jws,
@@ -18,9 +20,10 @@ Import-Package:
  javax.xml.bind.annotation,
  javax.xml.datatype,
  javax.xml.namespace,
+ javax.xml.parsers,
  javax.xml.validation,
  javax.xml.ws,
- org.slf4j;version="[1.7,2.0)";resolution:=optional,
+ org.slf4j;version="[1.7,2.0)",
  org.w3c.dom,
  org.w3c.dom.bootstrap,
  org.w3c.dom.ls,
@@ -29,6 +32,12 @@ Import-Package:
 Export-Package: 
  ocpp.domain;version="1.0.0",
  ocpp.json;version="1.0.0";uses:="ocpp.domain,com.fasterxml.jackson.databind",
+ ocpp.json.support;version="1.0.0";
+  uses:="ocpp.json,
+   com.fasterxml.jackson.databind,
+   com.fasterxml.jackson.module.jaxb,
+   ocpp.xml.support,
+   javax.xml.bind",
  ocpp.v15;version="2.0.0";uses:="ocpp.domain",
  ocpp.v15.cp;version="2.0.0";
   uses:="javax.xml.namespace,
@@ -46,15 +55,25 @@ Export-Package:
    javax.xml.datatype,
    javax.xml.ws,
    javax.xml.bind",
- ocpp.v16.cp.json;version="1.0.0";uses:="ocpp.json,ocpp.domain,com.fasterxml.jackson.databind",
+ ocpp.v16.cp.json;version="1.0.0";
+  uses:="ocpp.v16.cp,
+   ocpp.json.support,
+   ocpp.domain,
+   com.fasterxml.jackson.databind",
  ocpp.v16.cs;version="1.0.0";
   uses:="javax.xml.namespace,
    javax.xml.datatype,
    javax.xml.ws,
    javax.xml.bind",
- ocpp.v16.cs.json;version="1.0.0";uses:="ocpp.json,ocpp.domain,com.fasterxml.jackson.databind",
+ ocpp.v16.cs.json;version="1.0.0";
+  uses:="ocpp.json.support,
+   ocpp.v16.cs,
+   ocpp.domain,
+   com.fasterxml.jackson.databind",
  ocpp.xml.support;version="1.0.0";
   uses:="javax.xml.ws.handler,
+   javax.xml.validation,
    javax.xml.namespace,
    javax.xml.ws.handler.soap,
-   javax.xml.datatype"
+   javax.xml.datatype,
+   javax.xml.bind"

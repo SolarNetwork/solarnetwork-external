@@ -101,7 +101,7 @@ public class ChargePointActionPayloadDecoder extends BaseActionPayloadDecoder {
 	 *        the object mapper to use
 	 */
 	public ChargePointActionPayloadDecoder(ObjectMapper mapper) {
-		super(mapper, "ocpp.v16.cp", "ocpp/v16/cp/OCPP_ChargePointService_1.6.wsdl",
+		super(mapper, ObjectFactory.class, "ocpp/v16/cp/OCPP_ChargePointService_1.6.wsdl",
 				ChargePointService.class.getClassLoader());
 		this.jaxbObjectFactory = new ObjectFactory();
 	}

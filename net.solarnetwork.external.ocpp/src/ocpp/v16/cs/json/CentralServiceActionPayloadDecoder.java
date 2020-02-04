@@ -83,7 +83,7 @@ public class CentralServiceActionPayloadDecoder extends BaseActionPayloadDecoder
 	 *        the object mapper to use
 	 */
 	public CentralServiceActionPayloadDecoder(ObjectMapper mapper) {
-		super(mapper, "ocpp.v16.cs", "ocpp/v16/cs/OCPP_CentralSystemService_1.6.wsdl",
+		super(mapper, ObjectFactory.class, "ocpp/v16/cs/OCPP_CentralSystemService_1.6.wsdl",
 				CentralSystemService.class.getClassLoader());
 		this.jaxbObjectFactory = new ObjectFactory();
 	}

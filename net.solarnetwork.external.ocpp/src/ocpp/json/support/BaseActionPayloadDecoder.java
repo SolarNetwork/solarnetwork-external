@@ -24,9 +24,11 @@ package ocpp.json.support;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.annotation.XmlRegistry;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.json.ActionPayloadDecoder;
+import ocpp.xml.support.JaxbUtils;
 import ocpp.xml.support.SchemaValidationHelper;
 
 /**
@@ -58,8 +60,17 @@ public abstract class BaseActionPayloadDecoder implements ActionPayloadDecoder {
 	 * 
 	 * @param mapper
 	 *        the object mapper to use
+	 * @param jaxbRegistry
+	 *        the {@link XmlRegistry} annotated class to create a new
+	 *        {@link JAXBContext} for
+	 * @param wsdlResource
+	 *        the path to the WSDL resource with the XML Schema to use for
+	 *        validation
+	 * @param classLoader
+	 *        the class loader to use
+	 * @see JaxbUtils#jaxbContextForRegistry(Class)
 	 */
-	public BaseActionPayloadDecoder(ObjectMapper mapper, String jaxbContextPath, String wsdlResource,
+	public BaseActionPayloadDecoder(ObjectMapper mapper, Class<?> jaxbRegistry, String wsdlResource,
 			ClassLoader classLoader) {
 		super();
 		if ( mapper == null ) {
@@ -67,7 +78,7 @@ public abstract class BaseActionPayloadDecoder implements ActionPayloadDecoder {
 		}
 		this.mapper = mapper;
 		try {
-			this.jaxbContext = JAXBContext.newInstance(jaxbContextPath, classLoader);
+			this.jaxbContext = JaxbUtils.jaxbContextForRegistry(jaxbRegistry);
 		} catch ( JAXBException e ) {
 			throw new RuntimeException("Error setting up JAXBContext for message validation.", e);
 		}
