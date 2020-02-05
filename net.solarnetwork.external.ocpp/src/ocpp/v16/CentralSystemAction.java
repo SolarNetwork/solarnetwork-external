@@ -1,5 +1,5 @@
 /* ==================================================================
- * CentralServiceAction.java - 3/02/2020 8:05:02 am
+ * CentralSystemAction.java - 3/02/2020 8:05:02 am
  * 
  * Copyright 2020 SolarNetwork.net Dev Team
  * 
@@ -28,7 +28,7 @@ package ocpp.v16;
  * @author matt
  * @version 1.0
  */
-public enum CentralServiceAction implements ocpp.domain.Action {
+public enum CentralSystemAction implements ocpp.domain.Action {
 
 	Authorize,
 

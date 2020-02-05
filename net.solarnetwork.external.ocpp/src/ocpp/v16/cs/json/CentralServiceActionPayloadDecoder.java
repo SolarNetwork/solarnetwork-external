@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ocpp.domain.Action;
 import ocpp.domain.SchemaValidationException;
 import ocpp.json.support.BaseActionPayloadDecoder;
-import ocpp.v16.CentralServiceAction;
+import ocpp.v16.CentralSystemAction;
 import ocpp.v16.cs.AuthorizeRequest;
 import ocpp.v16.cs.AuthorizeResponse;
 import ocpp.v16.cs.BootNotificationRequest;
@@ -95,9 +95,9 @@ public class CentralServiceActionPayloadDecoder extends BaseActionPayloadDecoder
 		if ( payload.isNull() || (payload.isObject() && payload.isEmpty()) ) {
 			return null;
 		}
-		final CentralServiceAction a = action instanceof CentralServiceAction
-				? (CentralServiceAction) action
-				: CentralServiceAction.valueOf(action.getName());
+		final CentralSystemAction a = action instanceof CentralSystemAction
+				? (CentralSystemAction) action
+				: CentralSystemAction.valueOf(action.getName());
 		Class<T> clazz = messageClassForAction(a, forResult);
 		T result;
 		try {
@@ -110,7 +110,7 @@ public class CentralServiceActionPayloadDecoder extends BaseActionPayloadDecoder
 	}
 
 	@SuppressWarnings("unchecked")
-	private <T> Class<T> messageClassForAction(final CentralServiceAction action,
+	private <T> Class<T> messageClassForAction(final CentralSystemAction action,
 			final boolean forResult) {
 		Class<T> clazz = null;
 		switch (action) {
@@ -167,7 +167,7 @@ public class CentralServiceActionPayloadDecoder extends BaseActionPayloadDecoder
 		return clazz;
 	}
 
-	private <T> void validateActionMessage(final CentralServiceAction action, final boolean forResult,
+	private <T> void validateActionMessage(final CentralSystemAction action, final boolean forResult,
 			T obj) {
 		JAXBElement<?> el = null;
 		switch (action) {

@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.domain.SchemaValidationException;
-import ocpp.v16.CentralServiceAction;
+import ocpp.v16.CentralSystemAction;
 import ocpp.v16.cs.AuthorizationStatus;
 import ocpp.v16.cs.AuthorizeRequest;
 import ocpp.v16.cs.AuthorizeResponse;
@@ -76,7 +76,7 @@ public class CentralServiceActionPayloadDecoderTests {
 	@Test
 	public void decodeAuthorizeRequest() throws IOException {
 		JsonNode json = treeForResource("authorize-req-01.json");
-		AuthorizeRequest result = decoder.decodeActionPayload(CentralServiceAction.Authorize, false,
+		AuthorizeRequest result = decoder.decodeActionPayload(CentralSystemAction.Authorize, false,
 				json);
 		assertThat("Result decoded", result, notNullValue());
 		assertThat("IdTag", result.getIdTag(), equalTo("abc123"));
@@ -85,13 +85,13 @@ public class CentralServiceActionPayloadDecoderTests {
 	@Test(expected = SchemaValidationException.class)
 	public void decodeAuthorizeRequest_invalid() throws IOException {
 		JsonNode json = treeForResource("authorize-req-02.json");
-		decoder.decodeActionPayload(CentralServiceAction.Authorize, false, json);
+		decoder.decodeActionPayload(CentralSystemAction.Authorize, false, json);
 	}
 
 	@Test
 	public void decodeAuthorizeResponse() throws IOException {
 		JsonNode json = treeForResource("authorize-res-01.json");
-		AuthorizeResponse result = decoder.decodeActionPayload(CentralServiceAction.Authorize, true,
+		AuthorizeResponse result = decoder.decodeActionPayload(CentralSystemAction.Authorize, true,
 				json);
 		assertThat("Result decoded", result, notNullValue());
 		assertThat("IdTagInfo available", result.getIdTagInfo(), notNullValue());
@@ -105,14 +105,14 @@ public class CentralServiceActionPayloadDecoderTests {
 	@Test(expected = SchemaValidationException.class)
 	public void decodeAuthorizeResponse_invalid() throws IOException {
 		JsonNode json = treeForResource("authorize-res-02.json");
-		decoder.decodeActionPayload(CentralServiceAction.Authorize, true, json);
+		decoder.decodeActionPayload(CentralSystemAction.Authorize, true, json);
 	}
 
 	@Test
 	public void decodeBootNotificationRequest() throws IOException {
 		JsonNode json = treeForResource("bootnotification-req-01.json");
 		BootNotificationRequest result = decoder
-				.decodeActionPayload(CentralServiceAction.BootNotification, false, json);
+				.decodeActionPayload(CentralSystemAction.BootNotification, false, json);
 		assertThat("Result decoded", result, notNullValue());
 		assertThat("Charge point vendor", result.getChargePointVendor(), equalTo("ACME"));
 		assertThat("Charge point model", result.getChargePointModel(), equalTo("Super Duper"));
@@ -130,7 +130,7 @@ public class CentralServiceActionPayloadDecoderTests {
 	public void decodeBootNotificationResponse() throws IOException {
 		JsonNode json = treeForResource("bootnotification-res-01.json");
 		BootNotificationResponse result = decoder
-				.decodeActionPayload(CentralServiceAction.BootNotification, true, json);
+				.decodeActionPayload(CentralSystemAction.BootNotification, true, json);
 		assertThat("Result decoded", result, notNullValue());
 		assertThat("Status", result.getStatus(), equalTo(RegistrationStatus.ACCEPTED));
 		assertThat("Current time", result.getCurrentTime(),
