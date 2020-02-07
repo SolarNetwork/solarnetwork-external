@@ -32,10 +32,25 @@ import java.util.Map;
  */
 public interface ErrorHolder {
 
+	/**
+	 * Get the OCPP error code.
+	 * 
+	 * @return the error code, never {@literal null}
+	 */
 	ErrorCode getErrorCode();
 
+	/**
+	 * Get an optional description of the error.
+	 * 
+	 * @return the description, or {@literal null}
+	 */
 	String getErrorDescription();
 
+	/**
+	 * Get an optional map of error details.
+	 * 
+	 * @return the error details, or {@literal null}
+	 */
 	Map<String, ?> getErrorDetails();
 
 }
