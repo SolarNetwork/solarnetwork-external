@@ -22,9 +22,11 @@
 
 package ocpp.xml.support;
 
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
+import java.util.function.Supplier;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -142,6 +144,27 @@ public final class XmlDateUtils {
 		cal.set(year, month - 1, day, hour, minute, second);
 		cal.set(Calendar.MILLISECOND, millisecond);
 		return datatypeFactory.newXMLGregorianCalendar(cal);
+	}
+
+	/**
+	 * Get an {@link Instant} from an XML date/time.
+	 * 
+	 * <p>
+	 * You can use the current system time for the default value by passing
+	 * {@code Instant::now} as the {@code defaultSupplier} parameter.
+	 * </p>
+	 * 
+	 * @param xmlCal
+	 *        the XML calendar value, or {@literal null}
+	 * @param defaultSupplier
+	 *        if {@code xmlCal} is {@literal null}, a supplier to provide the
+	 *        resulting value, or {@literal null} to return {@literal null}
+	 * @return the instant, or {@literal null} if {@code defaultSupplier}
+	 *         returns {@literal null} or was itself {@literal null}
+	 */
+	public static Instant timestamp(XMLGregorianCalendar cal, Supplier<Instant> defaultSupplier) {
+		return cal != null ? Instant.ofEpochMilli(cal.toGregorianCalendar().getTimeInMillis())
+				: defaultSupplier != null ? defaultSupplier.get() : null;
 	}
 
 }
