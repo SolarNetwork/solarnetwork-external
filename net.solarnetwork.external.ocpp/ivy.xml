@@ -18,7 +18,6 @@
 		<dependency org="jakarta.jws" name="jakarta.jws-api" rev="1.1.1" />
 		<dependency org="jakarta.xml.bind" name="jakarta.xml.bind-api" rev="2.3.2" />
 		<dependency org="jakarta.xml.ws" name="jakarta.xml.ws-api" rev="2.3.2" />
-		<!--dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.3.2"/-->
     	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.21"/>
 	</dependencies>
 </ivy-module>
