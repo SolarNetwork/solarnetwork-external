@@ -31,6 +31,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Set;
 import javax.xml.namespace.QName;
+import javax.xml.soap.Node;
 import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPHeader;
@@ -56,8 +57,8 @@ public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> 
 	private String dynamicFromPath = "/ocpp/v15";
 	private String networkInterfaceName;
 	private String fromURL;
-	private boolean preferIPv4Address = Boolean.valueOf(System.getProperty("java.net.preferIPv4Stack",
-			"true"));
+	private boolean preferIPv4Address = Boolean
+			.valueOf(System.getProperty("java.net.preferIPv4Stack", "true"));
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -72,17 +73,20 @@ public class WSAddressingFromHandler implements SOAPHandler<SOAPMessageContext> 
 				try {
 					SOAPHeader header = context.getMessage().getSOAPHeader();
 					SOAPElement from = null;
-					SOAPElement fromAddr = null;
+					Node fromAddr = null;
 					for ( @SuppressWarnings("unchecked")
-					Iterator<SOAPElement> itr = header.getChildElements(WSA_FROM); itr.hasNext(); ) {
-						from = itr.next();
-						break;
+					Iterator<Node> itr = header.getChildElements(WSA_FROM); itr.hasNext(); ) {
+						Node n = itr.next();
+						if ( n instanceof SOAPElement ) {
+							from = (SOAPElement) n;
+							break;
+						}
 					}
 					if ( from == null ) {
 						from = header.addHeaderElement(WSA_FROM);
 					}
 					for ( @SuppressWarnings("unchecked")
-					Iterator<SOAPElement> itr = from.getChildElements(WSA_ADDRESS); itr.hasNext(); ) {
+					Iterator<Node> itr = from.getChildElements(WSA_ADDRESS); itr.hasNext(); ) {
 						fromAddr = itr.next();
 						break;
 					}

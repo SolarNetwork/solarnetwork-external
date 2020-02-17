@@ -37,6 +37,7 @@ import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.namespace.QName;
+import javax.xml.soap.Node;
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPException;
@@ -265,9 +266,9 @@ public class HMACHandler implements SOAPHandler<SOAPMessageContext> {
 			String hashValue = "";
 			if ( WSAddressingFromHandler.WSA_NS.equals(headerName.getNamespaceURI()) ) {
 				// if this element has a child Address element, use that content, otherwise this node's content
-				SOAPElement addr = null;
+				Node addr = null;
 				for ( @SuppressWarnings("unchecked")
-				Iterator<SOAPElement> children = header
+				Iterator<Node> children = header
 						.getChildElements(WSAddressingFromHandler.WSA_ADDRESS); children.hasNext(); ) {
 					addr = children.next();
 					break;
