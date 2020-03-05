@@ -2,7 +2,7 @@
     <info organisation="net.solarnetwork.external.test" module="${bundle.name}">
     	<extends organisation="net.solarnetwork.external"
     		module="${bundle.name}" revision="[1.0,2)"
-    		location="../net.solarnetwork.ocpp.client/ivy.xml"/>
+    		location="../${test.bundle.name}/ivy.xml"/>
     </info>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(runtime)">
 		<!-- Logging -->
@@ -19,9 +19,10 @@
 		<dependency org="net.solarnetwork.common.test" name="net.solarnetwork.common.test" rev="[1.5.0,2.0.0)"/>
 		
 		<!-- Testing support -->
-		<dependency org="javax.activation" name="activation" rev="1.1.1"/>
+		<dependency org="com.sun.activation" name="jakarta.activation" rev="1.2.1" />
+		<dependency org="com.sun.xml.ws" name="jaxws-rt" rev="2.3.2" />
+		<dependency org="com.sun.xml.ws" name="policy" rev="2.3.2" />
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0" />
-		<dependency org="javax.xml.ws" name="jaxws-api" rev="2.2.12"/>
 		<dependency org="org.mortbay.jetty" name="jetty" rev="6.1.26"/>
 		<dependency org="org.mortbay.jetty" name="jetty-util" rev="6.1.26"/>
 		

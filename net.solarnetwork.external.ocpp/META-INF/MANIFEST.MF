@@ -12,6 +12,7 @@ Import-Package:
  com.fasterxml.jackson.core;version="[2.10,3.0)",
  com.fasterxml.jackson.module.jaxb;version="[2.10,3.0)",
  com.sun.xml.bind.v2;resolution:=optional,
+ javax.activation,
  javax.crypto;resolution:=optional,
  javax.crypto.spec;resolution:=optional,
  javax.jws,
