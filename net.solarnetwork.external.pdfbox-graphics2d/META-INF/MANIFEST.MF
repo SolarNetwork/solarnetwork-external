@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Graphics2D Bridge for Apache PDFBox
+Bundle-SymbolicName: net.solarnetwork.external.pdfbox-graphics2d
+Bundle-Version: 0.27.0
+Bundle-ClassPath: lib/graphics2d-0.27.jar
+Bundle-Vendor: @rototor/SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: net.solarnetwork.external.pdfbox.graphics2d
+Export-Package: 
+ de.rototor.pdfbox.graphics2d;version="0.27.0"
+Import-Package: 
+ org.apache.fontbox.ttf;version="[2.0.20,3.0)",
+ org.apache.pdfbox.cos;version="[2.0.20,3.0)",
+ org.apache.pdfbox.io;version="[2.0.20,3.0)",
+ org.apache.pdfbox.multipdf;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.common;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.common.function;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.font;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.color;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.form;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.image;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.pattern;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.shading;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.graphics.state;version="[2.0.20,3.0)",
+ org.apache.pdfbox.pdmodel.interactive.annotation;version="[2.0.20,3.0)",
+ org.apache.pdfbox.util;version="[2.0.20,3.0)"
