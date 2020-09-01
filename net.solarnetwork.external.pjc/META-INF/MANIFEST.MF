@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: PureJavaComm
+Bundle-Name: PureJavaComm Serial Library
 Bundle-SymbolicName: net.solarnetwork.external.pjc
 Bundle-Version: 1.0.2.SN20200831A
 Bundle-Vendor: SolarNetwork
