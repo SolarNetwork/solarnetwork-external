@@ -9,6 +9,5 @@
 		<artifact type="bundle" ext="jar"/>
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
-		<dependency org="org.apache.pdfbox" name="pdfbox" rev="2.0.20" />
 	</dependencies>
 </ivy-module>
