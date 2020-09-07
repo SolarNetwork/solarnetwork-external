@@ -2,21 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: javax.measure reference implementation
 Bundle-SymbolicName: net.solarnetwork.external.indriya
-Bundle-Version: 2.0.1
+Bundle-Version: 2.0.4
 Bundle-Activator: net.solarnetwork.external.indriya.osgi.Activator
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.solarnetwork.external.indriya
 Bundle-ClassPath: .,
- lib/indriya-2.0.1.jar,
+ lib/indriya-2.0.4.jar,
  lib/unit-api-2.0.jar,
- lib/uom-lib-common-2.0.jar,
+ lib/uom-lib-common-2.0.1.jar,
  lib/si-quantity-2.0.1.jar,
  lib/si-units-2.0.1.jar,
- lib/systems-common-2.0-SNAPSHOT.jar,
- lib/systems-quantity-2.0-SNAPSHOT.jar,
- lib/systems-ucum-2.0-SNAPSHOT.jar,
- lib/systems-unicode-2.0-SNAPSHOT.jar
+ lib/systems-common-2.0.2.jar,
+ lib/systems-quantity-2.0.2.jar,
+ lib/systems-ucum-2.0.2.jar,
+ lib/systems-unicode-2.0.2.jar
 Import-Package: 
  javax.annotation,
  javax.inject,
@@ -35,47 +35,47 @@ Export-Package:
    tech.units.indriya.spi,
    tech.units.indriya.unit",
  si.uom.quantity;version="2.0.1";uses:="javax.measure",
- systems.uom.common;version="2.0.0";uses:="javax.measure,javax.measure.spi,tech.units.indriya",
- systems.uom.common.internal;version="2.0.0";uses:="javax.measure.spi,tech.units.indriya.spi",
- systems.uom.quantity;version="2.0.0";uses:="javax.measure",
- systems.uom.ucum;version="2.0.0";uses:="javax.measure,tech.units.indriya,tech.units.indriya.unit",
- systems.uom.ucum.internal;version="2.0.0";
+ systems.uom.common;version="2.0.2";uses:="javax.measure,javax.measure.spi,tech.units.indriya",
+ systems.uom.common.spi;version="2.0.2";uses:="javax.measure.spi,tech.units.indriya.spi",
+ systems.uom.quantity;version="2.0.2";uses:="javax.measure",
+ systems.uom.ucum;version="2.0.2";uses:="javax.measure,tech.units.indriya,tech.units.indriya.unit",
+ systems.uom.ucum.spi;version="2.0.2";
   uses:="javax.measure.spi,
    tech.uom.lib.common.function,
    javax.measure.format,
    tech.units.indriya.spi",
- systems.uom.unicode;version="2.0.0";uses:="javax.measure,tech.units.indriya",
- systems.uom.unicode.internal;version="2.0.0";uses:="javax.measure.spi,tech.uom.lib.common.function,tech.units.indriya.spi",
- tech.units.indriya;version="2.0.1";
+ systems.uom.unicode;version="2.0.2";uses:="javax.measure,tech.units.indriya",
+ systems.uom.unicode.spi;version="2.0.2";uses:="javax.measure.spi,tech.uom.lib.common.function,tech.units.indriya.spi",
+ tech.units.indriya;version="2.0.4";
   uses:="javax.measure,
    javax.measure.spi,
    tech.uom.lib.common.function,
    tech.units.indriya.format,
    tech.units.indriya.spi",
- tech.units.indriya.function;version="2.0.1";
+ tech.units.indriya.function;version="2.0.4";
   uses:="javax.measure,
    tech.units.indriya.quantity,
    tech.uom.lib.common.function,
    tech.units.indriya.spi",
- tech.units.indriya.quantity;version="2.0.1";
+ tech.units.indriya.quantity;version="2.0.4";
   uses:="javax.measure,
    javax.measure.spi,
    tech.uom.lib.common.function,
    tech.units.indriya,
    tech.units.indriya.spi,
    tech.units.indriya.unit",
- tech.units.indriya.quantity.time;version="2.0.1";
+ tech.units.indriya.quantity.time;version="2.0.4";
   uses:="javax.measure,
    tech.uom.lib.common.function,
    tech.units.indriya,
    tech.units.indriya.unit",
- tech.units.indriya.spi;version="2.0.1";
+ tech.units.indriya.spi;version="2.0.4";
   uses:="javax.measure,
    javax.measure.spi,
    tech.units.indriya.function,
    tech.uom.lib.common.function,
    tech.units.indriya",
- tech.units.indriya.unit;version="2.0.1";
+ tech.units.indriya.unit;version="2.0.4";
   uses:="javax.measure,
    javax.measure.spi,
    tech.uom.lib.common.function,

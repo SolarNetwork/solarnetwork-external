@@ -34,9 +34,9 @@ import org.osgi.framework.ServiceRegistration;
 import net.solarnetwork.external.indriya.IndriyaMeasurementServiceProvider;
 import net.solarnetwork.javax.measure.MeasurementServiceProvider;
 import si.uom.SIServiceProvider;
-import systems.uom.common.internal.CommonServiceProvider;
-import systems.uom.ucum.internal.UCUMServiceProvider;
-import systems.uom.unicode.internal.UnicodeServiceProvider;
+import systems.uom.common.spi.CommonServiceProvider;
+import systems.uom.ucum.spi.UCUMServiceProvider;
+import systems.uom.unicode.spi.UnicodeServiceProvider;
 import tech.units.indriya.spi.DefaultServiceProvider;
 
 /**
@@ -58,7 +58,7 @@ import tech.units.indriya.spi.DefaultServiceProvider;
  * </ol>
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  */
 public class Activator implements BundleActivator {
 
