@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Linux I2C and I/O Support via JNA
+Bundle-Description: I2C and other I/O support for Linux via the Java Native Access library.
+Bundle-SymbolicName: net.solarnetwork.external.linux-jna
+Bundle-Version: 1.0.0
+Bundle-ClassPath: 
+ lib/linux-common-0.1.1.jar,
+ lib/linux-errno-1.0.0.jar,
+ lib/linux-io-0.0.3.jar,
+ lib/linux-i2c-1.0.0.jar
+Bundle-Vendor: @dvlopt/SolarNetwork
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: net.solarnetwork.external.linux-jna
+Export-Package: 
+ io.dvlopt.linux;version="0.1.1";uses:="com.sun.jna",
+ io.dvlopt.linux.errno;version="1.0.0",
+ io.dvlopt.linux.i2c;version="1.0.0";uses:="com.sun.jna",
+ io.dvlopt.linux.io;version="0.0.3";uses:="com.sun.jna,io.dvlopt.linux"
+Import-Package: 
+ com.sun.jna;version="[5.5,6.0)",
+ com.sun.jna.ptr;version="[5.6,6.0)",
+ com.sun.jna.win32;version="[5.6,6.0)"

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java Modbus Library (PJC)
+Bundle-SymbolicName: net.solarnetwork.external.jamod.pjc
+Bundle-Version: 1.2.0.rc1-SN20200831A
+Bundle-Vendor: Dieter Wimberger/SolarNetwork
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Import-Package: 
+ purejavacomm;version="[1.0,2.0)"
+Export-Package: 
+ net.wimpi.modbus;version="1.2.0.rc1",
+ net.wimpi.modbus.cmd;version="1.2.0.rc1",
+ net.wimpi.modbus.facade;version="1.2.0.rc1",
+ net.wimpi.modbus.io;version="1.2.0.rc1",
+ net.wimpi.modbus.msg;version="1.2.0.rc1",
+ net.wimpi.modbus.net;version="1.2.0.rc1",
+ net.wimpi.modbus.procimg;version="1.2.0.rc1",
+ net.wimpi.modbus.util;version="1.2.0.rc1"
