@@ -15,10 +15,11 @@
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
 		<dependency org="si.uom" name="si-quantity" rev="2.0.1" conf="compile"/>
 		<dependency org="si.uom" name="si-units" rev="2.0.1" conf="compile"/>
-		<dependency org="systems.uom" name="systems-common" rev="2.0-SNAPSHOT" conf="compile"/>
-		<dependency org="systems.uom" name="systems-ucum" rev="2.0-SNAPSHOT" conf="compile"/>
-		<dependency org="systems.uom" name="systems-unicode" rev="2.0-SNAPSHOT" conf="compile"/>
-		<dependency org="tech.units" name="indriya" rev="2.0.1" conf="compile"/>
+		<dependency org="systems.uom" name="systems-common" rev="2.0.2" conf="compile"/>
+		<dependency org="systems.uom" name="systems-quantity" rev="2.0.2" conf="compile"/>
+		<dependency org="systems.uom" name="systems-ucum" rev="2.0.2" conf="compile"/>
+		<dependency org="systems.uom" name="systems-unicode" rev="2.0.2" conf="compile"/>
+		<dependency org="tech.units" name="indriya" rev="2.0.4" conf="compile"/>
 		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
 	</dependencies>
 </ivy-module>
