@@ -22,6 +22,6 @@
 		<dependency org="org.javamoney" name="moneta" rev="1.1"/>
 		
 		<!-- SolarNetwork -->
-		<dependency org="net.solarnetwork.common.test" name="net.solarnetwork.common.test" rev="[1.5.0,2.0.0)"/>
+		<dependency org="net.solarnetwork.common.test" name="net.solarnetwork.common.test" rev="1.5.0"/>
     </dependencies>
 </ivy-module>
