@@ -15,6 +15,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.solarnetwork.external.linux-jna
 Export-Package: 
  io.dvlopt.linux;version="0.1.1";uses:="com.sun.jna",
+ io.dvlopt.linux.epoll;version="1.0.0";uses:="com.sun.jna,io.dvlopt.linux.io",
  io.dvlopt.linux.errno;version="1.0.0",
  io.dvlopt.linux.gpio;version="1.0.0";uses:="com.sun.jna,io.dvlopt.linux.errorno,io.dvlopt.linux.io",
  io.dvlopt.linux.i2c;version="1.0.0";uses:="com.sun.jna,com.sun.jna.ptr,io.dvlopt.linux,io.dvlopt.linux.errorno,io.dvlopt.linux.io",
