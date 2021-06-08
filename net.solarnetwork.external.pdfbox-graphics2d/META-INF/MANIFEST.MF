@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Graphics2D Bridge for Apache PDFBox
 Bundle-SymbolicName: net.solarnetwork.external.pdfbox-graphics2d
-Bundle-Version: 0.27.0
-Bundle-ClassPath: lib/graphics2d-0.27.jar
+Bundle-Version: 0.31.0
+Bundle-ClassPath: lib/graphics2d-0.31.jar
 Bundle-Vendor: @rototor/SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.solarnetwork.external.pdfbox.graphics2d
 Export-Package: 
- de.rototor.pdfbox.graphics2d;version="0.27.0"
+ de.rototor.pdfbox.graphics2d;version="0.31.0"
 Import-Package: 
  org.apache.fontbox.ttf;version="[2.0.20,3.0)",
  org.apache.pdfbox.cos;version="[2.0.20,3.0)",
