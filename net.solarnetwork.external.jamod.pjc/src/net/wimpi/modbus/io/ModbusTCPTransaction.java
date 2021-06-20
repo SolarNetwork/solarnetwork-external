@@ -199,7 +199,7 @@ public class ModbusTCPTransaction
             m_Connection.connect();
             m_IO = m_Connection.getModbusTransport();
           } catch (Exception ex) {
-            throw new ModbusIOException("Connecting failed.");
+            throw new ModbusIOException("Connecting failed: " +ex.toString());
           }
         }
 
