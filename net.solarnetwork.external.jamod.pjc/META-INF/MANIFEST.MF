@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Java Modbus Library (PJC)
 Bundle-SymbolicName: net.solarnetwork.external.jamod.pjc
-Bundle-Version: 1.2.0.rc1-SN20210521A
+Bundle-Version: 1.2.0.rc1-SN20210620A
 Bundle-Vendor: Dieter Wimberger/SolarNetwork
 Bundle-RequiredExecutionEnvironment: J2SE-1.4
 Import-Package: 
