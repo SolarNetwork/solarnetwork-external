@@ -2,7 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SMA yasdi4j
 Bundle-SymbolicName: net.solarnetwork.external.yasdi4j
+Automatic-Module-Name: net.solarnetwork.external.yasdi4j
 Bundle-Version: 0.1.5.SN03
 Bundle-Vendor: Michael Denk/SolarNetwork
 Export-Package: de.michaeldenk.yasdi4j;version="0.1.5"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

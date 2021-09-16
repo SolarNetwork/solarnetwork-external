@@ -12,7 +12,7 @@
 		<artifact type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc"/>
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
-	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
-		<dependency org="org.slf4j" name="com.springsource.slf4j.api" rev="1.5.10" />
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+    	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.32"/>
 	</dependencies>
 </ivy-module>
