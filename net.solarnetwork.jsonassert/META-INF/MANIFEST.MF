@@ -2,8 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JSONAssert
 Bundle-SymbolicName: net.solarnetwork.external.jsonassert
-Bundle-Version: 1.5.0
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Automatic-Module-Name: net.solarnetwork.external.jsonassert
+Bundle-Version: 1.5.0.SN01
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: JSONAssert/SolarNetwork
 Bundle-ClassPath: 
  jsonassert-1.5.0-sources.jar,

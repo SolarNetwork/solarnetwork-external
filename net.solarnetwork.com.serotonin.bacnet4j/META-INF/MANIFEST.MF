@@ -2,9 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BACnet4j
 Bundle-SymbolicName: net.solarnetwork.external.com.serotonin.bacnet4j
-Bundle-Version: 2.0.1.SN01
+Automatic-Module-Name: net.solarnetwork.external.com.serotonin.bacnet4j
+Bundle-Version: 2.0.1.SN02
 Bundle-Vendor: Serotonin/SolarNetwork
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
  gnu.io,
  org.apache.commons.lang3;version="[3.0,4.0)",

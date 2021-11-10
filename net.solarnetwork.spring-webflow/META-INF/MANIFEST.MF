@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spring Webflow
 Bundle-SymbolicName: net.solarnetwork.external.spring-webflow
+Automatic-Module-Name: net.solarnetwork.external.spring.webflow
 Bundle-Version: 2.4.8.RELEASE
 Bundle-ClassPath: 
  spring-binding-2.4.8.RELEASE.jar,

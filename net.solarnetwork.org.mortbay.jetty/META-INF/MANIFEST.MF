@@ -2,12 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jetty 6
 Bundle-SymbolicName: net.solarnetwork.external.org.mortbay.jetty
-Bundle-Version: 6.1.26.SN01
+Automatic-Module-Name: net.solarnetwork.external.org.mortbay.jetty
+Bundle-Version: 6.1.26.SN02
 Bundle-ClassPath: 
  jetty-6.1.26.jar,
  jetty-util-6.1.26.jar
 Bundle-Vendor: SolarNetwork
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
  javax.net.ssl,
  javax.servlet;version="2.5",

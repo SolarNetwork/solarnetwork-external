@@ -2,7 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Cron Utils
 Bundle-SymbolicName: net.solarnetwork.external.cron-utils
-Bundle-Version: 7.0.1
+Automatic-Module-Name: net.solarnetwork.external.cron.utils
+Bundle-Version: 7.0.1.SN01
 Bundle-Vendor: SolarNetwork/jmrozanec
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"

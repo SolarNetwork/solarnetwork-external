@@ -2,10 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RXTX Serial Library
 Bundle-SymbolicName: net.solarnetwork.external.org.rxtx
-Bundle-Version: 2.2.0.pre2-20120623A
+Automatic-Module-Name: net.solarnetwork.external.org.rxtx
+Bundle-Version: 2.2.0.pre2-20210917A
 Bundle-Vendor: rxtx.org/SolarNetwork
 Export-Package: gnu.io;version="2.2.0.pre2"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-NativeCode: 
  lib/Linux/i686-pc-linux-gnu/librxtxSerial.so;
  osname=Linux; processor=x86,
@@ -16,4 +17,4 @@ Bundle-NativeCode:
  lib/FreeBSD/x86_64/librxtxSerial.so;
  osname=FreeBSD; processor=x86-64
 Import-Package: 
- org.slf4j;version="[1.6.1,2.0.0)"
+ org.slf4j;version="[1.7,2.0)"
