@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.v16.cs.BootNotificationRequest;
 import ocpp.v16.cs.Location;
@@ -59,6 +60,7 @@ public class JsonMessageTests {
 		mapper.registerModule(new JaxbAnnotationModule());
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		mapper.setDateFormat(new StdDateFormat().withColonInTimeZone(true));
 		return mapper;
 	}
 
@@ -141,7 +143,7 @@ public class JsonMessageTests {
 		String json = mapper.writeValueAsString(req);
 		log.debug("Got JSON: {}", json);
 		assertThat("Message", json, equalTo(
-				"{\"transactionId\":321,\"idTag\":\"abc123\",\"timestamp\":\"2020-01-30T23:20:30.000+0000\",\"meterStop\":12345,\"reason\":\"Local\",\"transactionData\":[{\"timestamp\":\"2020-01-30T23:20:30.000+0000\",\"sampledValue\":[{\"value\":\"0\",\"context\":\"Transaction.Begin\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Transaction.Begin\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]},{\"timestamp\":\"2020-01-30T23:20:30.000+0000\",\"sampledValue\":[{\"value\":\"1\",\"context\":\"Sample.Periodic\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Sample.Periodic\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]},{\"timestamp\":\"2020-01-30T23:20:30.000+0000\",\"sampledValue\":[{\"value\":\"2\",\"context\":\"Transaction.End\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Transaction.End\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]}]}"));
+				"{\"transactionId\":321,\"idTag\":\"abc123\",\"timestamp\":\"2020-01-30T23:20:30.000+00:00\",\"meterStop\":12345,\"reason\":\"Local\",\"transactionData\":[{\"timestamp\":\"2020-01-30T23:20:30.000+00:00\",\"sampledValue\":[{\"value\":\"0\",\"context\":\"Transaction.Begin\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Transaction.Begin\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]},{\"timestamp\":\"2020-01-30T23:20:30.000+00:00\",\"sampledValue\":[{\"value\":\"1\",\"context\":\"Sample.Periodic\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Sample.Periodic\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]},{\"timestamp\":\"2020-01-30T23:20:30.000+00:00\",\"sampledValue\":[{\"value\":\"2\",\"context\":\"Transaction.End\",\"format\":\"Raw\",\"measurand\":\"Energy.Active.Import.Register\",\"location\":\"Inlet\",\"unit\":\"kWh\"},{\"value\":\"500\",\"context\":\"Transaction.End\",\"format\":\"Raw\",\"measurand\":\"Power.Active.Import\",\"location\":\"Inlet\",\"unit\":\"W\"}]}]}"));
 	}
 
 }

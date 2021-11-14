@@ -31,6 +31,8 @@ import org.junit.Before;
 import org.junit.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.domain.SchemaValidationException;
 import ocpp.v16.CentralSystemAction;
@@ -56,6 +58,8 @@ public class CentralServiceActionPayloadDecoderTests {
 	private ObjectMapper createObjectMapper() {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JaxbAnnotationModule());
+		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		mapper.setDateFormat(new StdDateFormat().withColonInTimeZone(true));
 		return mapper;
 	}
 
