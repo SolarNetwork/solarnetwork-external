@@ -169,7 +169,6 @@ public class ModbusTCPTransport
       //connection reset by peer, also EOF
       throw new ModbusIOException(true);
     } catch (Exception ex) {
-      ex.printStackTrace();
       throw new ModbusIOException("I/O exception - failed to read.");
     }
   }//readRequest
@@ -230,7 +229,6 @@ public class ModbusTCPTransport
          return response;
          */
     } catch (Exception ex) {
-      ex.printStackTrace();
       throw new ModbusIOException("I/O exception - failed to read.");
     }
   }//readResponse
