@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Calimero Core
 Bundle-SymbolicName: net.solarnetwork.external.calimero-core
 Automatic-Module-Name: net.solarnetwork.external.calimero.core
-Bundle-Version: 2.5.0
+Bundle-Version: 2.5.0.SN01
 Bundle-ClassPath: lib/calimero-core-2.5.jar
 Bundle-Vendor: Calimero/SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
