@@ -99,5 +99,8 @@ Export-Package:
 Import-Package: 
  javax.crypto;resolution:=optional,
  javax.crypto.spec;resolution:=optional,
+ javax.microedition.io;resolution:="optional",
+ javax.usb;resolution:="optional",
  javax.xml.stream;resolution:=optional,
- org.slf4j;version="[1.7,2.0)"
+ org.slf4j;version="[1.7,2.0)",
+ org.usb4java;resolution:="optional"
