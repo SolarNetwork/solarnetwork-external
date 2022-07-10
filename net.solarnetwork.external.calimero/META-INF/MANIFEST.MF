@@ -1,13 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Calimero Core
-Bundle-SymbolicName: net.solarnetwork.external.calimero-core
-Automatic-Module-Name: net.solarnetwork.external.calimero.core
+Bundle-Name: Calimero
+Bundle-Description: KNX protocol stack for clients, KNXnet/IP servers, and devices.
+Bundle-SymbolicName: net.solarnetwork.external.calimero
+Automatic-Module-Name: net.solarnetwork.external.calimero
 Bundle-Version: 2.5.0.SN01
-Bundle-ClassPath: lib/calimero-core-2.5.jar
+Bundle-ClassPath: lib/calimero-core-2.5.jar,lib/calimero-device-2.5.jar
 Bundle-Vendor: Calimero/SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: tuwien.auto.calimero;
+Export-Package: 
+ tuwien.auto.calimero;
   uses:="tuwien.auto.calimero.secure,
    tuwien.auto.calimero.link.medium,
    tuwien.auto.calimero.xml,
@@ -81,7 +83,19 @@ Export-Package: tuwien.auto.calimero;
  tuwien.auto.calimero.secure;version="2.5.0";uses:="tuwien.auto.calimero.link,tuwien.auto.calimero.cemi,tuwien.auto.calimero",
  tuwien.auto.calimero.serial;version="2.5.0";uses:="org.slf4j,tuwien.auto.calimero",
  tuwien.auto.calimero.serial.usb;version="2.5.0";uses:="org.usb4java,tuwien.auto.calimero",
- tuwien.auto.calimero.xml;version="2.5.0";uses:="javax.xml.stream,tuwien.auto.calimero"
+ tuwien.auto.calimero.xml;version="2.5.0";uses:="javax.xml.stream,tuwien.auto.calimero",
+ tuwien.auto.calimero.device;version="2.5.0";
+  uses:="tuwien.auto.calimero.secure,
+   org.slf4j,
+   tuwien.auto.calimero,
+   tuwien.auto.calimero.mgmt,
+   tuwien.auto.calimero.process,
+   tuwien.auto.calimero.link,
+   tuwien.auto.calimero.dptxlator,
+   tuwien.auto.calimero.datapoint,
+   tuwien.auto.calimero.device.ios",
+ tuwien.auto.calimero.device.ios;version="2.5.0";
+   uses:="tuwien.auto.calimero.dptxlator,tuwien.auto.calimero,tuwien.auto.calimero.mgmt"
 Import-Package: 
  javax.crypto;resolution:=optional,
  javax.crypto.spec;resolution:=optional,
