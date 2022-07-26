@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GNU Trove
+Bundle-Description: A collection of data structures using the Collections API.
 Bundle-SymbolicName: net.solarnetwork.external.gnu.trove
 Automatic-Module-Name: net.solarnetwork.external.gnu.trove
 Bundle-Version: 3.0.3.SN02

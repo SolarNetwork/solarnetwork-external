@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tyrus Websocket Client (JDK)
+Bundle-Description: Tyrus reference implementation of javax.websocket client API.
 Bundle-SymbolicName: net.solarnetwork.external.tyrus-standalone-client-jdk
 Automatic-Module-Name: net.solarnetwork.external.tyrus.standalone.client.jdk
 Bundle-Version: 1.13.0.SN01

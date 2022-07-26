@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Moquette MQTT broker
+Bundle-Description: A MQTT broker for MQTT integration testing.
 Bundle-SymbolicName: net.solarnetwork.external.io.moquette.moquette-broker
 Bundle-Version: 0.12.1
 Bundle-ClassPath: moquette-broker-0.12.1.jar

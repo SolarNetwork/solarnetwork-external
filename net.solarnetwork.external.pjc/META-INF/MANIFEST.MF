@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PureJavaComm Serial Library
+Bundle-Description: Provides access to serial ports using JNA.
 Bundle-SymbolicName: net.solarnetwork.external.pjc
 Bundle-Version: 1.0.2.SN20200831A
 Bundle-Vendor: SolarNetwork

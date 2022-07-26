@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UrlRewriteFilter
+Bundle-Description: Servlet filter to rewrite URLs.
 Bundle-SymbolicName: net.solarnetwork.external.org.tuckey.urlrewritefilter
 Automatic-Module-Name: net.solarnetwork.external.org.tuckey.urlrewritefilter
 Bundle-Version: 4.0.4.SN02

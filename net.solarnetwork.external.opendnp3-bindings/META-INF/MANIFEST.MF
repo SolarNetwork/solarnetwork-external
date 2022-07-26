@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenDNP3 Bindings
+Bundle-Description: Java integration with OpenDNP3 using JNI.
 Bundle-SymbolicName: net.solarnetwork.external.opendnp3-bindings
 Automatic-Module-Name: net.solarnetwork.external.opendnp3-bindings
 Bundle-Version: 2.3.2

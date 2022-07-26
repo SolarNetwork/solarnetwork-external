@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Java Modbus Library (PJC)
+Bundle-Description: Java Modbus Library using PureJavaComm for serial communication.
 Bundle-SymbolicName: net.solarnetwork.external.jamod.pjc
 Automatic-Module-Name: net.solarnetwork.external.jamod.pjc
 Bundle-Version: 1.2.0.rc1-SN20220708A
