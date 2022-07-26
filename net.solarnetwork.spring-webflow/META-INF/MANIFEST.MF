@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spring Webflow
+Bundle-Description: Web sequence framework for web form-based interactions.
 Bundle-SymbolicName: net.solarnetwork.external.spring-webflow
 Automatic-Module-Name: net.solarnetwork.external.spring.webflow
 Bundle-Version: 2.4.8.RELEASE

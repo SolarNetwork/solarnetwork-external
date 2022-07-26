@@ -23,6 +23,7 @@
 package ocpp.v16.cp.json.test;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import java.io.IOException;
@@ -30,12 +31,14 @@ import org.junit.Before;
 import org.junit.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.domain.SchemaValidationException;
+import ocpp.json.support.BaseActionPayloadDecoder;
 import ocpp.v16.ChargePointAction;
 import ocpp.v16.cp.CancelReservationRequest;
 import ocpp.v16.cp.CancelReservationResponse;
 import ocpp.v16.cp.CancelReservationStatus;
+import ocpp.v16.cp.GetConfigurationRequest;
+import ocpp.v16.cp.GetConfigurationResponse;
 import ocpp.v16.cp.json.ChargePointActionPayloadDecoder;
 
 /**
@@ -50,9 +53,7 @@ public class ChargePointActionPayloadDecoderTests {
 	private ChargePointActionPayloadDecoder decoder;
 
 	private ObjectMapper createObjectMapper() {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.registerModule(new JaxbAnnotationModule());
-		return mapper;
+		return BaseActionPayloadDecoder.defaultObjectMapper();
 	}
 
 	private JsonNode treeForResource(String resource) {
@@ -97,6 +98,33 @@ public class ChargePointActionPayloadDecoderTests {
 	public void decodeCancelReservationResponse_invalid() throws IOException {
 		JsonNode json = treeForResource("cancelreservation-res-02.json");
 		decoder.decodeActionPayload(ChargePointAction.CancelReservation, true, json);
+	}
+
+	@Test
+	public void encodeGetConfigurationRequest_nokeys() throws IOException {
+		// GIVEN
+		GetConfigurationRequest req = new GetConfigurationRequest();
+
+		// WHEN
+		String json = mapper.writeValueAsString(req);
+
+		// THEN
+		assertThat("Request encoded", json, equalTo("{}"));
+	}
+
+	@Test
+	public void decodeGetConfigurationResponse() throws IOException {
+		JsonNode json = treeForResource("getconfiguration-res-01.json");
+		GetConfigurationResponse result = decoder.decodeActionPayload(ChargePointAction.GetConfiguration,
+				true, json);
+		assertThat("Result decoded", result, notNullValue());
+
+		assertThat("Configuration list decoded", result.getConfigurationKey(), hasSize(1));
+		assertThat("Configuration 1 key", result.getConfigurationKey().get(0).getKey(), equalTo("foo"));
+		assertThat("Configuration 1 value", result.getConfigurationKey().get(0).getValue(),
+				equalTo("bar"));
+		assertThat("Configuration 1 readonly", result.getConfigurationKey().get(0).isReadonly(),
+				equalTo(true));
 	}
 
 	// TODO: other actions

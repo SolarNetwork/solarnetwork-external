@@ -25,7 +25,10 @@ package ocpp.json.support;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlRegistry;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.json.ActionPayloadDecoder;
 import ocpp.xml.support.JaxbUtils;
@@ -52,6 +55,9 @@ public abstract class BaseActionPayloadDecoder implements ActionPayloadDecoder {
 	public static ObjectMapper defaultObjectMapper() {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JaxbAnnotationModule());
+		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		mapper.setDateFormat(new StdDateFormat().withColonInTimeZone(true));
+		mapper.setSerializationInclusion(Include.NON_EMPTY);
 		return mapper;
 	}
 

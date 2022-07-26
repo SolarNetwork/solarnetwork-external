@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spring Security Messaging
+Bundle-Description: Spring Security for Spring Messaging message buses.
 Bundle-SymbolicName: net.solarnetwork.external.spring-security-messaging
 Automatic-Module-Name: net.solarnetwork.external.spring-security-messaging
 Bundle-Version: 4.2.4.RELEASE_1

@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Moneta
+Bundle-Description: Reference implementation of the javax.money API.
 Bundle-SymbolicName: net.solarnetwork.external.moneta
 Automatic-Module-Name: net.solarnetwork.external.moneta
 Bundle-Version: 1.1.0.SN01

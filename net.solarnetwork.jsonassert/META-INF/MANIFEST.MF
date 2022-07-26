@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JSONAssert
+Bundle-Description: Unit test support for JSON assertions.
 Bundle-SymbolicName: net.solarnetwork.external.jsonassert
 Automatic-Module-Name: net.solarnetwork.external.jsonassert
 Bundle-Version: 1.5.0.SN01

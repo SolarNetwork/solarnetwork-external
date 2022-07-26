@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: javax.measure reference implementation
+Bundle-Name: Indriya javax.measure
+Bundle-Description: Reference implementation of the javax.measure API.
 Bundle-SymbolicName: net.solarnetwork.external.indriya
 Bundle-Version: 2.0.4
 Bundle-Activator: net.solarnetwork.external.indriya.osgi.Activator

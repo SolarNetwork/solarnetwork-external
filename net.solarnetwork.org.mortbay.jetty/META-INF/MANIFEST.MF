@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jetty 6
+Bundle-Description: Jetty embedded HTTP server.
 Bundle-SymbolicName: net.solarnetwork.external.org.mortbay.jetty
 Automatic-Module-Name: net.solarnetwork.external.org.mortbay.jetty
 Bundle-Version: 6.1.26.SN02

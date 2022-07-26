@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RXTX Serial Library
+Bundle-Description: Provides serial port access using JNI.
 Bundle-SymbolicName: net.solarnetwork.external.org.rxtx
 Automatic-Module-Name: net.solarnetwork.external.org.rxtx
 Bundle-Version: 2.2.0.pre2-20210917A

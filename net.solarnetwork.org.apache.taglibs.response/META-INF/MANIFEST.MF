@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Taglibs Response
+Bundle-Description: JSP tag to modify the HTTP response.
 Bundle-SymbolicName: net.solarnetwork.external.org.apache.taglibs.response
 Automatic-Module-Name: net.solarnetwork.external.org.apache.taglibs.response
 Bundle-Version: 1.0.1.SN01

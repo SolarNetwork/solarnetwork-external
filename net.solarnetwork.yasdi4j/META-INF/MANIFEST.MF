@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SMA yasdi4j
+Bundle-Description: Interact with SMA inverters using the yasdi tool via JNI.
 Bundle-SymbolicName: net.solarnetwork.external.yasdi4j
 Automatic-Module-Name: net.solarnetwork.external.yasdi4j
 Bundle-Version: 0.1.5.SN03

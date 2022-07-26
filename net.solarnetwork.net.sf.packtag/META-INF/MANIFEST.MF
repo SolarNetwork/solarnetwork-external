@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: pack:tag
+Bundle-Description: Dynamic minifier filter for JavaScript and CSS.
 Bundle-SymbolicName: net.solarnetwork.external.net.sf.packtag
 Automatic-Module-Name: net.solarnetwork.external.net.sf.packtag
 Bundle-Version: 3.13.1.SN03

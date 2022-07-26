@@ -31,8 +31,8 @@ import org.junit.Before;
 import org.junit.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import ocpp.domain.SchemaValidationException;
+import ocpp.json.support.BaseActionPayloadDecoder;
 import ocpp.v16.CentralSystemAction;
 import ocpp.v16.cs.AuthorizationStatus;
 import ocpp.v16.cs.AuthorizeRequest;
@@ -54,9 +54,7 @@ public class CentralServiceActionPayloadDecoderTests {
 	private CentralServiceActionPayloadDecoder decoder;
 
 	private ObjectMapper createObjectMapper() {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.registerModule(new JaxbAnnotationModule());
-		return mapper;
+		return BaseActionPayloadDecoder.defaultObjectMapper();
 	}
 
 	private JsonNode treeForResource(String resource) {

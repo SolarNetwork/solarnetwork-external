@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Apache Felix Utils
+Bundle-Description: OSGi utilities from the Apache Felix project.
 Bundle-SymbolicName: net.solarnetwork.external.org.apache.felix.utils
 Automatic-Module-Name: net.solarnetwork.external.org.apache.felix.utils
 Bundle-Version: 1.8.4.SN02
