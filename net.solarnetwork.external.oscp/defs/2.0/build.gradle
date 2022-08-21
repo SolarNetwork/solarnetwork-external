@@ -18,6 +18,8 @@ jsonSchema2Pojo {
   source.setFrom files("${project.rootDir}/src/main/resources/json")
 
   targetPackage = 'oscp.v20'
+  
+  customDateTimePattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX"
 
   includeAdditionalProperties = false
 
