@@ -9,7 +9,7 @@
     },
     "measurements": {
       "type": "array",
-      "$ref": "asset-measurement.json",
+      "items": { "$ref": "asset-measurement.json" },
       "minItems": 1
     }
   },
