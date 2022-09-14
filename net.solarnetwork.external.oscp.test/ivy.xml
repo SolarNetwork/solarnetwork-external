@@ -9,5 +9,6 @@
 		<dependency org="net.solarnetwork.common.test" name="net.solarnetwork.common.test" rev="[1.19,)"/>
 		
 		<!-- Testing support -->
+		<dependency org="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310" rev="2.10.1"/>
     </dependencies>
 </ivy-module>

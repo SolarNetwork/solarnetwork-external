@@ -28,7 +28,7 @@ public class Heartbeat implements Serializable
      * (Required)
      * 
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", timezone = "UTC")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX", timezone = "UTC")
     @JsonProperty("offline_mode_at")
     @NotNull
     private Instant offlineModeAt;

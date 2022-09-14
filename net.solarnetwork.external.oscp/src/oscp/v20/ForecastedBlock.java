@@ -64,7 +64,7 @@ public class ForecastedBlock implements Serializable
      * (Required)
      * 
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", timezone = "UTC")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX", timezone = "UTC")
     @JsonProperty("start_time")
     @NotNull
     private Instant startTime;
@@ -73,7 +73,7 @@ public class ForecastedBlock implements Serializable
      * (Required)
      * 
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", timezone = "UTC")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX", timezone = "UTC")
     @JsonProperty("end_time")
     @NotNull
     private Instant endTime;

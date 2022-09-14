@@ -2,8 +2,10 @@
 package oscp.v20;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,17 +34,16 @@ public class UpdateAssetMeasurement implements Serializable
     @NotNull
     private String groupId;
     /**
-     * AssetMeasurement
-     * <p>
      * 
      * (Required)
      * 
      */
     @JsonProperty("measurements")
+    @Size(min = 1)
     @Valid
     @NotNull
-    private AssetMeasurement measurements;
-    private final static long serialVersionUID = -6481618339476732391L;
+    private List<AssetMeasurement> measurements = null;
+    private final static long serialVersionUID = -5397680364364669077L;
 
     /**
      * No args constructor for use in serialization
@@ -56,7 +57,7 @@ public class UpdateAssetMeasurement implements Serializable
      * @param groupId
      * @param measurements
      */
-    public UpdateAssetMeasurement(String groupId, AssetMeasurement measurements) {
+    public UpdateAssetMeasurement(String groupId, List<AssetMeasurement> measurements) {
         super();
         this.groupId = groupId;
         this.measurements = measurements;
@@ -88,30 +89,26 @@ public class UpdateAssetMeasurement implements Serializable
     }
 
     /**
-     * AssetMeasurement
-     * <p>
      * 
      * (Required)
      * 
      */
     @JsonProperty("measurements")
-    public AssetMeasurement getMeasurements() {
+    public List<AssetMeasurement> getMeasurements() {
         return measurements;
     }
 
     /**
-     * AssetMeasurement
-     * <p>
      * 
      * (Required)
      * 
      */
     @JsonProperty("measurements")
-    public void setMeasurements(AssetMeasurement measurements) {
+    public void setMeasurements(List<AssetMeasurement> measurements) {
         this.measurements = measurements;
     }
 
-    public UpdateAssetMeasurement withMeasurements(AssetMeasurement measurements) {
+    public UpdateAssetMeasurement withMeasurements(List<AssetMeasurement> measurements) {
         this.measurements = measurements;
         return this;
     }
