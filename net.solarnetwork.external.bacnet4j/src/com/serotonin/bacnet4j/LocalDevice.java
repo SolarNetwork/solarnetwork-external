@@ -39,6 +39,7 @@ import java.util.Random;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -97,9 +98,6 @@ import com.serotonin.bacnet4j.type.primitive.UnsignedInteger;
 import com.serotonin.bacnet4j.util.RemoteDeviceDiscoverer;
 import com.serotonin.bacnet4j.util.RemoteDeviceFinder;
 import com.serotonin.bacnet4j.util.RemoteDeviceFinder.RemoteDeviceFuture;
-
-import lohbihler.warp.WarpScheduledExecutorService;
-import lohbihler.warp.WarpUtils;
 
 /**
  * Enhancements:
@@ -185,6 +183,8 @@ public class LocalDevice {
 
     // Default persistence to null.
     private IPersistence persistence = new NullPersistence();
+    
+    private long iAmSleepMs = TimeUnit.SECONDS.toMillis(10);
 
     public LocalDevice(final int deviceNumber, final Transport transport) {
         this.transport = transport;
@@ -341,7 +341,12 @@ public class LocalDevice {
                 sendGlobalBroadcast(new WhoIsRequest(from, from + rangeSize - 1));
 
                 LOG.info("Waiting for incoming IAms");
-                WarpUtils.sleep(clock, 10, TimeUnit.SECONDS);
+                try {
+                	Thread.sleep(iAmSleepMs);
+                } catch ( InterruptedException e ) {
+                	// ignore
+                	Thread.interrupted();
+                }
                 getEventHandler().removeListener(listener);
 
                 if (!idList.isEmpty()) {
@@ -398,7 +403,7 @@ public class LocalDevice {
      * @see java.util.concurrent.ScheduledExecutorService
      */
     protected ScheduledExecutorService createScheduledExecutorService() {
-        return new WarpScheduledExecutorService(clock);
+        return Executors.newScheduledThreadPool(5);
     }
 
     public synchronized void terminate() {
@@ -1191,5 +1196,22 @@ public class LocalDevice {
         }
     }
 
+	
+	/**
+	 * Get the sleep time to wait before processing I-AM responses.
+	 * @return the iAmSleepMs the sleep time, in milliseconds
+	 */
+	public long getiAmSleepMs() {
+		return iAmSleepMs;
+	}
+
+	
+	/**
+	 * Set the sleep time to wait before processing I-AM responses.
+	 * @param iAmSleepMs the sleep time to set, in milliseconds
+	 */
+	public void setiAmSleepMs(long iAmSleepMs) {
+		this.iAmSleepMs = iAmSleepMs;
+	}
 
 }
