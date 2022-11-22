@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Modbus4j
+Bundle-SymbolicName: net.solarnetwork.external.modbus4j
+Bundle-Version: 3.1.0.SN01
+Bundle-Vendor: InfiniteAutomation/SolarNetwork
+Automatic-Module-Name: net.solarnetwork.external.modbus4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: 
+ com.serotonin.modbus4j;version="3.1.0",
+ com.serotonin.modbus4j.base;version="3.1.0",
+ com.serotonin.modbus4j.code;version="3.1.0",
+ com.serotonin.modbus4j.exception;version="3.1.0",
+ com.serotonin.modbus4j.ip;version="3.1.0",
+ com.serotonin.modbus4j.ip.encap;version="3.1.0",
+ com.serotonin.modbus4j.ip.listener;version="3.1.0",
+ com.serotonin.modbus4j.ip.tcp;version="3.1.0",
+ com.serotonin.modbus4j.ip.udp;version="3.1.0",
+ com.serotonin.modbus4j.ip.xa;version="3.1.0",
+ com.serotonin.modbus4j.locator;version="3.1.0",
+ com.serotonin.modbus4j.msg;version="3.1.0",
+ com.serotonin.modbus4j.serial;version="3.1.0",
+ com.serotonin.modbus4j.serial.ascii;version="3.1.0",
+ com.serotonin.modbus4j.serial.rtu;version="3.1.0",
+ com.serotonin.modbus4j.sero;version="3.1.0",
+ com.serotonin.modbus4j.sero.epoll;version="3.1.0",
+ com.serotonin.modbus4j.sero.io;version="3.1.0",
+ com.serotonin.modbus4j.sero.log;version="3.1.0",
+ com.serotonin.modbus4j.sero.messaging;version="3.1.0",
+ com.serotonin.modbus4j.sero.timer;version="3.1.0",
+ com.serotonin.modbus4j.sero.util;version="3.1.0",
+ com.serotonin.modbus4j.sero.util.queue;version="3.1.0",
+ com.serotonin.modbus4j.value;version="3.1.0"
+Import-Package: 
+ org.apache.commons.lang3;version="[3.4,4.0)",
+ org.apache.commons.logging;version="[1.2,2.0)"
