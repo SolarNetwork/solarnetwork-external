@@ -46,6 +46,9 @@ public class StreamTransport implements Transport, Runnable {
      * @param threadName a {@link java.lang.String} object.
      */
     public void start(String threadName) {
+        if ( listener == null ) {
+            throw new UnsupportedOperationException("No DataConsumer is configured.");
+        }
         listener.start(threadName);
     }
 
@@ -53,6 +56,9 @@ public class StreamTransport implements Transport, Runnable {
      * <p>stop.</p>
      */
     public void stop() {
+        if ( listener == null ) {
+            return;
+        }
         listener.stop();
     }
 
@@ -60,6 +66,9 @@ public class StreamTransport implements Transport, Runnable {
      * <p>run.</p>
      */
     public void run() {
+        if ( listener == null ) {
+            throw new UnsupportedOperationException("No DataConsumer is configured.");
+        }
         listener.run();
     }
 
@@ -72,6 +81,9 @@ public class StreamTransport implements Transport, Runnable {
      * <p>removeConsumer.</p>
      */
     public void removeConsumer() {
+        if ( listener == null ) {
+            return;
+        }
         listener.stop();
         listener = null;
     }
