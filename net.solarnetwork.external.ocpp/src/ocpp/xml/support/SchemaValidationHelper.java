@@ -59,11 +59,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import ocpp.domain.SchemaValidationException;
 
 /**
- * FIXME
- * 
- * <p>
- * TODO
- * </p>
+ * XML Schema validation helper.
  * 
  * @author matt
  * @version 1.0
