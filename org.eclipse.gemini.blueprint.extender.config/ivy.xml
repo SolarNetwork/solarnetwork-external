@@ -12,8 +12,9 @@
 		<artifact type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc"/>
 		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
-	<dependencies defaultconfmapping="runtime->runtime(default);compile->compile(default)">
-		<dependency org="org.eclipse.gemini" name="org.eclipse.gemini.blueprint.core" rev="1.0.2.RELEASE" />
-		<dependency org="org.eclipse.gemini" name="org.eclipse.gemini.blueprint.extender" rev="1.0.2.RELEASE" />
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+		<dependency org="net.solarnetwork.external" name="gemini-blueprint-core" rev="3.0.0.SN01"/>
+		<dependency org="net.solarnetwork.external" name="gemini-blueprint-extender" rev="3.0.0.SN01"/>
+		<dependency org="org.osgi" name="org.osgi.core" rev="5.0.0"/>
 	</dependencies>
 </ivy-module>
