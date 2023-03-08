@@ -1,4 +1,0 @@
-http\://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd=META-INF/spring-webflow-config-2.0.xsd
-http\://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd=META-INF/spring-webflow-config-2.3.xsd
-http\://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd=META-INF/spring-webflow-config-2.4.xsd
-http\://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd=META-INF/spring-webflow-config-2.4.xsd
