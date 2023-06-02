@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Linux I2C and I/O Support via JNA
 Bundle-Description: I2C and other I/O support for Linux via the Java Native Access library.
 Bundle-SymbolicName: net.solarnetwork.external.linux-jna
-Bundle-Version: 1.1.0.SN01
+Bundle-Version: 1.1.1
 Bundle-ClassPath: 
  lib/linux-common-0.1.1.jar,
  lib/linux-errno-1.0.0.jar,
