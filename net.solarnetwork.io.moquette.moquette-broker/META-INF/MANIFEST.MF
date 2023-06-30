@@ -3,22 +3,22 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Moquette MQTT broker
 Bundle-Description: A MQTT broker for MQTT integration testing.
 Bundle-SymbolicName: net.solarnetwork.external.io.moquette.moquette-broker
-Bundle-Version: 0.12.1
-Bundle-ClassPath: moquette-broker-0.12.1.jar
+Bundle-Version: 0.16.0
+Bundle-ClassPath: moquette-broker-0.16.jar
 Bundle-Vendor: andsel/SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.solarnetwork.external.io.moquette.moquette-broker
 Export-Package: 
- io.moquette;version="0.12.1",
- io.moquette.broker;version="0.12.1",
- io.moquette.broker.config;version="0.12.1",
- io.moquette.broker.metrics;version="0.12.1",
- io.moquette.broker.security;version="0.12.1",
- io.moquette.broker.subscriptions;version="0.12.1",
- io.moquette.interception;version="0.12.1",
- io.moquette.interception.messages;version="0.12.1",
- io.moquette.logging;version="0.12.1",
- io.moquette.persistence;version="0.12.1"
+ io.moquette;version="0.16.0",
+ io.moquette.broker;version="0.16.0",
+ io.moquette.broker.config;version="0.16.0",
+ io.moquette.broker.metrics;version="0.16.0",
+ io.moquette.broker.security;version="0.16.0",
+ io.moquette.broker.subscriptions;version="0.16.0",
+ io.moquette.interception;version="0.16.0",
+ io.moquette.interception.messages;version="0.16.0",
+ io.moquette.logging;version="0.16.0",
+ io.moquette.persistence;version="0.16.0"
 Import-Package: 
  io.netty.bootstrap;version="[4.1.22,5.0)",
  io.netty.buffer;version="[4.1.22,5.0)",
