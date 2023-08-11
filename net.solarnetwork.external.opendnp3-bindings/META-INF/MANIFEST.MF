@@ -4,7 +4,7 @@ Bundle-Name: OpenDNP3 Bindings
 Bundle-Description: Java integration with OpenDNP3 using JNI.
 Bundle-SymbolicName: net.solarnetwork.external.opendnp3-bindings
 Automatic-Module-Name: net.solarnetwork.external.opendnp3-bindings
-Bundle-Version: 2.3.2.SN01
+Bundle-Version: 2.3.2.SN02
 Bundle-Vendor: OpenDNP3/SolarNetwork
 Bundle-Activator: net.solarnetwork.dnp3.osgi.Activator
 Export-Package: 
