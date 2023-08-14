@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -27,7 +27,7 @@ public class Counter extends Measurement
 {
     public final long value;
 
-    public Counter(long value, byte quality, long timestamp)
+    public Counter(long value, Flags quality, DNPTime timestamp)
     {
         super(quality, timestamp);
         this.value = value;
@@ -35,6 +35,6 @@ public class Counter extends Measurement
 
     @Override
     public String toString() {
-        return String.format("Counter(%d, 0x%x, %d)", value, quality, timestamp);
+        return String.format("Counter(%d, 0x%x, %d)", value, quality.getValue(), timestamp.msSinceEpoch);
     }
 }

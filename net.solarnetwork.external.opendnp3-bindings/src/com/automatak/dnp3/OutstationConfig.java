@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -28,16 +28,10 @@ import java.time.Duration;
  */
 public class OutstationConfig {
 
-
-    /**
-     * Controls the index mode
-     */
-    public IndexMode indexMode = IndexMode.Contiguous;
-
     /**
      * The maximum number of controls the outstation will attempt to process from a single APDU
      */
-    public short maxControlsPerRequest = 16;
+    public long maxControlsPerRequest = 4294967295L;
 
     /**
      * How long the outstation will allow an operate to proceed after a prior select
@@ -50,9 +44,14 @@ public class OutstationConfig {
     public Duration solConfirmTimeout = Duration.ofSeconds(5);
 
     /**
-     * Timeout for unsolicited retries
+     * Timeout for unsolicited confirms
      */
-    public Duration unsolRetryTimeout = Duration.ofSeconds(5);
+    public Duration unsolConfirmTimeout = Duration.ofSeconds(5);
+
+    /**
+     * Number of unsolicited response retries
+     */
+    public NumRetries numUnsolRetries = NumRetries.Infinite();
 
     /**
      * The maximum fragment size the outstation will use for fragments it sends
@@ -67,5 +66,18 @@ public class OutstationConfig {
     /**
      * Global enabled / disable for unsolicited messages. If false, the NULL unsolicited message is not even sent
      */
-    public boolean allowUnsolicited = false;
+    public boolean allowUnsolicited = true;
+
+    /**
+     * A bitmask type that specifies the types allowed in a class 0 reponse
+     */
+    public StaticTypeBitField typesAllowedInClass0 = StaticTypeBitField.all();
+
+    /**
+     * Workaround for test procedure 8.11.2.1. Will respond immediatly to READ requests
+     * when waiting for unsolicited NULL responses.
+     *
+     * This is NOT compliant to IEEE 1815-2012.
+     */
+    public boolean noDefferedReadDuringUnsolicitedNullResponse = false;
 }

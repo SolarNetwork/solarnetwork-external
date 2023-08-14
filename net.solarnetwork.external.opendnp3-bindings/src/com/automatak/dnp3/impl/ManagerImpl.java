@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -41,12 +41,6 @@ class ManagerImpl implements DNP3Manager {
     }
 
     @Override
-    public synchronized Channel addTCPClient(String id, int levels, ChannelRetry retry, String address, String adapter, int port, ChannelListener listener) throws DNP3Exception
-    {
-        return addTCPClient(id, levels, retry, Arrays.asList(new IPEndpoint(address, port)), adapter, listener);
-    }
-
-    @Override
     public synchronized Channel addTCPClient(String id, int levels, ChannelRetry retry, List<IPEndpoint> remotes, String adapter, ChannelListener listener) throws DNP3Exception
     {
         if(this.pointer == 0)
@@ -54,7 +48,17 @@ class ManagerImpl implements DNP3Manager {
             throw new DNP3Exception("Manager has been shutdown");
         }
 
-        long ptr = get_native_channel_tcp_client(this.pointer, id, levels, retry.minRetryDelay.toMillis(), retry.maxRetryDelay.toMillis(), remotes, adapter, listener);
+        long ptr = get_native_channel_tcp_client(
+                this.pointer,
+                id,
+                levels,
+                retry.minRetryDelay.toMillis(),
+                retry.maxRetryDelay.toMillis(),
+                retry.reconnectDelay.toMillis(),
+                remotes,
+                adapter,
+                listener
+        );
 
         if(ptr == 0) {
             throw new DNP3Exception("Unable to create channel");
@@ -64,14 +68,14 @@ class ManagerImpl implements DNP3Manager {
     }
 
     @Override
-    public synchronized Channel addTCPServer(String id, int levels, ServerAcceptMode mode, String endpoint, int port, ChannelListener listener) throws DNP3Exception
+    public synchronized Channel addTCPServer(String id, int levels, ServerAcceptMode mode, IPEndpoint endpoint, ChannelListener listener) throws DNP3Exception
     {
         if(this.pointer == 0)
         {
             throw new DNP3Exception("Manager has been shutdown");
         }
 
-        long ptr = get_native_channel_tcp_server(this.pointer, id, levels, mode.toType(), endpoint, port, listener);
+        long ptr = get_native_channel_tcp_server(this.pointer, id, levels, mode.toType(), endpoint, listener);
 
         if(ptr == 0) {
             throw new DNP3Exception("Unable to create channel");
@@ -81,9 +85,20 @@ class ManagerImpl implements DNP3Manager {
     }
 
     @Override
-    public synchronized Channel addTLSClient(String id, int levels, ChannelRetry retry, String address, String adapter, int port, TLSConfig config, ChannelListener listener) throws DNP3Exception
+    public synchronized Channel addUDPChannel(String id, int levels, ChannelRetry retry, IPEndpoint localEndpoint, IPEndpoint remoteEndpoint, ChannelListener listener) throws DNP3Exception
     {
-        return addTLSClient(id, levels, retry, Arrays.asList(new IPEndpoint(address, port)), adapter, config, listener);
+        if(this.pointer == 0)
+        {
+            throw new DNP3Exception("Manager has been shutdown");
+        }
+
+        long ptr = get_native_channel_udp(this.pointer, id, levels, retry.minRetryDelay.toMillis(), retry.maxRetryDelay.toMillis(), localEndpoint, remoteEndpoint, listener);
+
+        if(ptr == 0) {
+            throw new DNP3Exception("Unable to create channel");
+        }
+
+        return new ChannelImpl(ptr);
     }
 
     @Override
@@ -94,7 +109,18 @@ class ManagerImpl implements DNP3Manager {
             throw new DNP3Exception("Manager has been shutdown");
         }
 
-        long ptr = get_native_channel_tls_client(this.pointer, id, levels, retry.minRetryDelay.toMillis(), retry.maxRetryDelay.toMillis(), remotes, adapter, config, listener);
+        long ptr = get_native_channel_tls_client(
+                this.pointer,
+                id,
+                levels,
+                retry.minRetryDelay.toMillis(),
+                retry.maxRetryDelay.toMillis(),
+                retry.reconnectDelay.toMillis(),
+                remotes,
+                adapter,
+                config,
+                listener
+        );
 
         if(ptr == 0) {
             throw new DNP3Exception("Unable to create TLS client. Did you compile opendnp3 w/ TLS support?");
@@ -104,14 +130,14 @@ class ManagerImpl implements DNP3Manager {
     }
 
     @Override
-    public synchronized Channel addTLSServer(String id, int levels, ServerAcceptMode mode, String endpoint, int port, TLSConfig config, ChannelListener listener) throws DNP3Exception
+    public synchronized Channel addTLSServer(String id, int levels, ServerAcceptMode mode, IPEndpoint endpoint, TLSConfig config, ChannelListener listener) throws DNP3Exception
     {
         if(this.pointer == 0)
         {
             throw new DNP3Exception("Manager has been shutdown");
         }
 
-        long ptr = get_native_channel_tls_server(this.pointer, id, levels, mode.toType(), endpoint, port, config, listener);
+        long ptr = get_native_channel_tls_server(this.pointer, id, levels, mode.toType(), endpoint, config, listener);
 
         if(ptr == 0) {
             throw new DNP3Exception("Unable to create TLS server. Did you compile opendnp3 w/ TLS support?");
@@ -134,6 +160,7 @@ class ManagerImpl implements DNP3Manager {
                 levels,
                 retry.minRetryDelay.toMillis(),
                 retry.maxRetryDelay.toMillis(),
+                retry.reconnectDelay.toMillis(),
                 settings.port,
                 settings.baudRate,
                 settings.dataBits,
@@ -163,11 +190,12 @@ class ManagerImpl implements DNP3Manager {
     private native long create_native_manager(int concurrency, LogHandler handler);
     private native void shutdown_native_manager(long nativePointer);
 
-    private native long get_native_channel_tcp_client(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, List<IPEndpoint> remotes, String adapter, ChannelListener listener);
-    private native long get_native_channel_tcp_server(long nativePointer, String id, int level, int acceptMode, String endpoint, int port, ChannelListener listener);
-    private native long get_native_channel_tls_client(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, List<IPEndpoint> remotes, String adapter, TLSConfig config, ChannelListener listener);
-    private native long get_native_channel_tls_server(long nativePointer, String id, int level, int acceptMode, String endpoint, int port, TLSConfig config, ChannelListener listener);
-    private native long get_native_channel_serial(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, String port, int baudRate, int dataBits, int parity, int stopBits, int flowControl, ChannelListener listener);
+    private native long get_native_channel_tcp_client(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, long reconnectDelayMs, List<IPEndpoint> remotes, String adapter, ChannelListener listener);
+    private native long get_native_channel_tcp_server(long nativePointer, String id, int level, int acceptMode, IPEndpoint endpoint, ChannelListener listener);
+    private native long get_native_channel_udp(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, IPEndpoint localEndpoint, IPEndpoint remoteEndpoint, ChannelListener listener);
+    private native long get_native_channel_tls_client(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, long reconnectDelayMs, List<IPEndpoint> remotes, String adapter, TLSConfig config, ChannelListener listener);
+    private native long get_native_channel_tls_server(long nativePointer, String id, int level, int acceptMode, IPEndpoint endpoint, TLSConfig config, ChannelListener listener);
+    private native long get_native_channel_serial(long nativePointer, String id, int level, long minRetryMs, long maxRetryMs, long reconnectDelayMs, String port, int baudRate, int dataBits, int parity, int stopBits, int flowControl, ChannelListener listener);
 
 
 }

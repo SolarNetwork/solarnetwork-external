@@ -10,7 +10,7 @@
 // 
 // This file is auto-generated. Do not edit manually
 // 
-// Copyright 2013-2019 Automatak, LLC
+// Copyright 2013-2020 Automatak, LLC
 // 
 // Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
 // LLC (www.automatak.com) under one or more contributor license agreements.
@@ -48,7 +48,7 @@ public enum EventMode
   */
   Suppress(0x2),
   /**
-  * Send an event directly to the event buffer, bypassing the static value completely
+  * Force the creation of an event bypassing detection mechanism, but does not update the static value
   */
   EventOnly(0x3);
 

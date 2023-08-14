@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -30,21 +30,6 @@ public class LinkLayerConfig {
      * Controls the master/slave bit set on all messages
      */
     public boolean isMaster;
-
-    /**
-     * If true, the link layer will send data requesting confirmation. This is generally NEVER
-     * set for a TCP connection and only sometimes set for serial.
-     *
-     * defaults to false
-     */
-    public boolean useConfirms = false;
-
-    /**
-     * The number of retry attempts the link will attempt after the initial try if using confirms
-     *
-     * defaults to 0
-     */
-    public int numRetry = 0;
 
     /**
      * dnp3 address of the local device as a 16-bit unsigned integer

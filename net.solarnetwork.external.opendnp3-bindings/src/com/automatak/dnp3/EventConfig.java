@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -23,11 +23,9 @@ import com.automatak.dnp3.enums.PointClass;
 
 public class EventConfig {
 
-    public EventConfig(int vIndex) {
-        this.vIndex = vIndex;
+    public EventConfig() {
         this.clazz = PointClass.Class1;
     }
 
-    public int vIndex;
     public PointClass clazz;
 }

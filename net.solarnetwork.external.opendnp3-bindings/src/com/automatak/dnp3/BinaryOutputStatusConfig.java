@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -23,8 +23,7 @@ import com.automatak.dnp3.enums.EventBinaryOutputStatusVariation;
 import com.automatak.dnp3.enums.StaticBinaryOutputStatusVariation;
 
 public class BinaryOutputStatusConfig extends EventConfig {
-    public BinaryOutputStatusConfig(int index) {
-        super(index);
+    public BinaryOutputStatusConfig() {
         this.eventVariation = EventBinaryOutputStatusVariation.Group11Var1;
         this.staticVariation = StaticBinaryOutputStatusVariation.Group10Var2;
     }

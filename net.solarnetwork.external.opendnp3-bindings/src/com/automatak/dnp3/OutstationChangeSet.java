@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -61,8 +61,8 @@ public class OutstationChangeSet implements Database, ChangeSet {
     }
 
     @Override
-    public void update(FrozenCounter update, int index) {
-        updates.add((Database db) -> db.update(update, index, EventMode.Detect));
+    public void freezeCounter(int index, boolean clear) {
+        updates.add((Database db) -> db.freezeCounter(index, clear, EventMode.Detect));
     }
 
     @Override
@@ -96,8 +96,8 @@ public class OutstationChangeSet implements Database, ChangeSet {
     }
 
     @Override
-    public void update(FrozenCounter update, int index, EventMode mode) {
-        updates.add((Database db) -> db.update(update, index, mode));
+    public void freezeCounter(int index, boolean clear, EventMode mode) {
+        updates.add((Database db) -> db.freezeCounter(index, clear, mode));
     }
 
     @Override

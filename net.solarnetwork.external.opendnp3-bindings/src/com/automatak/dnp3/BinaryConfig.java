@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -24,11 +24,7 @@ import com.automatak.dnp3.enums.StaticBinaryVariation;
 
 public class BinaryConfig extends EventConfig {
 
-    /**
-     * @param index The index of the binary configuration
-     */
-    public BinaryConfig(int index) {
-        super(index);
+    public BinaryConfig() {
         this.eventVariation = EventBinaryVariation.Group2Var1;
         this.staticVariation = StaticBinaryVariation.Group1Var2;
     }

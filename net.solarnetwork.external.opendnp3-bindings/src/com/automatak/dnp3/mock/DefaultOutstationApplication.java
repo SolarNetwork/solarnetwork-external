@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -57,6 +57,16 @@ public class DefaultOutstationApplication implements OutstationApplication
     }
 
     @Override
+    public void onUnknownDestinationAddress(int destination) {
+        // do nothing in the default implementation
+    }
+
+    @Override
+    public  void onUnknownSourceAddress(int source) {
+        // do nothing in the default implementation
+    }
+
+    @Override
     public void onKeepAliveInitiated() {
         // do nothing in the default implementation
     }
@@ -89,5 +99,16 @@ public class DefaultOutstationApplication implements OutstationApplication
     @Override
     public int warmRestart() {
         return 65535;
+    }
+
+    @Override
+    public void onConfirmProcessed(boolean isUnsolicited, long numClass1, long numClass2, long numClass3) {
+        // do nothing in the default implementation
+    }
+
+    @Override
+    public DNPTime now()
+    {
+        return new DNPTime(0, TimestampQuality.INVALID);
     }
 }

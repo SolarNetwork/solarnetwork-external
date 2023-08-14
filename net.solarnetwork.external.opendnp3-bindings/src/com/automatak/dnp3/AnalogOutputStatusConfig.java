@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -24,9 +24,7 @@ import com.automatak.dnp3.enums.StaticAnalogOutputStatusVariation;
 
 public class AnalogOutputStatusConfig extends EventConfig {
 
-    public AnalogOutputStatusConfig(int index) {
-        super(index);
-    }
+    public AnalogOutputStatusConfig() {}
 
     public double deadband = 0;
     public EventAnalogOutputStatusVariation eventVariation = EventAnalogOutputStatusVariation.Group42Var1;

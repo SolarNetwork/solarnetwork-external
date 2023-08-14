@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -30,7 +30,7 @@ public interface CommandHandler {
     /**
      * Called when an ASDU containing commands begins
      */
-    void start();
+    void begin();
 
     /**
      * Called when an ASDU containing commands begins
@@ -43,7 +43,7 @@ public interface CommandHandler {
      * @param index request index
      * @return Enumeration representing the result of the request
      */
-    CommandStatus selectCROB(ControlRelayOutputBlock command, int index);
+    CommandStatus select(ControlRelayOutputBlock command, int index);
 
     /**
      * Select a 32-bit integer AnalogOutput (Group41Var1)
@@ -51,7 +51,7 @@ public interface CommandHandler {
      * @param index request index
      * @return Enumeration representing the result of the request
      */
-    CommandStatus selectAOI32(AnalogOutputInt32 command, int index);
+    CommandStatus select(AnalogOutputInt32 command, int index);
 
     /**
      * Select a 16-bit integer AnalogOutput (Group41Var2)
@@ -59,7 +59,7 @@ public interface CommandHandler {
      * @param index request index
      * @return Enumeration representing the result of the request
      */
-    CommandStatus selectAOI16(AnalogOutputInt16 command, int index);
+    CommandStatus select(AnalogOutputInt16 command, int index);
 
     /**
      * Select a single precision AnalogOutput (Group41Var3)
@@ -67,7 +67,7 @@ public interface CommandHandler {
      * @param index request index
      * @return Enumeration representing the result of the request
      */
-    CommandStatus selectAOF32(AnalogOutputFloat32 command, int index);
+    CommandStatus select(AnalogOutputFloat32 command, int index);
 
     /**
      * Select a double precision AnalogOutput (Group41Var4)
@@ -75,51 +75,56 @@ public interface CommandHandler {
      * @param index request index
      * @return Enumeration representing the result of the request
      */
-    CommandStatus selectAOD64(AnalogOutputDouble64 command, int index);
+    CommandStatus select(AnalogOutputDouble64 command, int index);
 
     /**
      * Operate a ControlRelayOutputBlock (Group12Var1)
      * @param command command object
      * @param index request index
+     * @param database interface used to load measurement values in response to the command
      * @param opType The type of the operation (SBO, DO, DONoAck)
      * @return Enumeration representing the result of the request
      */
-    CommandStatus operateCROB(ControlRelayOutputBlock command, int index, OperateType opType);
+    CommandStatus operate(ControlRelayOutputBlock command, int index, Database database, OperateType opType);
 
     /**
      * Operate a 32-bit integer AnalogOutput (Group41Var1)
      * @param command command object
      * @param index request index
+     * @param database interface used to load measurement values in response to the command
      * @param opType The type of the operation (SBO, DO, DONoAck)
      * @return Enumeration representing the result of the request
      */
-    CommandStatus operateAOI32(AnalogOutputInt32 command, int index, OperateType opType);
+    CommandStatus operate(AnalogOutputInt32 command, int index, Database database, OperateType opType);
 
     /**
      * Operate a 16-bit integer AnalogOutput (Group41Var2)
      * @param command command object
      * @param index request index
+     * @param database interface used to load measurement values in response to the command
      * @param opType The type of the operation (SBO, DO, DONoAck)
      * @return Enumeration representing the result of the request
      */
-    CommandStatus operateAOI16(AnalogOutputInt16 command, int index, OperateType opType);
+    CommandStatus operate(AnalogOutputInt16 command, int index, Database database, OperateType opType);
 
     /**
      * Operate a single precision AnalogOutput (Group41Var3)
      * @param command command object
      * @param index request index
+     * @param database interface used to load measurement values in response to the command
      * @param opType The type of the operation (SBO, DO, DONoAck)
      * @return Enumeration representing the result of the request
      */
-    CommandStatus operateAOF32(AnalogOutputFloat32 command, int index, OperateType opType);
+    CommandStatus operate(AnalogOutputFloat32 command, int index, Database database, OperateType opType);
 
     /**
      * Operate a double precision AnalogOutput (Group41Var4)
      * @param command command object
      * @param index request index
+     * @param database interface used to load measurement values in response to the command
      * @param opType The type of the operation (SBO, DO, DONoAck)
      * @return Enumeration representing the result of the request
      */
-    CommandStatus operateAOD64(AnalogOutputDouble64 command, int index, OperateType opType);
+    CommandStatus operate(AnalogOutputDouble64 command, int index, Database database, OperateType opType);
 
 }

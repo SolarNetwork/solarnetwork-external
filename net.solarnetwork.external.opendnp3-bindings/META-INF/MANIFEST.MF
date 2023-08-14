@@ -4,14 +4,14 @@ Bundle-Name: OpenDNP3 Bindings
 Bundle-Description: Java integration with OpenDNP3 using JNI.
 Bundle-SymbolicName: net.solarnetwork.external.opendnp3-bindings
 Automatic-Module-Name: net.solarnetwork.external.opendnp3-bindings
-Bundle-Version: 2.3.2.SN02
+Bundle-Version: 3.1.2.SN01
 Bundle-Vendor: OpenDNP3/SolarNetwork
 Bundle-Activator: net.solarnetwork.dnp3.osgi.Activator
 Export-Package: 
- com.automatak.dnp3;version="2.3.2";uses:="com.automatak.dnp3.enums",
- com.automatak.dnp3.enums;version="2.3.2",
- com.automatak.dnp3.impl;version="2.3.2";uses:="com.automatak.dnp3.enums,com.automatak.dnp3",
- com.automatak.dnp3.mock;version="2.3.2";uses:="com.automatak.dnp3.enums,com.automatak.dnp3",
+ com.automatak.dnp3;version="3.1.2";uses:="com.automatak.dnp3.enums",
+ com.automatak.dnp3.enums;version="3.1.2",
+ com.automatak.dnp3.impl;version="3.1.2";uses:="com.automatak.dnp3.enums,com.automatak.dnp3",
+ com.automatak.dnp3.mock;version="3.1.2";uses:="com.automatak.dnp3.enums,com.automatak.dnp3",
  net.solarnetwork.dnp3.util;version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 

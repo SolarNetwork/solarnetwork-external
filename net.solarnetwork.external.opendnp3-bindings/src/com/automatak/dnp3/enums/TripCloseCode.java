@@ -10,7 +10,7 @@
 // 
 // This file is auto-generated. Do not edit manually
 // 
-// Copyright 2013-2019 Automatak, LLC
+// Copyright 2013-2020 Automatak, LLC
 // 
 // Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
 // LLC (www.automatak.com) under one or more contributor license agreements.
@@ -31,18 +31,27 @@
 
 package com.automatak.dnp3.enums;
 /**
-* Select contiguous or dis-contiguous index mode
+* Used in conjunction with Operation Type in a CROB to describe which output to operate for complementary two-output model
+* Refer to section A.8.1 of IEEE 1815-2012 for a full description
 */
-public enum IndexMode
+public enum TripCloseCode
 {
   /**
-  * Indices are contiguous. Most efficient as direct indexing is used.
+  * Use the default output.
   */
-  Contiguous(0x0),
+  NUL(0x0),
   /**
-  * Indices are dis-contiguous. Resorts to binary search to find raw index.
+  * For complementary two-output model, operate the close output.
   */
-  Discontiguous(0x1);
+  CLOSE(0x1),
+  /**
+  * For complementary two-output model, operate the trip output.
+  */
+  TRIP(0x2),
+  /**
+  * Reserved for future use.
+  */
+  RESERVED(0x3);
 
   private final int id;
 
@@ -51,21 +60,25 @@ public enum IndexMode
     return id;
   }
 
-  IndexMode(int id)
+  TripCloseCode(int id)
   {
     this.id = id;
   }
 
-  public static IndexMode fromType(int arg)
+  public static TripCloseCode fromType(int arg)
   {
     switch(arg)
     {
       case(0x0):
-        return Contiguous;
+        return NUL;
       case(0x1):
-        return Discontiguous;
+        return CLOSE;
+      case(0x2):
+        return TRIP;
+      case(0x3):
+        return RESERVED;
       default:
-        return Contiguous;
+        return NUL;
     }
   }
 }

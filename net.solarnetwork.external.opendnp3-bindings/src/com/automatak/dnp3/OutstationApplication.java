@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -80,10 +80,30 @@ public interface OutstationApplication extends LinkStatusListener {
 
     /**
      * The outstation should perform a partial restart of only the DNP3 application.
-     * See the DNP3 specification for a complete descripton of normal behavior
+     * See the DNP3 specification for a complete description of normal behavior
      *
      * @return number of seconds or milliseconds until restart is complete. The value
      * is interpreted based on the Restart Mode returned from ColdRestartSupport()
      */
     int warmRestart();
+
+    /**
+     * This method notifies that application code that an expected CONFIRM has been
+     * received, and events may have cleared from the event buffer. It is informational
+     * only.
+     *
+     * @param isUnsolicited true if the confirm is for an unsolicited response, false for a solicited response
+     * @param numClass1 number of Class 1 events remaining in the event buffer after processing the confirm
+     * @param numClass2 number of Class 2 events remaining in the event buffer after processing the confirm
+     * @param numClass3 number of Class 3 events remaining in the event buffer after processing the confirm
+     */
+    void onConfirmProcessed(boolean isUnsolicited, long numClass1, long numClass2, long numClass3);
+
+    /**
+     * Return the current time and the synchronization status.
+     * This value is used when freezing counters
+     *
+     * @return Current time and timesync status
+     */
+    DNPTime now();
 }

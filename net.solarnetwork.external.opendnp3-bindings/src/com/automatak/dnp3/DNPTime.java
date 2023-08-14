@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -19,17 +19,24 @@
  */
 package com.automatak.dnp3;
 
-/**
- * Maps to g50v1
- */
+import com.automatak.dnp3.enums.TimestampQuality;
+
+
 public class DNPTime {
 
     public DNPTime(long msSinceEpoch)
     {
+        this(msSinceEpoch, TimestampQuality.SYNCHRONIZED);
+    }
+
+    public DNPTime(long msSinceEpoch, TimestampQuality quality)
+    {
         this.msSinceEpoch = msSinceEpoch;
+        this.quality = quality;
     }
 
     public final long msSinceEpoch;
+    public final TimestampQuality quality;
 
     @Override
     public String toString()

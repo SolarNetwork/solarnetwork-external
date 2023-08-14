@@ -10,7 +10,7 @@
 // 
 // This file is auto-generated. Do not edit manually
 // 
-// Copyright 2013-2019 Automatak, LLC
+// Copyright 2013-2020 Automatak, LLC
 // 
 // Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
 // LLC (www.automatak.com) under one or more contributor license agreements.
@@ -31,19 +31,35 @@
 
 package com.automatak.dnp3.enums;
 /**
-* Enumerates possible key-wrap algorithms
+* Used in conjunction with Trip Close Code in a CROB to describe what action to perform
+* Refer to section A.8.1 of IEEE 1815-2012 for a full description
 */
-public enum KeyWrapAlgorithm
+public enum OperationType
 {
   /**
-  * AES 128 Key Wrap Algorithm
+  * Do nothing.
   */
-  AES_128(0x1),
+  NUL(0x0),
   /**
-  * AES 256 Key Wrap Algorithm
+  * Set output to active for the duration of the On-time.
   */
-  AES_256(0x2),
-  UNDEFINED(0x0);
+  PULSE_ON(0x1),
+  /**
+  * Non-interoperable code. Do not use for new applications.
+  */
+  PULSE_OFF(0x2),
+  /**
+  * Set output to active.
+  */
+  LATCH_ON(0x3),
+  /**
+  * Set the output to inactive.
+  */
+  LATCH_OFF(0x4),
+  /**
+  * Undefined.
+  */
+  Undefined(0xFF);
 
   private final int id;
 
@@ -52,21 +68,27 @@ public enum KeyWrapAlgorithm
     return id;
   }
 
-  KeyWrapAlgorithm(int id)
+  OperationType(int id)
   {
     this.id = id;
   }
 
-  public static KeyWrapAlgorithm fromType(int arg)
+  public static OperationType fromType(int arg)
   {
     switch(arg)
     {
+      case(0x0):
+        return NUL;
       case(0x1):
-        return AES_128;
+        return PULSE_ON;
       case(0x2):
-        return AES_256;
+        return PULSE_OFF;
+      case(0x3):
+        return LATCH_ON;
+      case(0x4):
+        return LATCH_OFF;
       default:
-        return UNDEFINED;
+        return Undefined;
     }
   }
 }

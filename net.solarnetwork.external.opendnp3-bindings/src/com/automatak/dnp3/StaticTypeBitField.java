@@ -20,54 +20,54 @@
 package com.automatak.dnp3;
 
 
-import com.automatak.dnp3.enums.PointClass;
+import com.automatak.dnp3.enums.StaticTypeBitmask;
 
 /**
- * Structure that records which events are scanned / evented
+ * A bitfield that describes a subset of all static types, e.g. { Binary, Analog } or {Analog, Counter, FrozenCounter }
  */
-public class ClassField {
+public class StaticTypeBitField {
 
     public int bitfield;
 
-    private ClassField(int mask) {
+    private StaticTypeBitField(int mask) {
         this.bitfield = mask;
     }
 
-    public static ClassField from(PointClass... classes) {
+    public static StaticTypeBitField from(StaticTypeBitmask... types) {
         byte mask = 0;
-        for (PointClass pc : classes) {
-            mask |= pc.toType();
+        for (StaticTypeBitmask type : types) {
+            mask |= type.toType();
         }
-        return new ClassField(mask);
+        return new StaticTypeBitField(mask);
     }
 
-    public boolean isSet(PointClass pc)
+    public boolean isSet(StaticTypeBitmask type)
     {
-        return (pc.toType() & bitfield) != 0;
+        return (type.toType() & bitfield) != 0;
     }
 
-    public void set(PointClass pc, boolean value)
+    public void set(StaticTypeBitmask type, boolean value)
     {
         if(value)
         {
-            this.bitfield |= pc.toType();
+            this.bitfield |= type.toType();
         }
         else
         {
-            this.bitfield &= ~pc.toType();
+            this.bitfield &= ~type.toType();
         }
     }
 
-    public static ClassField none() {
-        return new ClassField(0);
+    public static StaticTypeBitField none() {
+        return new StaticTypeBitField(0);
     }
 
-    public static ClassField allClasses() {
-        return new ClassField(PointClassMasks.ALL_CLASSES);
+    public static StaticTypeBitField all() {
+        return new StaticTypeBitField(~0);
     }
 
-    public static ClassField allEventClasses() {
-        return new ClassField(PointClassMasks.ALL_EVENTS);
+    public StaticTypeBitField except(StaticTypeBitmask type) {
+        return new StaticTypeBitField(this.bitfield & ~type.toType());
     }
 
 }
