@@ -4,13 +4,11 @@ Bundle-Name: Tyrus Websocket Client (JDK)
 Bundle-Description: Tyrus reference implementation of javax.websocket client API.
 Bundle-SymbolicName: net.solarnetwork.external.tyrus-standalone-client-jdk
 Automatic-Module-Name: net.solarnetwork.external.tyrus.standalone.client.jdk
-Bundle-Version: 1.13.0.SN01
+Bundle-Version: 1.13.0.SN02
 Bundle-ClassPath: tyrus-standalone-client-jdk-1.13.jar
 Bundle-Vendor: Glassfish/SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: 
- javax.websocket;version="1.1.0",
- javax.websocket.server;version="1.1.0";uses:="javax.websocket",
  org.glassfish.tyrus.client;version="1.13.0";
   uses:="org.glassfish.tyrus.client,
    javax.websocket,
