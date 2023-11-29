@@ -1,0 +1,23 @@
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="net.solarnetwork.external" module="${bundle.name}" />
+	<configurations defaultconf="compile,runtime">
+		<conf name="compile" visibility="public" description="Build dependencies"/>
+		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
+		<conf name="javadoc" visibility="public" description="Javadoc documentation"/>
+		<conf name="sources"/>
+	</configurations>
+	<publications>
+		<artifact type="pom" ext="pom"/>
+		<artifact type="bundle" ext="jar"/>
+		<artifact type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc"/>
+		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
+	</publications>
+	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
+		<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.15.3" />
+		<dependency org="com.fasterxml.jackson.module" name="jackson-module-jakarta-xmlbind-annotations" rev="2.15.3" />
+		<dependency org="jakarta.activation" name="jakarta.activation-api" rev="2.1.2" />
+		<dependency org="jakarta.xml.bind" name="jakarta.xml.bind-api" rev="4.0.1" />
+		<dependency org="jakarta.xml.ws" name="jakarta.xml.ws-api" rev="4.0.1" />
+    	<dependency org="org.slf4j" name="slf4j-api" rev="2.0.9"/>
+	</dependencies>
+</ivy-module>
