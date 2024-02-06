@@ -6,6 +6,7 @@ Bundle-SymbolicName: net.solarnetwork.external.aws-sdk-mini
 Bundle-Version: 1.11.688.SN20191206A
 Bundle-Vendor: AWS/SolarNetwork
 Automatic-Module-Name: net.solarnetwork.external.aws.sdk.mini
+Bundle-ClassPath: .,binsrc/
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
 Import-Package: com.fasterxml.jackson.annotation;resolution:=optional,
