@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jakarta JAXB API Default Runtime
+Bundle-Description: Provides support for the default JAXB runtime.
+Bundle-SymbolicName: net.solarnetwork.external.jakarta-xml-bind-api-default-runtime
+Bundle-Version: 2.3.2
+Fragment-Host: jakarta.xml.bind-api;bundle-version="[2.3.2,3.0.0)"
+Automatic-Module-Name: net.solarnetwork.external.jakarta-xml-bind-api-default-runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.sun.xml.bind.v2
