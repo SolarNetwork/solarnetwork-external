@@ -29,11 +29,12 @@ import ocpp.domain.RpcError;
  * {@link ocpp.domain.ErrorCodeResolver} for OCPP v1.6.
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  * @since 1.1
  */
 public class ErrorCodeResolver implements ocpp.domain.ErrorCodeResolver {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public ActionErrorCode errorCodeForRpcError(RpcError rpcError) {
 		switch (rpcError) {
@@ -52,6 +53,7 @@ public class ErrorCodeResolver implements ocpp.domain.ErrorCodeResolver {
 				return ActionErrorCode.InternalError;
 
 			case PayloadOccurenceConstraintViolation:
+			case PayloadOccurrenceConstraintViolation:
 				return ActionErrorCode.OccurenceConstraintViolation;
 
 			case PayloadPropertyConstraintViolation:
