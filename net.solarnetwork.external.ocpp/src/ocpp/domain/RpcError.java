@@ -26,7 +26,7 @@ package ocpp.domain;
  * Standardized RPC protocol error types.
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  * @since 1.1
  */
 public enum RpcError {
@@ -64,8 +64,19 @@ public enum RpcError {
 	/**
 	 * Payload for Action is syntactically correct but at least one of the
 	 * fields violates occurrence constraints.
+	 * 
+	 * @deprecated use {@link #PayloadOccurrenceConstraintViolation}
 	 */
+	@Deprecated
 	PayloadOccurenceConstraintViolation,
+
+	/**
+	 * Payload for Action is syntactically correct but at least one of the
+	 * fields violates occurrence constraints.
+	 * 
+	 * @since 1.1
+	 */
+	PayloadOccurrenceConstraintViolation,
 
 	/**
 	 * Payload for Action is syntactically correct but at least one of the

@@ -26,7 +26,7 @@ package ocpp.json;
  * OCPP WebSocket sub-protocol enumeration.
  * 
  * @author matt
- * @version 1.0
+ * @version 1.1
  */
 public enum WebSocketSubProtocol {
 
@@ -40,7 +40,10 @@ public enum WebSocketSubProtocol {
 	OCPP_V16("ocpp1.6"),
 
 	/** OCPP version 2.0. */
-	OCPP_V20("ocpp2.0");
+	OCPP_V20("ocpp2.0"),
+
+	/** OCPP version 2.0.1. */
+	OCPP_V201("ocpp2.0.1");
 
 	private final String value;
 
