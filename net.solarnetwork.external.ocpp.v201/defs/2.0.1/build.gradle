@@ -1,0 +1,137 @@
+plugins {
+  id 'java'
+  id 'org.jsonschema2dataclass' version '5.0.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+}
+
+jsonSchema2Pojo {
+	executions {
+		main {
+			  source.setFrom files("${project.rootDir}/../../src/schema/json/ocpp/v201")
+			
+			  targetPackage = 'ocpp.v201'
+			  
+			  customDateTimePattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX"
+			
+			  includeAdditionalProperties = true
+			
+			  includeGeneratedAnnotation = false
+			
+			  // Whether to generate builder-style methods of the form withXxx(value) (that return this),
+			  // alongside the standard, void-return setters.
+			  generateBuilders = true
+			
+			  // If set to true, then the gang of four builder pattern will be used to generate builders on
+			  // generated classes. Note: This property works in collaboration with generateBuilders. 
+			  // If generateBuilders is false then this property will not do anything.
+			  useInnerClassBuilders = true
+			
+			  // Whether to use the java type long (or Long) instead of int (or Integer) when representing the
+			  // JSON Schema type 'integer'.
+			  useLongIntegers = false
+			
+			  // Whether to use the java type BigInteger when representing the JSON Schema type 'integer'. Note
+			  // that this configuration overrides useLongIntegers
+			  useBigIntegers = false
+			
+			  // Whether to use the java type double (or Double) instead of float (or Float) when representing
+			  // the JSON Schema type 'number'.
+			  useDoubleNumbers = true
+			  
+			  // Whether to use the java type BigDecimal when representing the JSON Schema type 'number'. Note
+			  // that this configuration overrides useDoubleNumbers
+			  useBigDecimals = false
+			
+			  // Whether to include hashCode and equals methods in generated Java types.
+			  includeHashcodeAndEquals = true
+			
+			  // Whether to include a toString method in generated Java types.
+			  includeToString = true
+			
+			  annotationStyle = 'jackson'
+			
+			  includeJsr303Annotations = false
+			
+			  includeJsr305Annotations = false
+			
+			  useTitleAsClassname = true
+			
+			  sourceType = 'jsonschema'
+			
+			  removeOldOutput = true
+			
+			  outputEncoding = 'UTF-8'
+			
+			  useJodaDates = false
+			
+			  formatDateTimes = true
+			  formatDates = true
+			  formatTimes = true
+			  
+			  // Whether to initialize Set and List fields as empty collections, or leave them as null.
+			  initializeCollections = false
+			  
+			  // Whether to add a prefix to generated classes.
+			  classNamePrefix = ""
+			
+			  // Whether to add a suffix to generated classes.
+			  classNameSuffix = ""
+			
+			  // Whether to generate constructors or not.
+			  includeConstructors = true
+			
+			  // Whether to include java.beans.ConstructorProperties on generated constructors
+			  includeConstructorPropertiesAnnotation = false
+			
+			  // Whether to include only 'required' fields in generated constructors
+			  constructorsRequiredPropertiesOnly = true
+			
+			  // Whether to *add* a constructor that includes only 'required' fields, alongside other constructors.
+			  // This property is irrelevant if constructorsRequiredPropertiesOnly = true
+			  includeRequiredPropertiesConstructor = false
+			
+			  // Whether to *add* a constructor that includes all fields, alongside other constructors.
+			  // This property is irrelevant if constructorsRequiredPropertiesOnly = true
+			  includeAllPropertiesConstructor = false
+			
+			  // Include a constructor with the class itself as a parameter, with the expectation that all properties
+			  // from the originating class will assigned to the new class.
+			  // This property is irrelevant if constructorsRequiredPropertiesOnly = true
+			  includeCopyConstructor = false
+			
+			  // Whether to make the generated types Parcelable for Android
+			  parcelable = false
+			
+			  // Whether to make the generated types Serializable
+			  serializable = true
+			
+			  // Whether to include getters or to omit these accessor methods and create public fields instead.
+			  includeGetters = true
+			
+			  // Whether to include setters or to omit these accessor methods and create public fields instead.
+			  includeSetters = true
+			
+			  useJodaLocalDates = false 
+			
+			  useJodaLocalTimes = false
+			
+			  dateType = "java.time.LocalDate"
+			
+			  dateTimeType = "java.time.Instant"
+			
+			  timeType = "java.time.LocalDate"
+			
+			  useOptionalForGetters = false 
+			
+			  targetVersion = "1.8"
+		}
+	}
+}
