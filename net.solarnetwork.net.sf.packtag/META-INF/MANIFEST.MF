@@ -4,21 +4,21 @@ Bundle-Name: pack:tag
 Bundle-Description: Dynamic minifier filter for JavaScript and CSS.
 Bundle-SymbolicName: net.solarnetwork.external.net.sf.packtag
 Automatic-Module-Name: net.solarnetwork.external.net.sf.packtag
-Bundle-Version: 3.13.1.SN03
+Bundle-Version: 3.13.1.SN03A
 Bundle-Vendor: SolarNetwork/Daniel Galán y Martins
 Bundle-ClassPath: 
- packtag-core-3.13.1_SN02.jar
+ packtag-core-3.13.1_SN03.jar
 Export-Package: 
- net.sf.packtag.cache;version="3.13.1.SN02",
- net.sf.packtag.cache.provider;version="3.13.1.SN02",
- net.sf.packtag.filter;version="3.13.1.SN02",
- net.sf.packtag.implementation;version="3.13.1.SN02",
- net.sf.packtag.implementation.andyr;version="3.13.1.SN02",
- net.sf.packtag.implementation.barryvan;version="3.13.1.SN02",
- net.sf.packtag.servlet;version="3.13.1.SN02",
- net.sf.packtag.strategy;version="3.13.1.SN02",
- net.sf.packtag.tag;version="3.13.1.SN02",
- net.sf.packtag.util;version="3.13.1.SN02"
+ net.sf.packtag.cache;version="3.13.1.SN03",
+ net.sf.packtag.cache.provider;version="3.13.1.SN03",
+ net.sf.packtag.filter;version="3.13.1.SN03",
+ net.sf.packtag.implementation;version="3.13.1.SN03",
+ net.sf.packtag.implementation.andyr;version="3.13.1.SN03",
+ net.sf.packtag.implementation.barryvan;version="3.13.1.SN03",
+ net.sf.packtag.servlet;version="3.13.1.SN03",
+ net.sf.packtag.strategy;version="3.13.1.SN03",
+ net.sf.packtag.tag;version="3.13.1.SN03",
+ net.sf.packtag.util;version="3.13.1.SN03"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
  javax.servlet;version="2.5.0",

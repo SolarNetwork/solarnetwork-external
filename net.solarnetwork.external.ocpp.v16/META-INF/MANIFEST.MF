@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OCPP 1.6 API
+Bundle-SymbolicName: net.solarnetwork.external.ocpp.v16
+Bundle-Vendor: SolarNetwork
+Bundle-Version: 1.0.0
+Automatic-Module-Name: net.solarnetwork.external.ocpp.v16
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: 
+ ocpp.v16.cp;version="1.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind",
+ ocpp.v16.cs;version="1.0.0";
+  uses:="javax.xml.namespace,
+   javax.xml.datatype,
+   javax.xml.ws,
+   javax.xml.bind"
+Import-Package: 
+ com.sun.xml.bind.v2;resolution:=optional,
+ javax.xml.bind,
+ javax.xml.bind.annotation,
+ javax.xml.datatype,
+ javax.xml.namespace,
+ javax.xml.parsers,
+ javax.xml.validation,
+ javax.xml.ws
