@@ -18,13 +18,13 @@ repositories {
 }
 
 dependencies {
-    runtimeOnly 'com.amazonaws:aws-java-sdk-s3:1.11.688'
+    runtimeOnly 'com.amazonaws:aws-java-sdk-s3:1.12.742'
 }
 
 shadowJar {
     archivesBaseName = 'aws-sdk-mini'
     archiveClassifier = null
-    archiveVersion = '1.11.688'
+    archiveVersion = '1.12.742'
     dependencies {
     	exclude(dependency('com.fasterxml.jackson.core::'))
     	exclude(dependency('com.fasterxml.jackson.dataformat::'))
