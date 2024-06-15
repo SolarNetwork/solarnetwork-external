@@ -1,15 +1,14 @@
 buildscript {
   repositories {
-     jcenter()
      mavenCentral()
   }
   dependencies {
-    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:4.3.1'
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:7.0.0'
   }
 }
 
 plugins {
-	id 'com.github.johnrengelman.shadow' version '5.2.0'
+	id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 apply plugin: 'biz.aQute.bnd.builder'
@@ -19,12 +18,12 @@ repositories {
 }
 
 dependencies {
-    runtime 'com.amazonaws:aws-java-sdk-s3:1.11.688'
+    runtimeOnly 'com.amazonaws:aws-java-sdk-s3:1.11.688'
 }
 
 shadowJar {
-    baseName = 'aws-sdk-mini'
-    classifier = null
+    archivesBaseName = 'aws-sdk-mini'
+    archiveClassifier = null
     archiveVersion = '1.11.688'
     dependencies {
     	exclude(dependency('com.fasterxml.jackson.core::'))
