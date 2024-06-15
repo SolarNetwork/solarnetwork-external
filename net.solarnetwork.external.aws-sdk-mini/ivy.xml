@@ -16,6 +16,5 @@
 		<dependency org="commons-codec" name="commons-codec" rev="1.11"/>
 		<dependency org="commons-logging" name="commons-logging" rev="1.2"/>
 		<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.9"/>
-		<dependency org="software.amazon.ion" name="ion-java" rev="1.0.2"/>
 	</dependencies>
 </ivy-module>
