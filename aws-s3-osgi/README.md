@@ -1,4 +1,4 @@
-# AWS SDK 1.11 Mini
+# AWS SDK 1.12 Mini OSGi
 
 This project contains build scripts for creating a slimmed-down AWS SDK JAR with OSGi support. The
 [official aws-java-sdk-osgi][official] JAR is a rather hefty 145MB+. SolarNode relies on only a

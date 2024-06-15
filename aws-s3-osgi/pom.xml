@@ -3,7 +3,7 @@
 	<groupId>net.solarnetwork.external</groupId>
 	<artifactId>net.solarnetwork.external.aws-sdk-mini</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.11.688.SN20191206A</version>
+	<version>1.12.742.SN20240615A</version>
 	<dependencies>
 		<dependency>
 			<groupId>commons-codec</groupId>
