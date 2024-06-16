@@ -17,14 +17,19 @@ repositories {
     jcenter()
 }
 
+ext {
+	awsSdk2Version = '2.26.3'
+}
+
 dependencies {
-    runtimeOnly 'software.amazon.awssdk:s3:2.26.3'
+    runtimeOnly "software.amazon.awssdk:s3:${awsSdk2Version}"
+    runtimeOnly "software.amazon.awssdk:s3-transfer-manager:${awsSdk2Version}"
 }
 
 shadowJar {
     archivesBaseName = 'aws-sdk-v2-mini-osgi'
     archiveClassifier = null
-    archiveVersion = '2.26.3'
+    archiveVersion = "${awsSdk2Version}"
     dependencies {
     	exclude(dependency('com.fasterxml.jackson.core::'))
     	exclude(dependency('com.fasterxml.jackson.dataformat::'))

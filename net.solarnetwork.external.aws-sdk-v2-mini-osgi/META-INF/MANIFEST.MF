@@ -294,14 +294,25 @@ Export-Package: software.amazon.awssdk.annotations;version="2.26.3",so
  n.awssdk.services.s3.waiters;version="2.26.3";uses:="software.amazon.
  awssdk.core.waiters,software.amazon.awssdk.services.s3,software.amazo
  n.awssdk.services.s3.model,software.amazon.awssdk.utils",software.ama
- zon.awssdk.utils;version="2.26.3";uses:="org.slf4j,org.slf4j.event,so
- ftware.amazon.awssdk.utils.builder",software.amazon.awssdk.utils.asyn
- c;version="2.26.3";uses:="org.reactivestreams,software.amazon.awssdk.
- utils",software.amazon.awssdk.utils.builder;version="2.26.3",software
- .amazon.awssdk.utils.cache;version="2.26.3";uses:="software.amazon.aw
- ssdk.utils,software.amazon.awssdk.utils.builder",software.amazon.awss
- dk.utils.cache.lru;version="2.26.3",software.amazon.awssdk.utils.http
- ;version="2.26.3"
+ zon.awssdk.transfer.s3;version="2.26.3";uses:="software.amazon.awssdk
+ .services.s3,software.amazon.awssdk.transfer.s3.model,software.amazon
+ .awssdk.utils",software.amazon.awssdk.transfer.s3.config;version="2.2
+ 6.3";uses:="software.amazon.awssdk.services.s3.model,software.amazon.
+ awssdk.transfer.s3.progress,software.amazon.awssdk.utils.builder",sof
+ tware.amazon.awssdk.transfer.s3.model;version="2.26.3";uses:="softwar
+ e.amazon.awssdk.core,software.amazon.awssdk.core.async,software.amazo
+ n.awssdk.services.s3.model,software.amazon.awssdk.transfer.s3.config,
+ software.amazon.awssdk.transfer.s3.progress,software.amazon.awssdk.ut
+ ils.builder",software.amazon.awssdk.transfer.s3.progress;version="2.2
+ 6.3";uses:="software.amazon.awssdk.core,software.amazon.awssdk.transf
+ er.s3.model",software.amazon.awssdk.utils;version="2.26.3";uses:="org
+ .slf4j,org.slf4j.event,software.amazon.awssdk.utils.builder",software
+ .amazon.awssdk.utils.async;version="2.26.3";uses:="org.reactivestream
+ s,software.amazon.awssdk.utils",software.amazon.awssdk.utils.builder;
+ version="2.26.3",software.amazon.awssdk.utils.cache;version="2.26.3";
+ uses:="software.amazon.awssdk.utils,software.amazon.awssdk.utils.buil
+ der",software.amazon.awssdk.utils.cache.lru;version="2.26.3",software
+ .amazon.awssdk.utils.http;version="2.26.3"
 Import-Package: io.netty.channel;version="[4.1,5)";resolution:=optiona
  l,io.netty.channel.nio;version="[4.1,5)";resolution:=optional,io.nett
  y.channel.pool;version="[4.1,5)";resolution:=optional,io.netty.channe
