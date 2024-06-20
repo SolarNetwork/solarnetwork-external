@@ -4,15 +4,10 @@ Bundle-Name: OCPP Core API
 Bundle-Description: Core Open Charge Point Protocol API.
 Bundle-SymbolicName: net.solarnetwork.external.ocpp
 Automatic-Module-Name: net.solarnetwork.external.ocpp
-Bundle-Version: 1.3.0
+Bundle-Version: 2.0.0
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
- com.fasterxml.jackson.annotation;version="[2.10,3.0)",
- com.fasterxml.jackson.databind;version="[2.10,3.0)",
- com.fasterxml.jackson.databind.util;version="[2.10,3.0)",
- com.fasterxml.jackson.core;version="[2.10,3.0)",
- com.fasterxml.jackson.module.jaxb;version="[2.10,3.0)",
  com.sun.xml.bind.v2;resolution:=optional,
  javax.activation,
  javax.crypto;resolution:=optional,
@@ -33,14 +28,6 @@ Import-Package:
  org.xml.sax,
  org.xml.sax.helpers
 Export-Package: 
- ocpp.domain;version="1.2.0",
- ocpp.json;version="1.0.0";uses:="ocpp.domain,com.fasterxml.jackson.databind",
- ocpp.json.support;version="1.0.2";
-  uses:="ocpp.json,
-   com.fasterxml.jackson.databind,
-   com.fasterxml.jackson.module.jaxb,
-   ocpp.xml.support,
-   javax.xml.bind",
  ocpp.v15;version="2.0.0";uses:="ocpp.domain",
  ocpp.v15.cp;version="2.0.0";
   uses:="javax.xml.namespace,
@@ -52,28 +39,6 @@ Export-Package:
    javax.xml.datatype,
    javax.xml.ws,
    javax.xml.bind",
- ocpp.v16;version="1.1.1";uses:="ocpp.domain",
- ocpp.v16.cp;version="1.0.0";
-  uses:="javax.xml.namespace,
-   javax.xml.datatype,
-   javax.xml.ws,
-   javax.xml.bind",
- ocpp.v16.cp.json;version="1.0.0";
-  uses:="ocpp.v16.cp,
-   ocpp.json.support,
-   ocpp.domain,
-   com.fasterxml.jackson.databind",
- ocpp.v16.cs;version="1.0.0";
-  uses:="javax.xml.namespace,
-   javax.xml.datatype,
-   javax.xml.ws,
-   javax.xml.bind",
- ocpp.v16.cs.json;version="1.0.0";
-  uses:="ocpp.json.support,
-   ocpp.v16.cs,
-   ocpp.domain,
-   com.fasterxml.jackson.databind",
- ocpp.v20;version="1.0.0",
  ocpp.xml.support;version="1.0.0";
   uses:="javax.xml.ws.handler,
    javax.xml.validation,
