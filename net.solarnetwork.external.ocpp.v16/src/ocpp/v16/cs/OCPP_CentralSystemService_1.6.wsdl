@@ -258,6 +258,14 @@ This document is made available under the Creative Commons Attribution-NoDerivat
 			<s:simpleType name="UnitOfMeasure">
 				<s:restriction base="s:string">
 					<s:enumeration value="Celsius"/>
+					<s:enumeration value="Celcius">
+						<s:annotation>
+							<s:documentation>
+								This value has been added for compatibility with a typo in the OCPP 1.6 JSON schema.
+								See the OCPP 1.6 JSON errata sheet, section 2.1 "MeterValues.json and StopTransaction.json incorrect spelling of Celsius".
+							</s:documentation>
+						</s:annotation>
+					</s:enumeration>
 					<s:enumeration value="Fahrenheit"/>
 					<s:enumeration value="Wh"/>
 					<s:enumeration value="kWh"/>

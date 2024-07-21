@@ -1,0 +1,32 @@
+ver: 2.26.3
+verb: SN20240615A
+-classpath: build/libs/aws-sdk-v2-mini-osgi-${ver}.jar
+Bundle-SymbolicName: net.solarnetwork.external.aws-sdk-v2-mini-osgi
+-output: build/libs/${bsn}-${ver}.${verb}.jar
+Bundle-Version: ${ver}
+Bundle-Name: AWS SDK v2 (Mini)
+Bundle-Description: Mini version of AWS SDK v2 that includes only core components for SolarNode.
+Bundle-Vendor: SolarNetwork
+Export-Package: \
+ !software.amazon.awssdk.thirdparty*, \
+ !software.amazon.awssdk.*.internal*, \
+ software.amazon.awssdk*;version=${ver}
+Import-Package: \
+ !kotlin, \
+ !org.junit.*, \
+ !org.springframework.*, \
+ !org.apache.avalon.*, \
+ !org.apache.log.*, \
+ !org.aspectj.*, \
+ io.netty*;version="[4.1,5)";resolution:=optional, \
+ javax.crypto*, \
+ javax.management, \
+ javax.naming, \
+ javax.naming.directory, \
+ javax.naming.ldap, \
+ javax.net*, \
+ javax.xml*, \
+ org.apache.http*;version="[4,5)";resolution:=optional, \
+ org.reactivestreams*;version="[1,2)";resolution:=optional, \
+ org.slf4j*;version="[1.7,2)";resolution:=optional, \
+ org.w3c.dom
