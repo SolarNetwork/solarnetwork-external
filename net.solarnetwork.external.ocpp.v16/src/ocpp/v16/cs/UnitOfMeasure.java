@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;simpleType name="UnitOfMeasure">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *     &lt;enumeration value="Celsius"/>
+ *     &lt;enumeration value="Celcius"/>
  *     &lt;enumeration value="Fahrenheit"/>
  *     &lt;enumeration value="Wh"/>
  *     &lt;enumeration value="kWh"/>
@@ -41,6 +42,9 @@ public enum UnitOfMeasure {
 
     @XmlEnumValue("Celsius")
     CELSIUS("Celsius"),
+    @XmlEnumValue("Celcius")
+    @Deprecated
+    CELCIUS("Celcius"),
     @XmlEnumValue("Fahrenheit")
     FAHRENHEIT("Fahrenheit"),
     @XmlEnumValue("Wh")
