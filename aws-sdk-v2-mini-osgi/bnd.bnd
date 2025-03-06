@@ -8,9 +8,10 @@ Bundle-Name: AWS SDK v2 (Mini)
 Bundle-Description: Mini version of AWS SDK v2 that includes only core components for SolarNode.
 Bundle-Vendor: SolarNetwork
 Export-Package: \
- !software.amazon.awssdk.thirdparty*, \
- !software.amazon.awssdk.*.internal*, \
  software.amazon.awssdk*;version=${ver}
+Private-Package: \
+ software.amazon.awssdk.thirdparty*, \
+ software.amazon.awssdk.*.internal*,
 Import-Package: \
  !kotlin, \
  !org.junit.*, \
