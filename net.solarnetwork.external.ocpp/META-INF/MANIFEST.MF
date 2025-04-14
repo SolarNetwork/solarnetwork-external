@@ -4,7 +4,7 @@ Bundle-Name: OCPP Core API
 Bundle-Description: Core Open Charge Point Protocol API.
 Bundle-SymbolicName: net.solarnetwork.external.ocpp
 Automatic-Module-Name: net.solarnetwork.external.ocpp
-Bundle-Version: 2.0.0
+Bundle-Version: 2.0.1
 Bundle-Vendor: SolarNetwork
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: 
@@ -19,8 +19,11 @@ Import-Package:
  javax.xml.datatype,
  javax.xml.namespace,
  javax.xml.parsers,
+ javax.xml.soap,
  javax.xml.validation,
  javax.xml.ws,
+ javax.xml.ws.handler,
+ javax.xml.ws.handler.soap,
  org.slf4j;version="[1.7,2.0)",
  org.w3c.dom,
  org.w3c.dom.bootstrap,
