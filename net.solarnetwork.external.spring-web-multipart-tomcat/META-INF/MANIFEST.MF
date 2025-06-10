@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spring Web Multipart - Tomcat
+Bundle-SymbolicName: net.solarnetwork.external.spring-web-multipart-tomcat
+Bundle-Version: 6.0.0.SN01
+Export-Package: 
+ org.springframework.web.multipart.commons;version="6.0.0";
+  uses:="org.springframework.web.context,
+   jakarta.servlet.http,
+   org.springframework.core.io,
+   org.springframework.web.multipart,
+   org.apache.tomcat.util.http.fileupload,
+   org.apache.commons.logging,
+   jakarta.servlet,
+   org.apache.tomcat.util.http.fileupload.disk,
+   org.springframework.util"
+Bundle-Vendor: Spring/SolarNetwork
+Automatic-Module-Name: net.solarnetwork.external.spring.web.multipart.commons
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Import-Package: 
+ jakarta.servlet;version="[6.0,7.0)",
+ jakarta.servlet.http;version="[6.0,7.0)",
+ org.apache.commons.codec.binary;version="[1.11,2.0)",
+ org.apache.commons.logging;version="[1.2,2.0)",
+ org.apache.tomcat.util.http.fileupload;version="[10.0,12.0)",
+ org.apache.tomcat.util.http.fileupload.disk;version="[11.0.0,12.0.0)",
+ org.apache.tomcat.util.http.fileupload.impl;version="[11.0.0,12.0.0)",
+ org.apache.tomcat.util.http.fileupload.servlet;version="[11.0.0,12.0.0)",
+ org.springframework.beans.factory;version="[6.0,7.0)",
+ org.springframework.core.io;version="[6.0,7.0)",
+ org.springframework.core.log;version="[6.0,7.0)",
+ org.springframework.http;version="[6.0,7.0)",
+ org.springframework.lang;version="[6.0,7.0)",
+ org.springframework.util;version="[6.0,7.0)",
+ org.springframework.web;version="[6.0,7.0)",
+ org.springframework.web.context;version="[6.2.0,7.0.0)",
+ org.springframework.web.multipart;version="[6.0,7.0)",
+ org.springframework.web.multipart.support;version="[6.0,7.0)",
+ org.springframework.web.util;version="[6.0,7.0)"
