@@ -20,7 +20,7 @@
 		<dependency org="org.springframework" name="spring-expression" rev="6.2.6"/>
 		<dependency org="org.springframework" name="spring-web" rev="6.2.6"/>
 		<dependency org="org.springframework" name="spring-webmvc" rev="6.2.6"/>
-		<dependency org="org.thymeleaf" name="thymeleaf" rev="3.1.2.RELEASE"/>
+		<dependency org="org.thymeleaf" name="thymeleaf-spring6" rev="3.1.2.RELEASE"/>
 		<dependency org="org.unbescape" name="unbescape" rev="1.1.6.RELEASE"/>
 	</dependencies>
 </ivy-module>
