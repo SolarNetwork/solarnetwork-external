@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="lib/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar" sourcepath="lib-src/thymeleaf-extras-springsecurity6-3.1.2.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar" sourcepath="lib-src/thymeleaf-extras-springsecurity6-3.1.2.RELEASE-sources.jar"/>
 	<classpathentry kind="output" path="build/eclipse"/>
 </classpath>
