@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SolarNetwork Gemini Blueprint Extender Config
 Bundle-SymbolicName: net.solarnetwork.external.org.eclipse.gemini.blueprint.extender.config
 Automatic-Module-Name: net.solarnetwork.external.org.eclipse.gemini.blueprint.extender.config
-Bundle-Version: 4.0.0
+Bundle-Version: 4.0.0.SN01
 Bundle-Vendor: SolarNetwork
 Fragment-Host: org.eclipse.gemini.blueprint.extender;bundle-version="[4.0,5.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
