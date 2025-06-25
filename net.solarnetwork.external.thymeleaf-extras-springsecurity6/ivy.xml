@@ -3,14 +3,10 @@
 	<configurations defaultconf="compile,runtime">
 		<conf name="compile" visibility="public" description="Build dependencies"/>
 		<conf name="runtime" visibility="public" description="Runtime dependencies"/>
-		<conf name="javadoc" visibility="public" description="Javadoc documentation"/>
-		<conf name="sources"/>
 	</configurations>
 	<publications>
 		<artifact type="pom" ext="pom"/>
 		<artifact type="bundle" ext="jar"/>
-		<artifact type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc"/>
-		<artifact type="sources" ext="jar" conf="sources" m:classifier="sources"/>
 	</publications>
 	<dependencies defaultconfmapping="runtime->default(runtime);compile->default(compile)">
 		<dependency org="jakarta.servlet" name="jakarta.servlet-api" rev="6.0.0"/>
@@ -20,6 +16,8 @@
 		<dependency org="org.springframework" name="spring-expression" rev="6.2.6"/>
 		<dependency org="org.springframework" name="spring-web" rev="6.2.6"/>
 		<dependency org="org.springframework" name="spring-webmvc" rev="6.2.6"/>
+		<dependency org="org.springframework.security" name="spring-security-core" rev="6.4.5"/>
+		<dependency org="org.springframework.security" name="spring-security-web" rev="6.4.5"/>
 		<dependency org="org.thymeleaf" name="thymeleaf-spring6" rev="3.1.2.RELEASE"/>
 		<dependency org="org.unbescape" name="unbescape" rev="1.1.6.RELEASE"/>
 	</dependencies>
