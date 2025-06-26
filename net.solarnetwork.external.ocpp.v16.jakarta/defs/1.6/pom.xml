@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.solarnetwork.common</groupId>
+    <artifactId>net.solarnetwork.common.ocpp.v16.wsdl</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <jakarta.xml.ws-api.version>4.0.0</jakarta.xml.ws-api.version>
+        <jaxws-rt.version>4.0.0</jaxws-rt.version>
+        <jaxws-ri.version>4.0.0</jaxws-ri.version>
+        <jaxws-maven-plugin.version>3.0.0</jaxws-maven-plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>${jakarta.xml.ws-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>${jaxws-rt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>${jaxws-ri.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>${jaxws-maven-plugin.version}</version>
+                <configuration>
+                    <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                    <extension>true</extension>
+                    <xnocompile>true</xnocompile>
+                    <xadditionalHeaders>true</xadditionalHeaders>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>CP</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>OCPP_ChargePointService_1.6.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>ocpp.v16.jakarta.cp</packageName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>CS</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>OCPP_CentralSystemService_1.6.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>ocpp.v16.jakarta.cs</packageName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
