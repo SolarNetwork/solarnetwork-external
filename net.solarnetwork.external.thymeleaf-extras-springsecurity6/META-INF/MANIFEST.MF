@@ -2,9 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Thymeleaf-extras-springsecurity6
 Bundle-SymbolicName: net.solarnetwork.external.thymeleaf-extras-springsecurity6
-Bundle-Version: 3.1.2.RELEASE
+Bundle-Version: 3.1.2.RELEASE_SN01
 Automatic-Module-Name: net.solarnetwork.external.thymeleaf.extras.springsecurity6
 Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-Vendor: Thymeleaf/SolarNetwork
+Bundle-ClassPath: lib/thymeleaf-extras-springsecurity6-3.1.2.RELEASE.jar
 Export-Package: 
  org.thymeleaf.extras.springsecurity6.auth;version="3.1.2";
   uses:="org.springframework.security.web.access,
