@@ -1,0 +1,56 @@
+plugins {
+  id 'java'
+  id 'org.jsonschema2dataclass' version '6.0.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
+}
+
+// Each configuration is set to the default value
+jsonSchema2Pojo {
+  executions {
+    "oscp" {
+      io {
+        source.setFrom files("${project.rootDir}/src/main/resources/json")
+        sourceType = 'jsonschema'
+        targetJavaVersion = "17"
+      }
+      klass {
+        targetPackage = 'oscp.v20'
+        annotationStyle = 'jackson'
+        nameUseTitle = true
+        annotateGenerated = false
+        annotateSerializable = true
+      }
+      constructors {
+        allProperties = false
+        requiredProperties = true
+      }
+      methods {
+        additionalProperties = false
+        annotateJsr303Jakarta = true
+        builders = true
+        buildersInnerClass = false
+        hashcodeAndEquals = true
+        toStringMethod = true
+      }
+      fields {
+        floatUseDouble = true
+        initializeCollections = false
+      }
+      dateTime {
+        dateTimePattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS]XXX"
+        jodaDate = false
+        dateType = "java.time.LocalDate"
+        dateTimeType = "java.time.Instant"
+        timeType = "java.time.LocalDate"
+      }
+    }
+  }
+}
