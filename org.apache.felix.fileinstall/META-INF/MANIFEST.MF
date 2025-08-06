@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.apache.felix.fileinstall
+Specification-Title: Apache Felix File Install
+Implementation-Vendor-Id: org.apache.felix
+Bundle-DocURL: http://felix.apache.org/site/apache-felix-file-install.
+ html
+Import-Package: org.osgi.framework;version="[1.6,2)",org.osgi.framewor
+ k.startlevel;version="[1.0,2)",org.osgi.framework.wiring;version="[1.
+ 0,2)",org.osgi.service.cm;version="[1.3,2)";resolution:=optional,org.
+ osgi.service.log;version="[1.3,2)";resolution:=optional,org.osgi.serv
+ ice.url;version="[1.0,2)",org.osgi.util.tracker;version="[1.4,2)"
+Export-Package: org.apache.felix.fileinstall;version="3.5.4.SN01"
+Bundle-Name: Apache Felix File Install
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Ignore-Package: org.apache.felix.utils.version,org.apache.felix.filein
+ stall,org.apache.felix.cm.file,org.apache.felix.utils.collections,org
+ .apache.felix.utils.properties,org.apache.felix.utils.manifest
+Bundle-Activator: org.apache.felix.fileinstall.internal.FileInstall
+Implementation-Title: Apache Felix File Install
+Bundle-Description: A utility to automatically install bundles from a 
+ directory.
+Implementation-Version: 3.5.4
+Specification-Vendor: The Apache Software Foundation
+Bundle-ManifestVersion: 2
+Automatic-Module-Name: org.apache.felix.fileinstall
+Embed-Dependency: org.apache.felix.configadmin;inline="org/apache/feli
+ x/cm/file/ConfigurationHandler.class",org.apache.felix.utils;inline="
+ org/apache/felix/utils/collections/DictionaryAsMap*.class"
+Bundle-Vendor: The Apache Software Foundation
+Implementation-Vendor: The Apache Software Foundation
+Bundle-Version: 3.5.4.SN01
+Specification-Version: 3.5.4

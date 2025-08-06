@@ -24,7 +24,7 @@ package net.solarnetwork.external.moneta.test;
 
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import java.math.BigDecimal;
 import java.util.Locale;
 import org.hamcrest.Matchers;

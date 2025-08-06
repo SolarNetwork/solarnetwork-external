@@ -1,0 +1,47 @@
+buildscript {
+  repositories {
+     mavenCentral()
+  }
+  dependencies {
+    classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:7.0.0'
+  }
+}
+
+plugins {
+	id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+apply plugin: 'biz.aQute.bnd.builder'
+
+repositories {
+    jcenter()
+}
+
+ext {
+	awsSdk2Version = '2.26.3'
+}
+
+dependencies {
+    runtimeOnly "software.amazon.awssdk:s3:${awsSdk2Version}"
+    runtimeOnly "software.amazon.awssdk:s3-transfer-manager:${awsSdk2Version}"
+}
+
+shadowJar {
+    archivesBaseName = 'aws-sdk-v2-mini-osgi'
+    archiveClassifier = null
+    archiveVersion = "${awsSdk2Version}"
+    dependencies {
+    	exclude(dependency('com.fasterxml.jackson.core::'))
+    	exclude(dependency('com.fasterxml.jackson.dataformat::'))
+    	exclude(dependency('commons-codec::'))
+    	exclude(dependency('commons-logging::'))
+    	exclude(dependency('io.netty::'))
+    	exclude(dependency('joda-time::'))
+    	exclude(dependency('org.apache.httpcomponents::'))
+    	exclude(dependency('org.apache.logging.log4j::'))
+    	exclude(dependency('org.reactivestreams::'))
+    	exclude(dependency('org.slf4j::'))
+    	exclude(dependency('software.amazon.ion::'))
+    }
+    exclude "META-INF/maven/**"
+}
