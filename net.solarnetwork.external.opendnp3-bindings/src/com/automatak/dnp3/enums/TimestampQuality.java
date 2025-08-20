@@ -10,7 +10,7 @@
 // 
 // This file is auto-generated. Do not edit manually
 // 
-// Copyright 2013-2019 Automatak, LLC
+// Copyright 2013-2020 Automatak, LLC
 // 
 // Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
 // LLC (www.automatak.com) under one or more contributor license agreements.
@@ -31,19 +31,22 @@
 
 package com.automatak.dnp3.enums;
 /**
-* Enumerates possible algorithms for changing the update key
+* Indicates the quality of timestamp values
 */
-public enum KeyChangeMethod
+public enum TimestampQuality
 {
-  AES_128_SHA1_HMAC(0x3),
-  AES_256_SHA256_HMAC(0x4),
-  AES_256_AES_GMAC(0x5),
-  RSA_1024_DSA_SHA1_HMAC_SHA1(0x43),
-  RSA_2048_DSA_SHA256_HMAC_SHA256(0x44),
-  RSA_3072_DSA_SHA256_HMAC_SHA256(0x45),
-  RSA_2048_DSA_SHA256_AES_GMAC(0x46),
-  RSA_3072_DSA_SHA256_AES_GMAC(0x47),
-  UNDEFINED(0x0);
+  /**
+  * The timestamp is UTC synchronized at the remote device
+  */
+  SYNCHRONIZED(1),
+  /**
+  * The device indicate the timestamp may be unsynchronized
+  */
+  UNSYNCHRONIZED(2),
+  /**
+  * Timestamp is not valid, ignore the value and use a local timestamp
+  */
+  INVALID(0);
 
   private final int id;
 
@@ -52,33 +55,21 @@ public enum KeyChangeMethod
     return id;
   }
 
-  KeyChangeMethod(int id)
+  TimestampQuality(int id)
   {
     this.id = id;
   }
 
-  public static KeyChangeMethod fromType(int arg)
+  public static TimestampQuality fromType(int arg)
   {
     switch(arg)
     {
-      case(0x3):
-        return AES_128_SHA1_HMAC;
-      case(0x4):
-        return AES_256_SHA256_HMAC;
-      case(0x5):
-        return AES_256_AES_GMAC;
-      case(0x43):
-        return RSA_1024_DSA_SHA1_HMAC_SHA1;
-      case(0x44):
-        return RSA_2048_DSA_SHA256_HMAC_SHA256;
-      case(0x45):
-        return RSA_3072_DSA_SHA256_HMAC_SHA256;
-      case(0x46):
-        return RSA_2048_DSA_SHA256_AES_GMAC;
-      case(0x47):
-        return RSA_3072_DSA_SHA256_AES_GMAC;
+      case(1):
+        return SYNCHRONIZED;
+      case(2):
+        return UNSYNCHRONIZED;
       default:
-        return UNDEFINED;
+        return INVALID;
     }
   }
 }

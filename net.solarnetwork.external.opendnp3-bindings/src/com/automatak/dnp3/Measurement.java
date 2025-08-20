@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -24,10 +24,10 @@ package com.automatak.dnp3;
  */
 public abstract class Measurement {
 
-    public final byte quality;
-    public final long timestamp;
+    public final Flags quality;
+    public final DNPTime timestamp;
 
-    public Measurement(byte quality, long timestamp)
+    public Measurement(Flags quality, DNPTime timestamp)
     {
         this.quality = quality;
         this.timestamp = timestamp;

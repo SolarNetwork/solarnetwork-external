@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -32,15 +32,13 @@ public class PrintingSOEHandler implements SOEHandler {
     private PrintingSOEHandler(){}
 
     @Override
-    public void start()
-    {
-        System.out.println("start asdu");
+    public void beginFragment(ResponseInfo info) {
+        System.out.println("begin response: " + info.toString());
     }
 
     @Override
-    public void end()
-    {
-        System.out.println("end asdu");
+    public void endFragment(ResponseInfo info) {
+        System.out.println("end response: " + info.toString());
     }
 
     @Override

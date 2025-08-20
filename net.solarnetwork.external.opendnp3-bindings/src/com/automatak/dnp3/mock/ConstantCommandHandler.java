@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -34,49 +34,49 @@ public class ConstantCommandHandler implements CommandHandler {
     }
 
     @Override
-    public void start() {}
+    public void begin() {}
 
     @Override
     public void end() {}
     
-    public CommandStatus selectCROB(ControlRelayOutputBlock command, int index)
+    public CommandStatus select(ControlRelayOutputBlock command, int index)
     {
         return status;
     }
-    public CommandStatus selectAOI32(AnalogOutputInt32 command, int index)
+    public CommandStatus select(AnalogOutputInt32 command, int index)
     {
         return status;
     }
-    public CommandStatus selectAOI16(AnalogOutputInt16 command, int index)
+    public CommandStatus select(AnalogOutputInt16 command, int index)
     {
         return status;
     }
-    public CommandStatus selectAOF32(AnalogOutputFloat32 command, int index)
+    public CommandStatus select(AnalogOutputFloat32 command, int index)
     {
         return status;
     }
-    public CommandStatus selectAOD64(AnalogOutputDouble64 command, int index)
+    public CommandStatus select(AnalogOutputDouble64 command, int index)
     {
         return status;
     }
 
-    public CommandStatus operateCROB(ControlRelayOutputBlock command, int index, OperateType opType)
+    public CommandStatus operate(ControlRelayOutputBlock command, int index, Database database, OperateType opType)
     {
         return status;
     }
-    public CommandStatus operateAOI32(AnalogOutputInt32 command, int index, OperateType opType)
+    public CommandStatus operate(AnalogOutputInt32 command, int index, Database database, OperateType opType)
     {
         return status;
     }
-    public CommandStatus operateAOI16(AnalogOutputInt16 command, int index, OperateType opType)
+    public CommandStatus operate(AnalogOutputInt16 command, int index, Database database, OperateType opType)
     {
         return status;
     }
-    public CommandStatus operateAOF32(AnalogOutputFloat32 command, int index, OperateType opType)
+    public CommandStatus operate(AnalogOutputFloat32 command, int index, Database database, OperateType opType)
     {
         return status;
     }
-    public CommandStatus operateAOD64(AnalogOutputDouble64 command, int index, OperateType opType)
+    public CommandStatus operate(AnalogOutputDouble64 command, int index, Database database, OperateType opType)
     {
         return status;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -19,14 +19,31 @@
  */
 package com.automatak.dnp3;
 
-/**
- * All quality enumeration fields can be converted to a byte bit-mask
- */
-public interface QualityField {
+public class ResponseInfo
+{
+    public ResponseInfo(boolean unsolicited, boolean fir, boolean fin) {
+        this.unsolicited = unsolicited;
+        this.fir = fir;
+        this.fin = fin;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ResponseInfo(unsolicited: %b, fir: %b, fin: %b)", unsolicited, fir, fin);
+    }
 
     /**
-     * @return The value of the quality enumeration as a byte
+     * True if the response is unsolicited
      */
-    byte toByte();
+    public final boolean unsolicited;
 
+    /**
+     * True if the response is the first
+     */
+    public final boolean fir;
+
+    /**
+     * True if the response is the last (final)
+     */
+    public final boolean fin;
 }

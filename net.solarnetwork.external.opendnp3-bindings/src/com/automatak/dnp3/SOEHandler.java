@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Automatak, LLC
+ * Copyright 2013-2020 Automatak, LLC
  *
  * Licensed to Green Energy Corp (www.greenenergycorp.com) and Automatak
  * LLC (www.automatak.com) under one or more contributor license agreements. 
@@ -28,13 +28,15 @@ public interface SOEHandler {
 
     /**
      * Start a processing an ASDU
+     * @param info Information about the incoming ASDU
      */
-    void start();
+    void beginFragment(ResponseInfo info);
 
     /**
      * End a processing an ASDU
+     * @param info Information about the incoming ASDU
      */
-    void end();
+    void endFragment(ResponseInfo info);
 
     /**
      * Process a collection of values
