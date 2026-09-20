@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HTTP Structured Fields
+Bundle-SymbolicName: net.solarnetwork.external.structured-fields
+Bundle-Version: 0.6.0
+Bundle-ClassPath: lib/structured-fields-0.6.jar
+Bundle-Vendor: SolarNetwork/Greenbytes
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: net.solarnetwork.external.structured.fields
+Export-Package: org.greenbytes.http.sfv;version="0.6.0"
